@@ -1,0 +1,20 @@
+{
+	"api": {
+		"devmatch": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"additionalAuthenticationProviders": [],
+					"defaultAuthentication": {
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"description": "DevMatch Description",
+							"apiKeyExpirationDays": "8"
+						}
+					}
+				}
+			}
+		}
+	}
+}
