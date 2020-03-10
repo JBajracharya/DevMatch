@@ -3,9 +3,17 @@ package com.finalProject.devmatch;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+
+import com.finalProject.devmatch.models.Developer;
+import com.finalProject.devmatch.models.SkillSet;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class EditProfile extends AppCompatActivity {
 
@@ -51,5 +59,131 @@ public class EditProfile extends AppCompatActivity {
         final CheckBox linux = findViewById(R.id.linux);
         final CheckBox web = findViewById(R.id.web);
         final CheckBox react = findViewById(R.id.react);
+        final Button update = findViewById(R.id.update);
+
+        // THIS WILL BE REPLACED WITH A QUERY TO GET CURRENT USER OBJ
+        final Developer dev = new Developer();
+        //////////
+        final SkillSet skills = new SkillSet();
+
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dev.setName(name.getText().toString());
+                dev.setGithub(github.getText().toString());
+                dev.setEmail(email.getText().toString());
+
+                if(frontEnd.isChecked()) {
+                    dev.setType("Front End");
+                } else if(backEnd.isChecked()) {
+                    dev.setType("Back End");
+                } else if(fullStack.isChecked()) {
+                    dev.setType("Full Stack");
+                }
+
+                if(java.isChecked()) {
+                    skills.getLanguage().setJava(true);
+                }
+                if(python.isChecked()) {
+                    skills.getLanguage().setPython(true);
+                }
+                if(cSharp.isChecked()) {
+                    skills.getLanguage().setcSharp(true);
+                }
+                if (cPlusPlus.isChecked()) {
+                    skills.getLanguage().setCplusplus(true);
+                }
+                if (ruby.isChecked()) {
+                    skills.getLanguage().setRuby(true);
+                }
+                if (dotNet.isChecked()) {
+                    skills.getLanguage().setDotNet(true);
+                }
+                if (javascript.isChecked()) {
+                    skills.getLanguage().setJavascript(true);
+                }
+                if (sql.isChecked()) {
+                    skills.getLanguage().setSql(true);
+                }
+                if (html.isChecked()) {
+                    skills.getLanguage().setHtml(true);
+                }
+                if (css.isChecked()) {
+                    skills.getLanguage().setCss(true);
+                }
+
+                if (arrays.isChecked()) {
+                    skills.getDataStructuresAndAlgorithms().setArrays(true);
+                }
+                if (linkedLists.isChecked()) {
+                    skills.getDataStructuresAndAlgorithms().setLinkedlists(true);
+                }
+                if (stacks.isChecked()) {
+                    skills.getDataStructuresAndAlgorithms().setStacks(true);
+                }
+                if (queues.isChecked()) {
+                    skills.getDataStructuresAndAlgorithms().setQueues(true);
+                }
+                if (trees.isChecked()) {
+                    skills.getDataStructuresAndAlgorithms().setTrees(true);
+                }
+                if (hashes.isChecked()) {
+                    skills.getDataStructuresAndAlgorithms().setHashes(true);
+                }
+                if (heaps.isChecked()) {
+                    skills.getDataStructuresAndAlgorithms().setHeaps(true);
+                }
+                if (sets.isChecked()) {
+                    skills.getDataStructuresAndAlgorithms().setSets(true);
+                }
+
+                if (postgresql.isChecked()) {
+                    skills.getDatabase().setPostgresql(true);
+                }
+                if (mysql.isChecked()) {
+                    skills.getDatabase().setMysql(true);
+                }
+                if (mongoDB.isChecked()) {
+                    skills.getDatabase().setMongoDB(true);
+                }
+                if (dynamoDB.isChecked()) {
+                    skills.getDatabase().setDynamoDB(true);
+                }
+
+                if (AWS.isChecked()) {
+                    skills.getCloud().setAWS(true);
+                }
+                if (heroku.isChecked()) {
+                    skills.getCloud().setHeroku(true);
+                }
+                if (firebase.isChecked()) {
+                    skills.getCloud().setFirebase(true);
+                }
+                if (azure.isChecked()) {
+                    skills.getCloud().setAzure(true);
+                }
+
+                if (iOS.isChecked()) {
+                    skills.getPlatforms().setiOS(true);
+                }
+                if (android.isChecked()) {
+                    skills.getPlatforms().setAndroid(true);
+                }
+                if (linux.isChecked()) {
+                    skills.getPlatforms().setLinux(true);
+                }
+                if (web.isChecked()) {
+                    skills.getPlatforms().setWeb(true);
+                }
+                if (react.isChecked()) {
+                    skills.getPlatforms().setReact(true);
+                }
+
+                dev.setSkills(skills);
+
+                // Then save this into database
+            }
+        });
     }
 }

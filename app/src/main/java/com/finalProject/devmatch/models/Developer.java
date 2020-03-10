@@ -26,6 +26,9 @@ public class Developer {
         this.github = github;
         this.email = email;
     }
+    public Developer(){
+
+    }
     public void setType(String type){
         switch (type){
             case "Front End":
