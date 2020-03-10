@@ -8,14 +8,22 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
-
+import com.amazonaws.mobile.config.AWSConfiguration;
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+import com.apollographql.apollo.GraphQLCall;
+import com.apollographql.apollo.api.Response;
+import com.apollographql.apollo.exception.ApolloException;
 import com.finalProject.devmatch.models.Developer;
 import com.finalProject.devmatch.models.SkillSet;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import javax.annotation.Nonnull;
+
+import type.CreateDeveloperInput;
 
 public class EditProfile extends AppCompatActivity {
+
+    private AWSAppSyncClient mAWSAppSyncClient;
+    private String TAG = "STG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +69,11 @@ public class EditProfile extends AppCompatActivity {
         final CheckBox react = findViewById(R.id.react);
         final Button update = findViewById(R.id.update);
 
+        mAWSAppSyncClient = AWSAppSyncClient.builder()
+                .context(getApplicationContext())
+                .awsConfiguration(new AWSConfiguration(getApplicationContext()))
+                .build();
+
         // THIS WILL BE REPLACED WITH A QUERY TO GET CURRENT USER OBJ
         final Developer dev = new Developer();
         //////////
@@ -83,101 +96,101 @@ public class EditProfile extends AppCompatActivity {
                 }
 
                 if(java.isChecked()) {
-                    skills.getLanguage().setJava(true);
+                    skills.setJava(true);
                 }
                 if(python.isChecked()) {
-                    skills.getLanguage().setPython(true);
+                    skills.setPython(true);
                 }
                 if(cSharp.isChecked()) {
-                    skills.getLanguage().setcSharp(true);
+                    skills.setcSharp(true);
                 }
                 if (cPlusPlus.isChecked()) {
-                    skills.getLanguage().setCplusplus(true);
+                    skills.setCplusplus(true);
                 }
                 if (ruby.isChecked()) {
-                    skills.getLanguage().setRuby(true);
+                    skills.setRuby(true);
                 }
                 if (dotNet.isChecked()) {
-                    skills.getLanguage().setDotNet(true);
+                    skills.setDotNet(true);
                 }
                 if (javascript.isChecked()) {
-                    skills.getLanguage().setJavascript(true);
+                    skills.setJavascript(true);
                 }
                 if (sql.isChecked()) {
-                    skills.getLanguage().setSql(true);
+                    skills.setSql(true);
                 }
                 if (html.isChecked()) {
-                    skills.getLanguage().setHtml(true);
+                    skills.setHtml(true);
                 }
                 if (css.isChecked()) {
-                    skills.getLanguage().setCss(true);
+                    skills.setCss(true);
                 }
 
                 if (arrays.isChecked()) {
-                    skills.getDataStructuresAndAlgorithms().setArrays(true);
+                    skills.setArrays(true);
                 }
                 if (linkedLists.isChecked()) {
-                    skills.getDataStructuresAndAlgorithms().setLinkedlists(true);
+                    skills.setLinkedlists(true);
                 }
                 if (stacks.isChecked()) {
-                    skills.getDataStructuresAndAlgorithms().setStacks(true);
+                    skills.setStacks(true);
                 }
                 if (queues.isChecked()) {
-                    skills.getDataStructuresAndAlgorithms().setQueues(true);
+                    skills.setQueues(true);
                 }
                 if (trees.isChecked()) {
-                    skills.getDataStructuresAndAlgorithms().setTrees(true);
+                    skills.setTrees(true);
                 }
                 if (hashes.isChecked()) {
-                    skills.getDataStructuresAndAlgorithms().setHashes(true);
+                    skills.setHashes(true);
                 }
                 if (heaps.isChecked()) {
-                    skills.getDataStructuresAndAlgorithms().setHeaps(true);
+                    skills.setHeaps(true);
                 }
                 if (sets.isChecked()) {
-                    skills.getDataStructuresAndAlgorithms().setSets(true);
+                    skills.setSets(true);
                 }
 
                 if (postgresql.isChecked()) {
-                    skills.getDatabase().setPostgresql(true);
+                    skills.setPostgresql(true);
                 }
                 if (mysql.isChecked()) {
-                    skills.getDatabase().setMysql(true);
+                    skills.setMysql(true);
                 }
                 if (mongoDB.isChecked()) {
-                    skills.getDatabase().setMongoDB(true);
+                    skills.setMongoDB(true);
                 }
                 if (dynamoDB.isChecked()) {
-                    skills.getDatabase().setDynamoDB(true);
+                    skills.setDynamoDB(true);
                 }
 
                 if (AWS.isChecked()) {
-                    skills.getCloud().setAWS(true);
+                    skills.setAWS(true);
                 }
                 if (heroku.isChecked()) {
-                    skills.getCloud().setHeroku(true);
+                    skills.setHeroku(true);
                 }
                 if (firebase.isChecked()) {
-                    skills.getCloud().setFirebase(true);
+                    skills.setFirebase(true);
                 }
                 if (azure.isChecked()) {
-                    skills.getCloud().setAzure(true);
+                    skills.setAzure(true);
                 }
 
                 if (iOS.isChecked()) {
-                    skills.getPlatforms().setiOS(true);
+                    skills.setiOS(true);
                 }
                 if (android.isChecked()) {
-                    skills.getPlatforms().setAndroid(true);
+                    skills.setAndroid(true);
                 }
                 if (linux.isChecked()) {
-                    skills.getPlatforms().setLinux(true);
+                    skills.setLinux(true);
                 }
                 if (web.isChecked()) {
-                    skills.getPlatforms().setWeb(true);
+                    skills.setWeb(true);
                 }
                 if (react.isChecked()) {
-                    skills.getPlatforms().setReact(true);
+                    skills.setReact(true);
                 }
 
                 dev.setSkills(skills);
@@ -186,4 +199,39 @@ public class EditProfile extends AppCompatActivity {
             }
         });
     }
+//    public void runTaskCreateMutation(String name, String github, String email, SkillSet skills, String type) {
+//        CreateDeveloperInput createDeveloperInput = CreateDeveloperInput.builder().
+//                name(name).
+//                github(github).
+//                email(email).
+////                skills(skills).
+//                type(type).
+//                build();
+//
+//        mAWSAppSyncClient.mutate(CreateTaskMutation.builder().input(createTaskInput).build())
+//                .enqueue(mutationCallback);
+//    }
+//
+//    private GraphQLCall.Callback<CreateTaskMutation.Data> mutationCallback = new GraphQLCall.Callback<CreateTaskMutation.Data>() {
+//        @Override
+//        public void onResponse(@Nonnull Response<CreateTaskMutation.Data> response) {
+//            Log.i(TAG, response.data().toString());
+//        }
+//
+//        @Override
+//        public void onFailure(@Nonnull ApolloException e) {
+//            Log.e("Error", e.toString());
+//        }
+//
+//    };
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (requestCode == 543 && resultCode == RESULT_OK && null != data) {
+//
+//            setImage(data.getData());
+//        }
+//    }
 }

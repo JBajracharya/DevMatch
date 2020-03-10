@@ -30,62 +30,36 @@ type Project @model {
 
 type Skillset @model {
   id: ID!
-  language: Language
-  dataStructuresAndAlgorithms: DataStructureAndAlgorithms
-  database: Database
-  cloud: Cloud
-  platforms: Platforms
-}
-
-type Language @model {
-  id: ID!
   java: Boolean
-  python: Boolean
-  cSharp: Boolean
-  cplusplus: Boolean
-  ruby: Boolean
-  dotNet: Boolean
-  javascript: Boolean
-  sql: Boolean
-  html: Boolean
-  css: Boolean
-}
-
-type DataStructureAndAlgorithms @model {
-  id: ID!
-  arrays: Boolean
-  linkedlists: Boolean
-  stacks: Boolean
-  queues: Boolean
-  trees: Boolean
-  hashes: Boolean
-  heaps: Boolean
-  sets: Boolean
-
-}
-
-type Database @model {
-  id: ID!
-  postgresql: Boolean
-  mysql: Boolean
-  mongoDB: Boolean
-  dynamoDB: Boolean
-}
-
-type Cloud @model {
-  id: ID!
-  AWS: Boolean
-  heroku: Boolean
-  firebase: Boolean
-  azure: Boolean
-}
-
-type Platforms @model {
-  id: ID!
-  iOS: Boolean
-  android: Boolean
-  linux: Boolean
-  web: Boolean
-  react: Boolean
+    python: Boolean
+    cSharp: Boolean
+    cplusplus: Boolean
+    ruby: Boolean
+    dotNet: Boolean
+    javascript: Boolean
+    sql: Boolean
+    html: Boolean
+    css: Boolean
+      arrays: Boolean
+      linkedlists: Boolean
+      stacks: Boolean
+      queues: Boolean
+      trees: Boolean
+      hashes: Boolean
+      heaps: Boolean
+      sets: Boolean
+    postgresql: Boolean
+    mysql: Boolean
+    mongoDB: Boolean
+    dynamoDB: Boolean
+    AWS: Boolean
+    heroku: Boolean
+    firebase: Boolean
+    azure: Boolean
+      iOS: Boolean
+      android: Boolean
+      linux: Boolean
+      web: Boolean
+      react: Boolean
 }
 

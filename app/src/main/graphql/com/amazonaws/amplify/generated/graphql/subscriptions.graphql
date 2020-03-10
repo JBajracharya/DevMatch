@@ -179,159 +179,78 @@ subscription OnDeleteProject {
 subscription OnCreateSkillset {
   onCreateSkillset {
     id
-    language {
-      id
-      java
-      python
-      cSharp
-      cplusplus
-      ruby
-      dotNet
-      javascript
-      sql
-      html
-      css
-    }
-    dataStructuresAndAlgorithms {
-      id
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
-    }
-    database {
-      id
-      postgresql
-      mysql
-      mongoDB
-      dynamoDB
-    }
-    cloud {
-      id
-      AWS
-      heroku
-      firebase
-      azure
-    }
-    platforms {
-      id
-      iOS
-      android
-      linux
-      web
-      react
-    }
+    java
+    python
+    cSharp
+    cplusplus
+    ruby
+    dotNet
+    javascript
+    sql
+    html
+    css
+    arrays
+    linkedlists
+    stacks
+    queues
+    trees
+    hashes
+    heaps
+    sets
+    postgresql
+    mysql
+    mongoDB
+    dynamoDB
+    AWS
+    heroku
+    firebase
+    azure
+    iOS
+    android
+    linux
+    web
+    react
   }
 }
 subscription OnUpdateSkillset {
   onUpdateSkillset {
     id
-    language {
-      id
-      java
-      python
-      cSharp
-      cplusplus
-      ruby
-      dotNet
-      javascript
-      sql
-      html
-      css
-    }
-    dataStructuresAndAlgorithms {
-      id
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
-    }
-    database {
-      id
-      postgresql
-      mysql
-      mongoDB
-      dynamoDB
-    }
-    cloud {
-      id
-      AWS
-      heroku
-      firebase
-      azure
-    }
-    platforms {
-      id
-      iOS
-      android
-      linux
-      web
-      react
-    }
+    java
+    python
+    cSharp
+    cplusplus
+    ruby
+    dotNet
+    javascript
+    sql
+    html
+    css
+    arrays
+    linkedlists
+    stacks
+    queues
+    trees
+    hashes
+    heaps
+    sets
+    postgresql
+    mysql
+    mongoDB
+    dynamoDB
+    AWS
+    heroku
+    firebase
+    azure
+    iOS
+    android
+    linux
+    web
+    react
   }
 }
 subscription OnDeleteSkillset {
   onDeleteSkillset {
     id
-    language {
-      id
-      java
-      python
-      cSharp
-      cplusplus
-      ruby
-      dotNet
-      javascript
-      sql
-      html
-      css
-    }
-    dataStructuresAndAlgorithms {
-      id
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
-    }
-    database {
-      id
-      postgresql
-      mysql
-      mongoDB
-      dynamoDB
-    }
-    cloud {
-      id
-      AWS
-      heroku
-      firebase
-      azure
-    }
-    platforms {
-      id
-      iOS
-      android
-      linux
-      web
-      react
-    }
-  }
-}
-subscription OnCreateLanguage {
-  onCreateLanguage {
-    id
     java
     python
     cSharp
@@ -342,41 +261,6 @@ subscription OnCreateLanguage {
     sql
     html
     css
-  }
-}
-subscription OnUpdateLanguage {
-  onUpdateLanguage {
-    id
-    java
-    python
-    cSharp
-    cplusplus
-    ruby
-    dotNet
-    javascript
-    sql
-    html
-    css
-  }
-}
-subscription OnDeleteLanguage {
-  onDeleteLanguage {
-    id
-    java
-    python
-    cSharp
-    cplusplus
-    ruby
-    dotNet
-    javascript
-    sql
-    html
-    css
-  }
-}
-subscription OnCreateDataStructureAndAlgorithms {
-  onCreateDataStructureAndAlgorithms {
-    id
     arrays
     linkedlists
     stacks
@@ -385,111 +269,14 @@ subscription OnCreateDataStructureAndAlgorithms {
     hashes
     heaps
     sets
-  }
-}
-subscription OnUpdateDataStructureAndAlgorithms {
-  onUpdateDataStructureAndAlgorithms {
-    id
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
-  }
-}
-subscription OnDeleteDataStructureAndAlgorithms {
-  onDeleteDataStructureAndAlgorithms {
-    id
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
-  }
-}
-subscription OnCreateDatabase {
-  onCreateDatabase {
-    id
     postgresql
     mysql
     mongoDB
     dynamoDB
-  }
-}
-subscription OnUpdateDatabase {
-  onUpdateDatabase {
-    id
-    postgresql
-    mysql
-    mongoDB
-    dynamoDB
-  }
-}
-subscription OnDeleteDatabase {
-  onDeleteDatabase {
-    id
-    postgresql
-    mysql
-    mongoDB
-    dynamoDB
-  }
-}
-subscription OnCreateCloud {
-  onCreateCloud {
-    id
     AWS
     heroku
     firebase
     azure
-  }
-}
-subscription OnUpdateCloud {
-  onUpdateCloud {
-    id
-    AWS
-    heroku
-    firebase
-    azure
-  }
-}
-subscription OnDeleteCloud {
-  onDeleteCloud {
-    id
-    AWS
-    heroku
-    firebase
-    azure
-  }
-}
-subscription OnCreatePlatforms {
-  onCreatePlatforms {
-    id
-    iOS
-    android
-    linux
-    web
-    react
-  }
-}
-subscription OnUpdatePlatforms {
-  onUpdatePlatforms {
-    id
-    iOS
-    android
-    linux
-    web
-    react
-  }
-}
-subscription OnDeletePlatforms {
-  onDeletePlatforms {
-    id
     iOS
     android
     linux
