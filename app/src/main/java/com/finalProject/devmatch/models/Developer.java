@@ -2,6 +2,7 @@ package com.finalProject.devmatch.models;
 
 import java.util.ArrayList;
 
+
 public class Developer {
 
     private String name;
