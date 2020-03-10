@@ -33,12 +33,11 @@
         </FrameLayout>
 
 
-<<<<<<< HEAD
+
     <include
         layout="@layout/content_main"
-        android:layout_height="678dp" />
-=======
->>>>>>> 77f7da3374d7379bb13f43acd5ee7ae9623306f1
+        android:layout_height="match_parent" />
+
 
     </LinearLayout>
     <com.google.android.material.navigation.NavigationView
