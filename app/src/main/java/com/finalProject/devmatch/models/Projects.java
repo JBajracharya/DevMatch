@@ -1,14 +1,14 @@
-package com.finalProject.devmatch;
+package com.finalProject.devmatch.models;
 
 
 public class Projects {
 
 
-    String name;
-    String description;
-    String position;
-    String date;
-    String link;
+    private String name;
+    private String description;
+    private String position;
+    private String date;
+    private String link;
 
 
     public Projects(String name, String description, String position, String date, String link) {
