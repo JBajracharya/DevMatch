@@ -231,6 +231,7 @@ public class SkillSet {
         private boolean AWS;
         private boolean heroku;
         private boolean firebase;
+        private boolean azure;
 
         public boolean isAWS() {
             return AWS;
@@ -254,6 +255,14 @@ public class SkillSet {
 
         public void setFirebase(boolean firebase) {
             this.firebase = firebase;
+        }
+
+        public boolean isAzure() {
+            return azure;
+        }
+
+        public void setAzure(boolean azure) {
+            this.azure = azure;
         }
     }
 
