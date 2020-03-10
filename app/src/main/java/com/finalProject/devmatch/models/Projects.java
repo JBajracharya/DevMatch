@@ -1,4 +1,4 @@
-package com.finalProject.devmatch;
+package com.finalProject.devmatch.models;
 
 
 public class Projects {
