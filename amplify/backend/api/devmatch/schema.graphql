@@ -1,16 +1,91 @@
-type Blog @model {
+
+type Developer @model {
   id: ID!
   name: String!
-  posts: [Post] @connection(name: "BlogPosts")
+  github: String!
+  email: String!
+  skills: String!
+  type: String!
+  currentProjects: [TeamMate] @connection(name: "AssignedProjects")
 }
-type Post @model {
+
+# creating many to many using two 1-M connections
+type TeamMate @model (queries: null) {
   id: ID!
-  title: String!
-  blog: Blog @connection(name: "BlogPosts")
-  comments: [Comment] @connection(name: "PostComments")
+  developer: Developer! @connection(name:"AssignedProjects")
+  currentProject: Project! @connection(name: "AssignedDevelopers")
 }
-type Comment @model {
+
+type Project @model {
   id: ID!
-  content: String
-  post: Post @connection(name: "PostComments")
+  name: String!
+  description: String!
+  position: String!
+  date: String!
+  link: String!
+  developers: [TeamMate] @connection(name: "AssignedDevelopers")
 }
+
+
+
+type Skillset @model {
+  id: ID!
+  language: Language
+  dataStructuresAndAlgorithms: DataStructureAndAlgorithms
+  database: Database
+  cloud: Cloud
+  platforms: Platforms
+}
+
+type Language @model {
+  id: ID!
+  java: Boolean
+  python: Boolean
+  cSharp: Boolean
+  cplusplus: Boolean
+  ruby: Boolean
+  dotNet: Boolean
+  javascript: Boolean
+  sql: Boolean
+  html: Boolean
+  css: Boolean
+}
+
+type DataStructureAndAlgorithms @model {
+  id: ID!
+  arrays: Boolean
+  linkedlists: Boolean
+  stacks: Boolean
+  queues: Boolean
+  trees: Boolean
+  hashes: Boolean
+  heaps: Boolean
+  sets: Boolean
+
+}
+
+type Database @model {
+  id: ID!
+  postgresql: Boolean
+  mysql: Boolean
+  mongoDB: Boolean
+  dynamoDB: Boolean
+}
+
+type Cloud @model {
+  id: ID!
+  AWS: Boolean
+  heroku: Boolean
+  firebase: Boolean
+  azure: Boolean
+}
+
+type Platforms @model {
+  id: ID!
+  iOS: Boolean
+  android: Boolean
+  linux: Boolean
+  web: Boolean
+  react: Boolean
+}
+

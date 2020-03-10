@@ -1,178 +1,580 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateBlog(
-  $input: CreateBlogInput!
-  $condition: ModelBlogConditionInput
+mutation CreateDeveloper(
+  $input: CreateDeveloperInput!
+  $condition: ModelDeveloperConditionInput
 ) {
-  createBlog(input: $input, condition: $condition) {
+  createDeveloper(input: $input, condition: $condition) {
     id
     name
-    posts {
+    github
+    email
+    skills
+    type
+    currentProjects {
       items {
         id
-        title
       }
       nextToken
     }
   }
 }
-mutation UpdateBlog(
-  $input: UpdateBlogInput!
-  $condition: ModelBlogConditionInput
+mutation UpdateDeveloper(
+  $input: UpdateDeveloperInput!
+  $condition: ModelDeveloperConditionInput
 ) {
-  updateBlog(input: $input, condition: $condition) {
+  updateDeveloper(input: $input, condition: $condition) {
     id
     name
-    posts {
+    github
+    email
+    skills
+    type
+    currentProjects {
       items {
         id
-        title
       }
       nextToken
     }
   }
 }
-mutation DeleteBlog(
-  $input: DeleteBlogInput!
-  $condition: ModelBlogConditionInput
+mutation DeleteDeveloper(
+  $input: DeleteDeveloperInput!
+  $condition: ModelDeveloperConditionInput
 ) {
-  deleteBlog(input: $input, condition: $condition) {
+  deleteDeveloper(input: $input, condition: $condition) {
     id
     name
-    posts {
+    github
+    email
+    skills
+    type
+    currentProjects {
       items {
         id
-        title
       }
       nextToken
     }
   }
 }
-mutation CreatePost(
-  $input: CreatePostInput!
-  $condition: ModelPostConditionInput
+mutation CreateTeamMate(
+  $input: CreateTeamMateInput!
+  $condition: ModelTeamMateConditionInput
 ) {
-  createPost(input: $input, condition: $condition) {
+  createTeamMate(input: $input, condition: $condition) {
     id
-    title
-    blog {
+    developer {
       id
       name
-      posts {
+      github
+      email
+      skills
+      type
+      currentProjects {
         nextToken
       }
     }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
-  }
-}
-mutation UpdatePost(
-  $input: UpdatePostInput!
-  $condition: ModelPostConditionInput
-) {
-  updatePost(input: $input, condition: $condition) {
-    id
-    title
-    blog {
+    currentProject {
       id
       name
-      posts {
+      description
+      position
+      date
+      link
+      developers {
         nextToken
       }
     }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
   }
 }
-mutation DeletePost(
-  $input: DeletePostInput!
-  $condition: ModelPostConditionInput
+mutation UpdateTeamMate(
+  $input: UpdateTeamMateInput!
+  $condition: ModelTeamMateConditionInput
 ) {
-  deletePost(input: $input, condition: $condition) {
+  updateTeamMate(input: $input, condition: $condition) {
     id
-    title
-    blog {
+    developer {
       id
       name
-      posts {
+      github
+      email
+      skills
+      type
+      currentProjects {
         nextToken
       }
     }
-    comments {
+    currentProject {
+      id
+      name
+      description
+      position
+      date
+      link
+      developers {
+        nextToken
+      }
+    }
+  }
+}
+mutation DeleteTeamMate(
+  $input: DeleteTeamMateInput!
+  $condition: ModelTeamMateConditionInput
+) {
+  deleteTeamMate(input: $input, condition: $condition) {
+    id
+    developer {
+      id
+      name
+      github
+      email
+      skills
+      type
+      currentProjects {
+        nextToken
+      }
+    }
+    currentProject {
+      id
+      name
+      description
+      position
+      date
+      link
+      developers {
+        nextToken
+      }
+    }
+  }
+}
+mutation CreateProject(
+  $input: CreateProjectInput!
+  $condition: ModelProjectConditionInput
+) {
+  createProject(input: $input, condition: $condition) {
+    id
+    name
+    description
+    position
+    date
+    link
+    developers {
       items {
         id
-        content
       }
       nextToken
     }
   }
 }
-mutation CreateComment(
-  $input: CreateCommentInput!
-  $condition: ModelCommentConditionInput
+mutation UpdateProject(
+  $input: UpdateProjectInput!
+  $condition: ModelProjectConditionInput
 ) {
-  createComment(input: $input, condition: $condition) {
+  updateProject(input: $input, condition: $condition) {
     id
-    content
-    post {
-      id
-      title
-      blog {
+    name
+    description
+    position
+    date
+    link
+    developers {
+      items {
         id
-        name
       }
-      comments {
-        nextToken
-      }
+      nextToken
     }
   }
 }
-mutation UpdateComment(
-  $input: UpdateCommentInput!
-  $condition: ModelCommentConditionInput
+mutation DeleteProject(
+  $input: DeleteProjectInput!
+  $condition: ModelProjectConditionInput
 ) {
-  updateComment(input: $input, condition: $condition) {
+  deleteProject(input: $input, condition: $condition) {
     id
-    content
-    post {
-      id
-      title
-      blog {
+    name
+    description
+    position
+    date
+    link
+    developers {
+      items {
         id
-        name
       }
-      comments {
-        nextToken
-      }
+      nextToken
     }
   }
 }
-mutation DeleteComment(
-  $input: DeleteCommentInput!
-  $condition: ModelCommentConditionInput
+mutation CreateSkillset(
+  $input: CreateSkillsetInput!
+  $condition: ModelSkillsetConditionInput
 ) {
-  deleteComment(input: $input, condition: $condition) {
+  createSkillset(input: $input, condition: $condition) {
     id
-    content
-    post {
+    language {
       id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
+      java
+      python
+      cSharp
+      cplusplus
+      ruby
+      dotNet
+      javascript
+      sql
+      html
+      css
     }
+    dataStructuresAndAlgorithms {
+      id
+      arrays
+      linkedlists
+      stacks
+      queues
+      trees
+      hashes
+      heaps
+      sets
+    }
+    database {
+      id
+      postgresql
+      mysql
+      mongoDB
+      dynamoDB
+    }
+    cloud {
+      id
+      AWS
+      heroku
+      firebase
+      azure
+    }
+    platforms {
+      id
+      iOS
+      android
+      linux
+      web
+      react
+    }
+  }
+}
+mutation UpdateSkillset(
+  $input: UpdateSkillsetInput!
+  $condition: ModelSkillsetConditionInput
+) {
+  updateSkillset(input: $input, condition: $condition) {
+    id
+    language {
+      id
+      java
+      python
+      cSharp
+      cplusplus
+      ruby
+      dotNet
+      javascript
+      sql
+      html
+      css
+    }
+    dataStructuresAndAlgorithms {
+      id
+      arrays
+      linkedlists
+      stacks
+      queues
+      trees
+      hashes
+      heaps
+      sets
+    }
+    database {
+      id
+      postgresql
+      mysql
+      mongoDB
+      dynamoDB
+    }
+    cloud {
+      id
+      AWS
+      heroku
+      firebase
+      azure
+    }
+    platforms {
+      id
+      iOS
+      android
+      linux
+      web
+      react
+    }
+  }
+}
+mutation DeleteSkillset(
+  $input: DeleteSkillsetInput!
+  $condition: ModelSkillsetConditionInput
+) {
+  deleteSkillset(input: $input, condition: $condition) {
+    id
+    language {
+      id
+      java
+      python
+      cSharp
+      cplusplus
+      ruby
+      dotNet
+      javascript
+      sql
+      html
+      css
+    }
+    dataStructuresAndAlgorithms {
+      id
+      arrays
+      linkedlists
+      stacks
+      queues
+      trees
+      hashes
+      heaps
+      sets
+    }
+    database {
+      id
+      postgresql
+      mysql
+      mongoDB
+      dynamoDB
+    }
+    cloud {
+      id
+      AWS
+      heroku
+      firebase
+      azure
+    }
+    platforms {
+      id
+      iOS
+      android
+      linux
+      web
+      react
+    }
+  }
+}
+mutation CreateLanguage(
+  $input: CreateLanguageInput!
+  $condition: ModelLanguageConditionInput
+) {
+  createLanguage(input: $input, condition: $condition) {
+    id
+    java
+    python
+    cSharp
+    cplusplus
+    ruby
+    dotNet
+    javascript
+    sql
+    html
+    css
+  }
+}
+mutation UpdateLanguage(
+  $input: UpdateLanguageInput!
+  $condition: ModelLanguageConditionInput
+) {
+  updateLanguage(input: $input, condition: $condition) {
+    id
+    java
+    python
+    cSharp
+    cplusplus
+    ruby
+    dotNet
+    javascript
+    sql
+    html
+    css
+  }
+}
+mutation DeleteLanguage(
+  $input: DeleteLanguageInput!
+  $condition: ModelLanguageConditionInput
+) {
+  deleteLanguage(input: $input, condition: $condition) {
+    id
+    java
+    python
+    cSharp
+    cplusplus
+    ruby
+    dotNet
+    javascript
+    sql
+    html
+    css
+  }
+}
+mutation CreateDataStructureAndAlgorithms(
+  $input: CreateDataStructureAndAlgorithmsInput!
+  $condition: ModelDataStructureAndAlgorithmsConditionInput
+) {
+  createDataStructureAndAlgorithms(input: $input, condition: $condition) {
+    id
+    arrays
+    linkedlists
+    stacks
+    queues
+    trees
+    hashes
+    heaps
+    sets
+  }
+}
+mutation UpdateDataStructureAndAlgorithms(
+  $input: UpdateDataStructureAndAlgorithmsInput!
+  $condition: ModelDataStructureAndAlgorithmsConditionInput
+) {
+  updateDataStructureAndAlgorithms(input: $input, condition: $condition) {
+    id
+    arrays
+    linkedlists
+    stacks
+    queues
+    trees
+    hashes
+    heaps
+    sets
+  }
+}
+mutation DeleteDataStructureAndAlgorithms(
+  $input: DeleteDataStructureAndAlgorithmsInput!
+  $condition: ModelDataStructureAndAlgorithmsConditionInput
+) {
+  deleteDataStructureAndAlgorithms(input: $input, condition: $condition) {
+    id
+    arrays
+    linkedlists
+    stacks
+    queues
+    trees
+    hashes
+    heaps
+    sets
+  }
+}
+mutation CreateDatabase(
+  $input: CreateDatabaseInput!
+  $condition: ModelDatabaseConditionInput
+) {
+  createDatabase(input: $input, condition: $condition) {
+    id
+    postgresql
+    mysql
+    mongoDB
+    dynamoDB
+  }
+}
+mutation UpdateDatabase(
+  $input: UpdateDatabaseInput!
+  $condition: ModelDatabaseConditionInput
+) {
+  updateDatabase(input: $input, condition: $condition) {
+    id
+    postgresql
+    mysql
+    mongoDB
+    dynamoDB
+  }
+}
+mutation DeleteDatabase(
+  $input: DeleteDatabaseInput!
+  $condition: ModelDatabaseConditionInput
+) {
+  deleteDatabase(input: $input, condition: $condition) {
+    id
+    postgresql
+    mysql
+    mongoDB
+    dynamoDB
+  }
+}
+mutation CreateCloud(
+  $input: CreateCloudInput!
+  $condition: ModelCloudConditionInput
+) {
+  createCloud(input: $input, condition: $condition) {
+    id
+    AWS
+    heroku
+    firebase
+    azure
+  }
+}
+mutation UpdateCloud(
+  $input: UpdateCloudInput!
+  $condition: ModelCloudConditionInput
+) {
+  updateCloud(input: $input, condition: $condition) {
+    id
+    AWS
+    heroku
+    firebase
+    azure
+  }
+}
+mutation DeleteCloud(
+  $input: DeleteCloudInput!
+  $condition: ModelCloudConditionInput
+) {
+  deleteCloud(input: $input, condition: $condition) {
+    id
+    AWS
+    heroku
+    firebase
+    azure
+  }
+}
+mutation CreatePlatforms(
+  $input: CreatePlatformsInput!
+  $condition: ModelPlatformsConditionInput
+) {
+  createPlatforms(input: $input, condition: $condition) {
+    id
+    iOS
+    android
+    linux
+    web
+    react
+  }
+}
+mutation UpdatePlatforms(
+  $input: UpdatePlatformsInput!
+  $condition: ModelPlatformsConditionInput
+) {
+  updatePlatforms(input: $input, condition: $condition) {
+    id
+    iOS
+    android
+    linux
+    web
+    react
+  }
+}
+mutation DeletePlatforms(
+  $input: DeletePlatformsInput!
+  $condition: ModelPlatformsConditionInput
+) {
+  deletePlatforms(input: $input, condition: $condition) {
+    id
+    iOS
+    android
+    linux
+    web
+    react
   }
 }
