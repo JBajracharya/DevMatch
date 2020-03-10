@@ -29,6 +29,20 @@ public class SkillSet {
         private boolean html;
         private boolean css;
 
+        private Language(){
+
+            this.java = false;
+            this.python = false;
+            this.cSharp = false;
+            this.cplusplus = false;
+            this.ruby = false;
+            this.dotNet = false;
+            this.javascript = false;
+            this.sql = false;
+            this.html = false;
+            this.css = false;
+        }
+
         public boolean isJava() {
             return java;
         }
@@ -121,6 +135,17 @@ public class SkillSet {
         private boolean heaps;
         private boolean sets;
 
+        private DataStructuresAndAlgorithms(){
+            this.arrays = false;
+            this.linkedlists = false;
+            this.stacks = false;
+            this.queues = false;
+            this.trees = false;
+            this.hashes = false;
+            this.heaps = false;
+            this.sets = false;
+        }
+
         public boolean isArrays() {
             return arrays;
         }
@@ -193,6 +218,13 @@ public class SkillSet {
         private boolean mongoDB;
         private boolean dynamoDB;
 
+        private Database(){
+            this.postgresql = false;
+            this.mysql = false;
+            this.mongoDB = false;
+            this.dynamoDB = false;
+        }
+
         public boolean isPostgresql() {
             return postgresql;
         }
@@ -231,6 +263,14 @@ public class SkillSet {
         private boolean AWS;
         private boolean heroku;
         private boolean firebase;
+        private boolean azure;
+
+        private Cloud(){
+            this.AWS = false;
+            this.heroku = false;
+            this.firebase = false;
+            this.azure = false;
+        }
 
         public boolean isAWS() {
             return AWS;
@@ -255,6 +295,14 @@ public class SkillSet {
         public void setFirebase(boolean firebase) {
             this.firebase = firebase;
         }
+
+        public boolean isAzure() {
+            return azure;
+        }
+
+        public void setAzure(boolean azure) {
+            this.azure = azure;
+        }
     }
 
     public class Platforms {
@@ -264,6 +312,14 @@ public class SkillSet {
         private boolean linux;
         private boolean web;
         private boolean react;
+
+        private Platforms(){
+            this.iOS = false;
+            this.android = false;
+            this.linux = false;
+            this.web = false;
+            this.react = false;
+        }
 
         public boolean isiOS() {
             return iOS;
