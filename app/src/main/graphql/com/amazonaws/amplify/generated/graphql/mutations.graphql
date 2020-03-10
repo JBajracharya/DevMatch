@@ -209,52 +209,37 @@ mutation CreateSkillset(
 ) {
   createSkillset(input: $input, condition: $condition) {
     id
-    language {
-      id
-      java
-      python
-      cSharp
-      cplusplus
-      ruby
-      dotNet
-      javascript
-      sql
-      html
-      css
-    }
-    dataStructuresAndAlgorithms {
-      id
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
-    }
-    database {
-      id
-      postgresql
-      mysql
-      mongoDB
-      dynamoDB
-    }
-    cloud {
-      id
-      AWS
-      heroku
-      firebase
-      azure
-    }
-    platforms {
-      id
-      iOS
-      android
-      linux
-      web
-      react
-    }
+    java
+    python
+    cSharp
+    cplusplus
+    ruby
+    dotNet
+    javascript
+    sql
+    html
+    css
+    arrays
+    linkedlists
+    stacks
+    queues
+    trees
+    hashes
+    heaps
+    sets
+    postgresql
+    mysql
+    mongoDB
+    dynamoDB
+    AWS
+    heroku
+    firebase
+    azure
+    iOS
+    android
+    linux
+    web
+    react
   }
 }
 mutation UpdateSkillset(
@@ -263,52 +248,37 @@ mutation UpdateSkillset(
 ) {
   updateSkillset(input: $input, condition: $condition) {
     id
-    language {
-      id
-      java
-      python
-      cSharp
-      cplusplus
-      ruby
-      dotNet
-      javascript
-      sql
-      html
-      css
-    }
-    dataStructuresAndAlgorithms {
-      id
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
-    }
-    database {
-      id
-      postgresql
-      mysql
-      mongoDB
-      dynamoDB
-    }
-    cloud {
-      id
-      AWS
-      heroku
-      firebase
-      azure
-    }
-    platforms {
-      id
-      iOS
-      android
-      linux
-      web
-      react
-    }
+    java
+    python
+    cSharp
+    cplusplus
+    ruby
+    dotNet
+    javascript
+    sql
+    html
+    css
+    arrays
+    linkedlists
+    stacks
+    queues
+    trees
+    hashes
+    heaps
+    sets
+    postgresql
+    mysql
+    mongoDB
+    dynamoDB
+    AWS
+    heroku
+    firebase
+    azure
+    iOS
+    android
+    linux
+    web
+    react
   }
 }
 mutation DeleteSkillset(
@@ -317,60 +287,6 @@ mutation DeleteSkillset(
 ) {
   deleteSkillset(input: $input, condition: $condition) {
     id
-    language {
-      id
-      java
-      python
-      cSharp
-      cplusplus
-      ruby
-      dotNet
-      javascript
-      sql
-      html
-      css
-    }
-    dataStructuresAndAlgorithms {
-      id
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
-    }
-    database {
-      id
-      postgresql
-      mysql
-      mongoDB
-      dynamoDB
-    }
-    cloud {
-      id
-      AWS
-      heroku
-      firebase
-      azure
-    }
-    platforms {
-      id
-      iOS
-      android
-      linux
-      web
-      react
-    }
-  }
-}
-mutation CreateLanguage(
-  $input: CreateLanguageInput!
-  $condition: ModelLanguageConditionInput
-) {
-  createLanguage(input: $input, condition: $condition) {
-    id
     java
     python
     cSharp
@@ -381,50 +297,6 @@ mutation CreateLanguage(
     sql
     html
     css
-  }
-}
-mutation UpdateLanguage(
-  $input: UpdateLanguageInput!
-  $condition: ModelLanguageConditionInput
-) {
-  updateLanguage(input: $input, condition: $condition) {
-    id
-    java
-    python
-    cSharp
-    cplusplus
-    ruby
-    dotNet
-    javascript
-    sql
-    html
-    css
-  }
-}
-mutation DeleteLanguage(
-  $input: DeleteLanguageInput!
-  $condition: ModelLanguageConditionInput
-) {
-  deleteLanguage(input: $input, condition: $condition) {
-    id
-    java
-    python
-    cSharp
-    cplusplus
-    ruby
-    dotNet
-    javascript
-    sql
-    html
-    css
-  }
-}
-mutation CreateDataStructureAndAlgorithms(
-  $input: CreateDataStructureAndAlgorithmsInput!
-  $condition: ModelDataStructureAndAlgorithmsConditionInput
-) {
-  createDataStructureAndAlgorithms(input: $input, condition: $condition) {
-    id
     arrays
     linkedlists
     stacks
@@ -433,144 +305,14 @@ mutation CreateDataStructureAndAlgorithms(
     hashes
     heaps
     sets
-  }
-}
-mutation UpdateDataStructureAndAlgorithms(
-  $input: UpdateDataStructureAndAlgorithmsInput!
-  $condition: ModelDataStructureAndAlgorithmsConditionInput
-) {
-  updateDataStructureAndAlgorithms(input: $input, condition: $condition) {
-    id
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
-  }
-}
-mutation DeleteDataStructureAndAlgorithms(
-  $input: DeleteDataStructureAndAlgorithmsInput!
-  $condition: ModelDataStructureAndAlgorithmsConditionInput
-) {
-  deleteDataStructureAndAlgorithms(input: $input, condition: $condition) {
-    id
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
-  }
-}
-mutation CreateDatabase(
-  $input: CreateDatabaseInput!
-  $condition: ModelDatabaseConditionInput
-) {
-  createDatabase(input: $input, condition: $condition) {
-    id
     postgresql
     mysql
     mongoDB
     dynamoDB
-  }
-}
-mutation UpdateDatabase(
-  $input: UpdateDatabaseInput!
-  $condition: ModelDatabaseConditionInput
-) {
-  updateDatabase(input: $input, condition: $condition) {
-    id
-    postgresql
-    mysql
-    mongoDB
-    dynamoDB
-  }
-}
-mutation DeleteDatabase(
-  $input: DeleteDatabaseInput!
-  $condition: ModelDatabaseConditionInput
-) {
-  deleteDatabase(input: $input, condition: $condition) {
-    id
-    postgresql
-    mysql
-    mongoDB
-    dynamoDB
-  }
-}
-mutation CreateCloud(
-  $input: CreateCloudInput!
-  $condition: ModelCloudConditionInput
-) {
-  createCloud(input: $input, condition: $condition) {
-    id
     AWS
     heroku
     firebase
     azure
-  }
-}
-mutation UpdateCloud(
-  $input: UpdateCloudInput!
-  $condition: ModelCloudConditionInput
-) {
-  updateCloud(input: $input, condition: $condition) {
-    id
-    AWS
-    heroku
-    firebase
-    azure
-  }
-}
-mutation DeleteCloud(
-  $input: DeleteCloudInput!
-  $condition: ModelCloudConditionInput
-) {
-  deleteCloud(input: $input, condition: $condition) {
-    id
-    AWS
-    heroku
-    firebase
-    azure
-  }
-}
-mutation CreatePlatforms(
-  $input: CreatePlatformsInput!
-  $condition: ModelPlatformsConditionInput
-) {
-  createPlatforms(input: $input, condition: $condition) {
-    id
-    iOS
-    android
-    linux
-    web
-    react
-  }
-}
-mutation UpdatePlatforms(
-  $input: UpdatePlatformsInput!
-  $condition: ModelPlatformsConditionInput
-) {
-  updatePlatforms(input: $input, condition: $condition) {
-    id
-    iOS
-    android
-    linux
-    web
-    react
-  }
-}
-mutation DeletePlatforms(
-  $input: DeletePlatformsInput!
-  $condition: ModelPlatformsConditionInput
-) {
-  deletePlatforms(input: $input, condition: $condition) {
-    id
     iOS
     android
     linux
