@@ -16,7 +16,7 @@
                 "description": null,
                 "fields": [
                     {
-                        "name": "getBlog",
+                        "name": "getDeveloper",
                         "description": null,
                         "args": [
                             {
@@ -36,14 +36,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Blog",
+                            "name": "Developer",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "listBlogs",
+                        "name": "listDevelopers",
                         "description": null,
                         "args": [
                             {
@@ -51,7 +51,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelBlogFilterInput",
+                                    "name": "ModelDeveloperFilterInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -79,14 +79,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "ModelBlogConnection",
+                            "name": "ModelDeveloperConnection",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "getPost",
+                        "name": "getProject",
                         "description": null,
                         "args": [
                             {
@@ -106,14 +106,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Post",
+                            "name": "Project",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "listPosts",
+                        "name": "listProjects",
                         "description": null,
                         "args": [
                             {
@@ -121,7 +121,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelPostFilterInput",
+                                    "name": "ModelProjectFilterInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -149,14 +149,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "ModelPostConnection",
+                            "name": "ModelProjectConnection",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "getComment",
+                        "name": "getSkillset",
                         "description": null,
                         "args": [
                             {
@@ -176,14 +176,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Comment",
+                            "name": "Skillset",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "listComments",
+                        "name": "listSkillsets",
                         "description": null,
                         "args": [
                             {
@@ -191,7 +191,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelCommentFilterInput",
+                                    "name": "ModelSkillsetFilterInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -219,7 +219,7 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "ModelCommentConnection",
+                            "name": "ModelSkillsetConnection",
                             "ofType": null
                         },
                         "isDeprecated": false,
@@ -243,7 +243,7 @@
             },
             {
                 "kind": "OBJECT",
-                "name": "Blog",
+                "name": "Developer",
                 "description": null,
                 "fields": [
                     {
@@ -279,7 +279,71 @@
                         "deprecationReason": null
                     },
                     {
-                        "name": "posts",
+                        "name": "github",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "email",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "skills",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "type",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "currentProjects",
                         "description": null,
                         "args": [
                             {
@@ -287,7 +351,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelPostFilterInput",
+                                    "name": "ModelTeamMateFilterInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -325,7 +389,7 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "ModelPostConnection",
+                            "name": "ModelTeamMateConnection",
                             "ofType": null
                         },
                         "isDeprecated": false,
@@ -349,7 +413,7 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "ModelPostFilterInput",
+                "name": "ModelTeamMateFilterInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -364,16 +428,6 @@
                         "defaultValue": null
                     },
                     {
-                        "name": "title",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
                         "name": "and",
                         "description": null,
                         "type": {
@@ -381,7 +435,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "INPUT_OBJECT",
-                                "name": "ModelPostFilterInput",
+                                "name": "ModelTeamMateFilterInput",
                                 "ofType": null
                             }
                         },
@@ -395,7 +449,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "INPUT_OBJECT",
-                                "name": "ModelPostFilterInput",
+                                "name": "ModelTeamMateFilterInput",
                                 "ofType": null
                             }
                         },
@@ -406,7 +460,7 @@
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelPostFilterInput",
+                            "name": "ModelTeamMateFilterInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -738,6 +792,396 @@
                 "possibleTypes": null
             },
             {
+                "kind": "ENUM",
+                "name": "ModelSortDirection",
+                "description": null,
+                "fields": null,
+                "inputFields": null,
+                "interfaces": null,
+                "enumValues": [
+                    {
+                        "name": "ASC",
+                        "description": null,
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "DESC",
+                        "description": null,
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    }
+                ],
+                "possibleTypes": null
+            },
+            {
+                "kind": "OBJECT",
+                "name": "ModelTeamMateConnection",
+                "description": null,
+                "fields": [
+                    {
+                        "name": "items",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "LIST",
+                            "name": null,
+                            "ofType": {
+                                "kind": "OBJECT",
+                                "name": "TeamMate",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "nextToken",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    }
+                ],
+                "inputFields": null,
+                "interfaces": [],
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "OBJECT",
+                "name": "TeamMate",
+                "description": null,
+                "fields": [
+                    {
+                        "name": "id",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "developer",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "OBJECT",
+                                "name": "Developer",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "currentProject",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "OBJECT",
+                                "name": "Project",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    }
+                ],
+                "inputFields": null,
+                "interfaces": [],
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "OBJECT",
+                "name": "Project",
+                "description": null,
+                "fields": [
+                    {
+                        "name": "id",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "name",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "description",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "position",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "date",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "link",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "developers",
+                        "description": null,
+                        "args": [
+                            {
+                                "name": "filter",
+                                "description": null,
+                                "type": {
+                                    "kind": "INPUT_OBJECT",
+                                    "name": "ModelTeamMateFilterInput",
+                                    "ofType": null
+                                },
+                                "defaultValue": null
+                            },
+                            {
+                                "name": "sortDirection",
+                                "description": null,
+                                "type": {
+                                    "kind": "ENUM",
+                                    "name": "ModelSortDirection",
+                                    "ofType": null
+                                },
+                                "defaultValue": null
+                            },
+                            {
+                                "name": "limit",
+                                "description": null,
+                                "type": {
+                                    "kind": "SCALAR",
+                                    "name": "Int",
+                                    "ofType": null
+                                },
+                                "defaultValue": null
+                            },
+                            {
+                                "name": "nextToken",
+                                "description": null,
+                                "type": {
+                                    "kind": "SCALAR",
+                                    "name": "String",
+                                    "ofType": null
+                                },
+                                "defaultValue": null
+                            }
+                        ],
+                        "type": {
+                            "kind": "OBJECT",
+                            "name": "ModelTeamMateConnection",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    }
+                ],
+                "inputFields": null,
+                "interfaces": [],
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelDeveloperFilterInput",
+                "description": null,
+                "fields": null,
+                "inputFields": [
+                    {
+                        "name": "id",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelIDInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "name",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "github",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "email",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "skills",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "type",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "and",
+                        "description": null,
+                        "type": {
+                            "kind": "LIST",
+                            "name": null,
+                            "ofType": {
+                                "kind": "INPUT_OBJECT",
+                                "name": "ModelDeveloperFilterInput",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "or",
+                        "description": null,
+                        "type": {
+                            "kind": "LIST",
+                            "name": null,
+                            "ofType": {
+                                "kind": "INPUT_OBJECT",
+                                "name": "ModelDeveloperFilterInput",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "not",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelDeveloperFilterInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    }
+                ],
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
                 "kind": "INPUT_OBJECT",
                 "name": "ModelStringInput",
                 "description": null,
@@ -883,31 +1327,8 @@
                 "possibleTypes": null
             },
             {
-                "kind": "ENUM",
-                "name": "ModelSortDirection",
-                "description": null,
-                "fields": null,
-                "inputFields": null,
-                "interfaces": null,
-                "enumValues": [
-                    {
-                        "name": "ASC",
-                        "description": null,
-                        "isDeprecated": false,
-                        "deprecationReason": null
-                    },
-                    {
-                        "name": "DESC",
-                        "description": null,
-                        "isDeprecated": false,
-                        "deprecationReason": null
-                    }
-                ],
-                "possibleTypes": null
-            },
-            {
                 "kind": "OBJECT",
-                "name": "ModelPostConnection",
+                "name": "ModelDeveloperConnection",
                 "description": null,
                 "fields": [
                     {
@@ -919,7 +1340,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "OBJECT",
-                                "name": "Post",
+                                "name": "Developer",
                                 "ofType": null
                             }
                         },
@@ -945,275 +1366,8 @@
                 "possibleTypes": null
             },
             {
-                "kind": "OBJECT",
-                "name": "Post",
-                "description": null,
-                "fields": [
-                    {
-                        "name": "id",
-                        "description": null,
-                        "args": [],
-                        "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "ID",
-                                "ofType": null
-                            }
-                        },
-                        "isDeprecated": false,
-                        "deprecationReason": null
-                    },
-                    {
-                        "name": "title",
-                        "description": null,
-                        "args": [],
-                        "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "String",
-                                "ofType": null
-                            }
-                        },
-                        "isDeprecated": false,
-                        "deprecationReason": null
-                    },
-                    {
-                        "name": "blog",
-                        "description": null,
-                        "args": [],
-                        "type": {
-                            "kind": "OBJECT",
-                            "name": "Blog",
-                            "ofType": null
-                        },
-                        "isDeprecated": false,
-                        "deprecationReason": null
-                    },
-                    {
-                        "name": "comments",
-                        "description": null,
-                        "args": [
-                            {
-                                "name": "filter",
-                                "description": null,
-                                "type": {
-                                    "kind": "INPUT_OBJECT",
-                                    "name": "ModelCommentFilterInput",
-                                    "ofType": null
-                                },
-                                "defaultValue": null
-                            },
-                            {
-                                "name": "sortDirection",
-                                "description": null,
-                                "type": {
-                                    "kind": "ENUM",
-                                    "name": "ModelSortDirection",
-                                    "ofType": null
-                                },
-                                "defaultValue": null
-                            },
-                            {
-                                "name": "limit",
-                                "description": null,
-                                "type": {
-                                    "kind": "SCALAR",
-                                    "name": "Int",
-                                    "ofType": null
-                                },
-                                "defaultValue": null
-                            },
-                            {
-                                "name": "nextToken",
-                                "description": null,
-                                "type": {
-                                    "kind": "SCALAR",
-                                    "name": "String",
-                                    "ofType": null
-                                },
-                                "defaultValue": null
-                            }
-                        ],
-                        "type": {
-                            "kind": "OBJECT",
-                            "name": "ModelCommentConnection",
-                            "ofType": null
-                        },
-                        "isDeprecated": false,
-                        "deprecationReason": null
-                    }
-                ],
-                "inputFields": null,
-                "interfaces": [],
-                "enumValues": null,
-                "possibleTypes": null
-            },
-            {
                 "kind": "INPUT_OBJECT",
-                "name": "ModelCommentFilterInput",
-                "description": null,
-                "fields": null,
-                "inputFields": [
-                    {
-                        "name": "id",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelIDInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "content",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "and",
-                        "description": null,
-                        "type": {
-                            "kind": "LIST",
-                            "name": null,
-                            "ofType": {
-                                "kind": "INPUT_OBJECT",
-                                "name": "ModelCommentFilterInput",
-                                "ofType": null
-                            }
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "or",
-                        "description": null,
-                        "type": {
-                            "kind": "LIST",
-                            "name": null,
-                            "ofType": {
-                                "kind": "INPUT_OBJECT",
-                                "name": "ModelCommentFilterInput",
-                                "ofType": null
-                            }
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "not",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelCommentFilterInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    }
-                ],
-                "interfaces": null,
-                "enumValues": null,
-                "possibleTypes": null
-            },
-            {
-                "kind": "OBJECT",
-                "name": "ModelCommentConnection",
-                "description": null,
-                "fields": [
-                    {
-                        "name": "items",
-                        "description": null,
-                        "args": [],
-                        "type": {
-                            "kind": "LIST",
-                            "name": null,
-                            "ofType": {
-                                "kind": "OBJECT",
-                                "name": "Comment",
-                                "ofType": null
-                            }
-                        },
-                        "isDeprecated": false,
-                        "deprecationReason": null
-                    },
-                    {
-                        "name": "nextToken",
-                        "description": null,
-                        "args": [],
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "String",
-                            "ofType": null
-                        },
-                        "isDeprecated": false,
-                        "deprecationReason": null
-                    }
-                ],
-                "inputFields": null,
-                "interfaces": [],
-                "enumValues": null,
-                "possibleTypes": null
-            },
-            {
-                "kind": "OBJECT",
-                "name": "Comment",
-                "description": null,
-                "fields": [
-                    {
-                        "name": "id",
-                        "description": null,
-                        "args": [],
-                        "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "ID",
-                                "ofType": null
-                            }
-                        },
-                        "isDeprecated": false,
-                        "deprecationReason": null
-                    },
-                    {
-                        "name": "content",
-                        "description": null,
-                        "args": [],
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "String",
-                            "ofType": null
-                        },
-                        "isDeprecated": false,
-                        "deprecationReason": null
-                    },
-                    {
-                        "name": "post",
-                        "description": null,
-                        "args": [],
-                        "type": {
-                            "kind": "OBJECT",
-                            "name": "Post",
-                            "ofType": null
-                        },
-                        "isDeprecated": false,
-                        "deprecationReason": null
-                    }
-                ],
-                "inputFields": null,
-                "interfaces": [],
-                "enumValues": null,
-                "possibleTypes": null
-            },
-            {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelBlogFilterInput",
+                "name": "ModelProjectFilterInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -1238,6 +1392,46 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "description",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "position",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "date",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "link",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "and",
                         "description": null,
                         "type": {
@@ -1245,7 +1439,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "INPUT_OBJECT",
-                                "name": "ModelBlogFilterInput",
+                                "name": "ModelProjectFilterInput",
                                 "ofType": null
                             }
                         },
@@ -1259,7 +1453,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "INPUT_OBJECT",
-                                "name": "ModelBlogFilterInput",
+                                "name": "ModelProjectFilterInput",
                                 "ofType": null
                             }
                         },
@@ -1270,7 +1464,7 @@
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelBlogFilterInput",
+                            "name": "ModelProjectFilterInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1282,7 +1476,7 @@
             },
             {
                 "kind": "OBJECT",
-                "name": "ModelBlogConnection",
+                "name": "ModelProjectConnection",
                 "description": null,
                 "fields": [
                     {
@@ -1294,7 +1488,865 @@
                             "name": null,
                             "ofType": {
                                 "kind": "OBJECT",
-                                "name": "Blog",
+                                "name": "Project",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "nextToken",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    }
+                ],
+                "inputFields": null,
+                "interfaces": [],
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "OBJECT",
+                "name": "Skillset",
+                "description": null,
+                "fields": [
+                    {
+                        "name": "id",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "java",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "python",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "cSharp",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "cplusplus",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "ruby",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "dotNet",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "javascript",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "sql",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "html",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "css",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "arrays",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "linkedlists",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "stacks",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "queues",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "trees",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "hashes",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "heaps",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "sets",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "postgresql",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "mysql",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "mongoDB",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "dynamoDB",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "AWS",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "heroku",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "firebase",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "azure",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "iOS",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "android",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "linux",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "web",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "react",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    }
+                ],
+                "inputFields": null,
+                "interfaces": [],
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSkillsetFilterInput",
+                "description": null,
+                "fields": null,
+                "inputFields": [
+                    {
+                        "name": "id",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelIDInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "java",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "python",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "cSharp",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "cplusplus",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "ruby",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "dotNet",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "javascript",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "sql",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "html",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "css",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "arrays",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "linkedlists",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "stacks",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "queues",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "trees",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "hashes",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "heaps",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "sets",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "postgresql",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "mysql",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "mongoDB",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "dynamoDB",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "AWS",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "heroku",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "firebase",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "azure",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "iOS",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "android",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "linux",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "web",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "react",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "and",
+                        "description": null,
+                        "type": {
+                            "kind": "LIST",
+                            "name": null,
+                            "ofType": {
+                                "kind": "INPUT_OBJECT",
+                                "name": "ModelSkillsetFilterInput",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "or",
+                        "description": null,
+                        "type": {
+                            "kind": "LIST",
+                            "name": null,
+                            "ofType": {
+                                "kind": "INPUT_OBJECT",
+                                "name": "ModelSkillsetFilterInput",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "not",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelSkillsetFilterInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    }
+                ],
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelBooleanInput",
+                "description": null,
+                "fields": null,
+                "inputFields": [
+                    {
+                        "name": "ne",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "eq",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "attributeExists",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "attributeType",
+                        "description": null,
+                        "type": {
+                            "kind": "ENUM",
+                            "name": "ModelAttributeTypes",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    }
+                ],
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "OBJECT",
+                "name": "ModelSkillsetConnection",
+                "description": null,
+                "fields": [
+                    {
+                        "name": "items",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "LIST",
+                            "name": null,
+                            "ofType": {
+                                "kind": "OBJECT",
+                                "name": "Skillset",
                                 "ofType": null
                             }
                         },
@@ -1325,7 +2377,7 @@
                 "description": null,
                 "fields": [
                     {
-                        "name": "createBlog",
+                        "name": "createDeveloper",
                         "description": null,
                         "args": [
                             {
@@ -1336,7 +2388,7 @@
                                     "name": null,
                                     "ofType": {
                                         "kind": "INPUT_OBJECT",
-                                        "name": "CreateBlogInput",
+                                        "name": "CreateDeveloperInput",
                                         "ofType": null
                                     }
                                 },
@@ -1347,7 +2399,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelBlogConditionInput",
+                                    "name": "ModelDeveloperConditionInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -1355,14 +2407,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Blog",
+                            "name": "Developer",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "updateBlog",
+                        "name": "updateDeveloper",
                         "description": null,
                         "args": [
                             {
@@ -1373,7 +2425,7 @@
                                     "name": null,
                                     "ofType": {
                                         "kind": "INPUT_OBJECT",
-                                        "name": "UpdateBlogInput",
+                                        "name": "UpdateDeveloperInput",
                                         "ofType": null
                                     }
                                 },
@@ -1384,7 +2436,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelBlogConditionInput",
+                                    "name": "ModelDeveloperConditionInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -1392,14 +2444,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Blog",
+                            "name": "Developer",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "deleteBlog",
+                        "name": "deleteDeveloper",
                         "description": null,
                         "args": [
                             {
@@ -1410,7 +2462,7 @@
                                     "name": null,
                                     "ofType": {
                                         "kind": "INPUT_OBJECT",
-                                        "name": "DeleteBlogInput",
+                                        "name": "DeleteDeveloperInput",
                                         "ofType": null
                                     }
                                 },
@@ -1421,7 +2473,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelBlogConditionInput",
+                                    "name": "ModelDeveloperConditionInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -1429,14 +2481,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Blog",
+                            "name": "Developer",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "createPost",
+                        "name": "createTeamMate",
                         "description": null,
                         "args": [
                             {
@@ -1447,7 +2499,7 @@
                                     "name": null,
                                     "ofType": {
                                         "kind": "INPUT_OBJECT",
-                                        "name": "CreatePostInput",
+                                        "name": "CreateTeamMateInput",
                                         "ofType": null
                                     }
                                 },
@@ -1458,7 +2510,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelPostConditionInput",
+                                    "name": "ModelTeamMateConditionInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -1466,14 +2518,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Post",
+                            "name": "TeamMate",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "updatePost",
+                        "name": "updateTeamMate",
                         "description": null,
                         "args": [
                             {
@@ -1484,7 +2536,7 @@
                                     "name": null,
                                     "ofType": {
                                         "kind": "INPUT_OBJECT",
-                                        "name": "UpdatePostInput",
+                                        "name": "UpdateTeamMateInput",
                                         "ofType": null
                                     }
                                 },
@@ -1495,7 +2547,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelPostConditionInput",
+                                    "name": "ModelTeamMateConditionInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -1503,14 +2555,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Post",
+                            "name": "TeamMate",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "deletePost",
+                        "name": "deleteTeamMate",
                         "description": null,
                         "args": [
                             {
@@ -1521,7 +2573,7 @@
                                     "name": null,
                                     "ofType": {
                                         "kind": "INPUT_OBJECT",
-                                        "name": "DeletePostInput",
+                                        "name": "DeleteTeamMateInput",
                                         "ofType": null
                                     }
                                 },
@@ -1532,7 +2584,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelPostConditionInput",
+                                    "name": "ModelTeamMateConditionInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -1540,14 +2592,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Post",
+                            "name": "TeamMate",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "createComment",
+                        "name": "createProject",
                         "description": null,
                         "args": [
                             {
@@ -1558,7 +2610,7 @@
                                     "name": null,
                                     "ofType": {
                                         "kind": "INPUT_OBJECT",
-                                        "name": "CreateCommentInput",
+                                        "name": "CreateProjectInput",
                                         "ofType": null
                                     }
                                 },
@@ -1569,7 +2621,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelCommentConditionInput",
+                                    "name": "ModelProjectConditionInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -1577,14 +2629,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Comment",
+                            "name": "Project",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "updateComment",
+                        "name": "updateProject",
                         "description": null,
                         "args": [
                             {
@@ -1595,7 +2647,7 @@
                                     "name": null,
                                     "ofType": {
                                         "kind": "INPUT_OBJECT",
-                                        "name": "UpdateCommentInput",
+                                        "name": "UpdateProjectInput",
                                         "ofType": null
                                     }
                                 },
@@ -1606,7 +2658,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelCommentConditionInput",
+                                    "name": "ModelProjectConditionInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -1614,14 +2666,14 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Comment",
+                            "name": "Project",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "deleteComment",
+                        "name": "deleteProject",
                         "description": null,
                         "args": [
                             {
@@ -1632,7 +2684,7 @@
                                     "name": null,
                                     "ofType": {
                                         "kind": "INPUT_OBJECT",
-                                        "name": "DeleteCommentInput",
+                                        "name": "DeleteProjectInput",
                                         "ofType": null
                                     }
                                 },
@@ -1643,7 +2695,7 @@
                                 "description": null,
                                 "type": {
                                     "kind": "INPUT_OBJECT",
-                                    "name": "ModelCommentConditionInput",
+                                    "name": "ModelProjectConditionInput",
                                     "ofType": null
                                 },
                                 "defaultValue": null
@@ -1651,7 +2703,118 @@
                         ],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Comment",
+                            "name": "Project",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "createSkillset",
+                        "description": null,
+                        "args": [
+                            {
+                                "name": "input",
+                                "description": null,
+                                "type": {
+                                    "kind": "NON_NULL",
+                                    "name": null,
+                                    "ofType": {
+                                        "kind": "INPUT_OBJECT",
+                                        "name": "CreateSkillsetInput",
+                                        "ofType": null
+                                    }
+                                },
+                                "defaultValue": null
+                            },
+                            {
+                                "name": "condition",
+                                "description": null,
+                                "type": {
+                                    "kind": "INPUT_OBJECT",
+                                    "name": "ModelSkillsetConditionInput",
+                                    "ofType": null
+                                },
+                                "defaultValue": null
+                            }
+                        ],
+                        "type": {
+                            "kind": "OBJECT",
+                            "name": "Skillset",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "updateSkillset",
+                        "description": null,
+                        "args": [
+                            {
+                                "name": "input",
+                                "description": null,
+                                "type": {
+                                    "kind": "NON_NULL",
+                                    "name": null,
+                                    "ofType": {
+                                        "kind": "INPUT_OBJECT",
+                                        "name": "UpdateSkillsetInput",
+                                        "ofType": null
+                                    }
+                                },
+                                "defaultValue": null
+                            },
+                            {
+                                "name": "condition",
+                                "description": null,
+                                "type": {
+                                    "kind": "INPUT_OBJECT",
+                                    "name": "ModelSkillsetConditionInput",
+                                    "ofType": null
+                                },
+                                "defaultValue": null
+                            }
+                        ],
+                        "type": {
+                            "kind": "OBJECT",
+                            "name": "Skillset",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "deleteSkillset",
+                        "description": null,
+                        "args": [
+                            {
+                                "name": "input",
+                                "description": null,
+                                "type": {
+                                    "kind": "NON_NULL",
+                                    "name": null,
+                                    "ofType": {
+                                        "kind": "INPUT_OBJECT",
+                                        "name": "DeleteSkillsetInput",
+                                        "ofType": null
+                                    }
+                                },
+                                "defaultValue": null
+                            },
+                            {
+                                "name": "condition",
+                                "description": null,
+                                "type": {
+                                    "kind": "INPUT_OBJECT",
+                                    "name": "ModelSkillsetConditionInput",
+                                    "ofType": null
+                                },
+                                "defaultValue": null
+                            }
+                        ],
+                        "type": {
+                            "kind": "OBJECT",
+                            "name": "Skillset",
                             "ofType": null
                         },
                         "isDeprecated": false,
@@ -1665,7 +2828,7 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "CreateBlogInput",
+                "name": "CreateDeveloperInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -1692,145 +2855,9 @@
                             }
                         },
                         "defaultValue": null
-                    }
-                ],
-                "interfaces": null,
-                "enumValues": null,
-                "possibleTypes": null
-            },
-            {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelBlogConditionInput",
-                "description": null,
-                "fields": null,
-                "inputFields": [
-                    {
-                        "name": "name",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
                     },
                     {
-                        "name": "and",
-                        "description": null,
-                        "type": {
-                            "kind": "LIST",
-                            "name": null,
-                            "ofType": {
-                                "kind": "INPUT_OBJECT",
-                                "name": "ModelBlogConditionInput",
-                                "ofType": null
-                            }
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "or",
-                        "description": null,
-                        "type": {
-                            "kind": "LIST",
-                            "name": null,
-                            "ofType": {
-                                "kind": "INPUT_OBJECT",
-                                "name": "ModelBlogConditionInput",
-                                "ofType": null
-                            }
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "not",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelBlogConditionInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    }
-                ],
-                "interfaces": null,
-                "enumValues": null,
-                "possibleTypes": null
-            },
-            {
-                "kind": "INPUT_OBJECT",
-                "name": "UpdateBlogInput",
-                "description": null,
-                "fields": null,
-                "inputFields": [
-                    {
-                        "name": "id",
-                        "description": null,
-                        "type": {
-                            "kind": "NON_NULL",
-                            "name": null,
-                            "ofType": {
-                                "kind": "SCALAR",
-                                "name": "ID",
-                                "ofType": null
-                            }
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "name",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "String",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    }
-                ],
-                "interfaces": null,
-                "enumValues": null,
-                "possibleTypes": null
-            },
-            {
-                "kind": "INPUT_OBJECT",
-                "name": "DeleteBlogInput",
-                "description": null,
-                "fields": null,
-                "inputFields": [
-                    {
-                        "name": "id",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    }
-                ],
-                "interfaces": null,
-                "enumValues": null,
-                "possibleTypes": null
-            },
-            {
-                "kind": "INPUT_OBJECT",
-                "name": "CreatePostInput",
-                "description": null,
-                "fields": null,
-                "inputFields": [
-                    {
-                        "name": "id",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "title",
+                        "name": "github",
                         "description": null,
                         "type": {
                             "kind": "NON_NULL",
@@ -1844,12 +2871,44 @@
                         "defaultValue": null
                     },
                     {
-                        "name": "postBlogId",
+                        "name": "email",
                         "description": null,
                         "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "skills",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "type",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
                         },
                         "defaultValue": null
                     }
@@ -1860,12 +2919,52 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "ModelPostConditionInput",
+                "name": "ModelDeveloperConditionInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
                     {
-                        "name": "title",
+                        "name": "name",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "github",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "email",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "skills",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "type",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
@@ -1882,7 +2981,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "INPUT_OBJECT",
-                                "name": "ModelPostConditionInput",
+                                "name": "ModelDeveloperConditionInput",
                                 "ofType": null
                             }
                         },
@@ -1896,7 +2995,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "INPUT_OBJECT",
-                                "name": "ModelPostConditionInput",
+                                "name": "ModelDeveloperConditionInput",
                                 "ofType": null
                             }
                         },
@@ -1907,7 +3006,7 @@
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelPostConditionInput",
+                            "name": "ModelDeveloperConditionInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1919,7 +3018,7 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "UpdatePostInput",
+                "name": "UpdateDeveloperInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -1938,7 +3037,7 @@
                         "defaultValue": null
                     },
                     {
-                        "name": "title",
+                        "name": "name",
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
@@ -1948,11 +3047,41 @@
                         "defaultValue": null
                     },
                     {
-                        "name": "postBlogId",
+                        "name": "github",
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "ID",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "email",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "skills",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "type",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -1964,7 +3093,7 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "DeletePostInput",
+                "name": "DeleteDeveloperInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -1985,7 +3114,7 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "CreateCommentInput",
+                "name": "CreateTeamMateInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -2000,22 +3129,30 @@
                         "defaultValue": null
                     },
                     {
-                        "name": "content",
+                        "name": "teamMateDeveloperId",
                         "description": null,
                         "type": {
-                            "kind": "SCALAR",
-                            "name": "String",
-                            "ofType": null
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
                         },
                         "defaultValue": null
                     },
                     {
-                        "name": "commentPostId",
+                        "name": "teamMateCurrentProjectId",
                         "description": null,
                         "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
                         },
                         "defaultValue": null
                     }
@@ -2026,20 +3163,10 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "ModelCommentConditionInput",
+                "name": "ModelTeamMateConditionInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
-                    {
-                        "name": "content",
-                        "description": null,
-                        "type": {
-                            "kind": "INPUT_OBJECT",
-                            "name": "ModelStringInput",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
                     {
                         "name": "and",
                         "description": null,
@@ -2048,7 +3175,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "INPUT_OBJECT",
-                                "name": "ModelCommentConditionInput",
+                                "name": "ModelTeamMateConditionInput",
                                 "ofType": null
                             }
                         },
@@ -2062,7 +3189,7 @@
                             "name": null,
                             "ofType": {
                                 "kind": "INPUT_OBJECT",
-                                "name": "ModelCommentConditionInput",
+                                "name": "ModelTeamMateConditionInput",
                                 "ofType": null
                             }
                         },
@@ -2073,7 +3200,7 @@
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
-                            "name": "ModelCommentConditionInput",
+                            "name": "ModelTeamMateConditionInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -2085,7 +3212,7 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "UpdateCommentInput",
+                "name": "UpdateTeamMateInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -2104,17 +3231,17 @@
                         "defaultValue": null
                     },
                     {
-                        "name": "content",
+                        "name": "teamMateDeveloperId",
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
-                            "name": "String",
+                            "name": "ID",
                             "ofType": null
                         },
                         "defaultValue": null
                     },
                     {
-                        "name": "commentPostId",
+                        "name": "teamMateCurrentProjectId",
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
@@ -2130,7 +3257,1339 @@
             },
             {
                 "kind": "INPUT_OBJECT",
-                "name": "DeleteCommentInput",
+                "name": "DeleteTeamMateInput",
+                "description": null,
+                "fields": null,
+                "inputFields": [
+                    {
+                        "name": "id",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "ID",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    }
+                ],
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "INPUT_OBJECT",
+                "name": "CreateProjectInput",
+                "description": null,
+                "fields": null,
+                "inputFields": [
+                    {
+                        "name": "id",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "ID",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "name",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "description",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "position",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "date",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "link",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    }
+                ],
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelProjectConditionInput",
+                "description": null,
+                "fields": null,
+                "inputFields": [
+                    {
+                        "name": "name",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "description",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "position",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "date",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "link",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "and",
+                        "description": null,
+                        "type": {
+                            "kind": "LIST",
+                            "name": null,
+                            "ofType": {
+                                "kind": "INPUT_OBJECT",
+                                "name": "ModelProjectConditionInput",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "or",
+                        "description": null,
+                        "type": {
+                            "kind": "LIST",
+                            "name": null,
+                            "ofType": {
+                                "kind": "INPUT_OBJECT",
+                                "name": "ModelProjectConditionInput",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "not",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelProjectConditionInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    }
+                ],
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "INPUT_OBJECT",
+                "name": "UpdateProjectInput",
+                "description": null,
+                "fields": null,
+                "inputFields": [
+                    {
+                        "name": "id",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "name",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "description",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "position",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "date",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "link",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    }
+                ],
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "INPUT_OBJECT",
+                "name": "DeleteProjectInput",
+                "description": null,
+                "fields": null,
+                "inputFields": [
+                    {
+                        "name": "id",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "ID",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    }
+                ],
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "INPUT_OBJECT",
+                "name": "CreateSkillsetInput",
+                "description": null,
+                "fields": null,
+                "inputFields": [
+                    {
+                        "name": "id",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "ID",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "java",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "python",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "cSharp",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "cplusplus",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "ruby",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "dotNet",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "javascript",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "sql",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "html",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "css",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "arrays",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "linkedlists",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "stacks",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "queues",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "trees",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "hashes",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "heaps",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "sets",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "postgresql",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "mysql",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "mongoDB",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "dynamoDB",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "AWS",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "heroku",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "firebase",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "azure",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "iOS",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "android",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "linux",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "web",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "react",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    }
+                ],
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "INPUT_OBJECT",
+                "name": "ModelSkillsetConditionInput",
+                "description": null,
+                "fields": null,
+                "inputFields": [
+                    {
+                        "name": "java",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "python",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "cSharp",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "cplusplus",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "ruby",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "dotNet",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "javascript",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "sql",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "html",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "css",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "arrays",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "linkedlists",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "stacks",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "queues",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "trees",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "hashes",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "heaps",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "sets",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "postgresql",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "mysql",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "mongoDB",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "dynamoDB",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "AWS",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "heroku",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "firebase",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "azure",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "iOS",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "android",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "linux",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "web",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "react",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelBooleanInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "and",
+                        "description": null,
+                        "type": {
+                            "kind": "LIST",
+                            "name": null,
+                            "ofType": {
+                                "kind": "INPUT_OBJECT",
+                                "name": "ModelSkillsetConditionInput",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "or",
+                        "description": null,
+                        "type": {
+                            "kind": "LIST",
+                            "name": null,
+                            "ofType": {
+                                "kind": "INPUT_OBJECT",
+                                "name": "ModelSkillsetConditionInput",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "not",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelSkillsetConditionInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    }
+                ],
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "INPUT_OBJECT",
+                "name": "UpdateSkillsetInput",
+                "description": null,
+                "fields": null,
+                "inputFields": [
+                    {
+                        "name": "id",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "ID",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "java",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "python",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "cSharp",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "cplusplus",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "ruby",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "dotNet",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "javascript",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "sql",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "html",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "css",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "arrays",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "linkedlists",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "stacks",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "queues",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "trees",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "hashes",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "heaps",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "sets",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "postgresql",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "mysql",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "mongoDB",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "dynamoDB",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "AWS",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "heroku",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "firebase",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "azure",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "iOS",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "android",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "linux",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "web",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "react",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    }
+                ],
+                "interfaces": null,
+                "enumValues": null,
+                "possibleTypes": null
+            },
+            {
+                "kind": "INPUT_OBJECT",
+                "name": "DeleteSkillsetInput",
                 "description": null,
                 "fields": null,
                 "inputFields": [
@@ -2155,108 +4614,144 @@
                 "description": null,
                 "fields": [
                     {
-                        "name": "onCreateBlog",
+                        "name": "onCreateDeveloper",
                         "description": null,
                         "args": [],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Blog",
+                            "name": "Developer",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "onUpdateBlog",
+                        "name": "onUpdateDeveloper",
                         "description": null,
                         "args": [],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Blog",
+                            "name": "Developer",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "onDeleteBlog",
+                        "name": "onDeleteDeveloper",
                         "description": null,
                         "args": [],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Blog",
+                            "name": "Developer",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "onCreatePost",
+                        "name": "onCreateTeamMate",
                         "description": null,
                         "args": [],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Post",
+                            "name": "TeamMate",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "onUpdatePost",
+                        "name": "onUpdateTeamMate",
                         "description": null,
                         "args": [],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Post",
+                            "name": "TeamMate",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "onDeletePost",
+                        "name": "onDeleteTeamMate",
                         "description": null,
                         "args": [],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Post",
+                            "name": "TeamMate",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "onCreateComment",
+                        "name": "onCreateProject",
                         "description": null,
                         "args": [],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Comment",
+                            "name": "Project",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "onUpdateComment",
+                        "name": "onUpdateProject",
                         "description": null,
                         "args": [],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Comment",
+                            "name": "Project",
                             "ofType": null
                         },
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
                     {
-                        "name": "onDeleteComment",
+                        "name": "onDeleteProject",
                         "description": null,
                         "args": [],
                         "type": {
                             "kind": "OBJECT",
-                            "name": "Comment",
+                            "name": "Project",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "onCreateSkillset",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "OBJECT",
+                            "name": "Skillset",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "onUpdateSkillset",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "OBJECT",
+                            "name": "Skillset",
+                            "ofType": null
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "onDeleteSkillset",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "OBJECT",
+                            "name": "Skillset",
                             "ofType": null
                         },
                         "isDeprecated": false,
@@ -3390,57 +5885,6 @@
                 "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
                 "fields": null,
                 "inputFields": null,
-                "interfaces": null,
-                "enumValues": null,
-                "possibleTypes": null
-            },
-            {
-                "kind": "INPUT_OBJECT",
-                "name": "ModelBooleanInput",
-                "description": null,
-                "fields": null,
-                "inputFields": [
-                    {
-                        "name": "ne",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "Boolean",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "eq",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "Boolean",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "attributeExists",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "Boolean",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "attributeType",
-                        "description": null,
-                        "type": {
-                            "kind": "ENUM",
-                            "name": "ModelAttributeTypes",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    }
-                ],
                 "interfaces": null,
                 "enumValues": null,
                 "possibleTypes": null
