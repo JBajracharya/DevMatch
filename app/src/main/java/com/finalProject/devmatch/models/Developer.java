@@ -4,24 +4,41 @@ import java.util.ArrayList;
 
 public class Developer {
 
+    private String name;
+    private String github;
+    private String email;
+    private SkillSet skills;
+    private Type type;
+
+    private ArrayList<Projects> currentProjects;
+    private ArrayList<Projects> portfolio;
+
+
     private enum Type {
 
         Front_End,
         Back_end,
         Full_Stack,
     }
-    private String name;
-    private String github;
-    private String email;
-    private SkillSet skills;
-
-    private ArrayList<Projects> currentProjects;
-    private ArrayList<Projects> portfolio;
 
     public Developer(String name, String github, String email) {
         this.name = name;
         this.github = github;
         this.email = email;
+    }
+    public void setType(String type){
+        switch (type){
+            case "Front End":
+                this.type = Type.Front_End;
+                break;
+            case "Back End":
+                this.type = Type.Back_end;
+                break;
+            case "Full Stack":
+                this.type = Type.Full_Stack;
+                break;
+        }
+
     }
 
     public String getName() {
@@ -70,5 +87,13 @@ public class Developer {
 
     public void setPortfolio(ArrayList<Projects> portfolio) {
         this.portfolio = portfolio;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 }

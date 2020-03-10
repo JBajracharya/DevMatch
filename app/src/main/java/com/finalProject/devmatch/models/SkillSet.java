@@ -2,11 +2,11 @@ package com.finalProject.devmatch.models;
 
 public class SkillSet {
 
-    Language language;
-    DataStructuresAndAlgorithms dataStructuresAndAlgorithms;
-    Database database;
-    Cloud cloud;
-    Platforms platforms;
+    private Language language;
+    private DataStructuresAndAlgorithms dataStructuresAndAlgorithms;
+    private Database database;
+    private Cloud cloud;
+    private Platforms platforms;
 
     public SkillSet(){
         this.language = new Language();
@@ -304,5 +304,47 @@ public class SkillSet {
         public void setReact(boolean react) {
             this.react = react;
         }
+    }
+
+    // GETTERS AND SETTERS FOR SKILLSET CLASS
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
+    public DataStructuresAndAlgorithms getDataStructuresAndAlgorithms() {
+        return dataStructuresAndAlgorithms;
+    }
+
+    public void setDataStructuresAndAlgorithms(DataStructuresAndAlgorithms dataStructuresAndAlgorithms) {
+        this.dataStructuresAndAlgorithms = dataStructuresAndAlgorithms;
+    }
+
+    public Database getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(Database database) {
+        this.database = database;
+    }
+
+    public Cloud getCloud() {
+        return cloud;
+    }
+
+    public void setCloud(Cloud cloud) {
+        this.cloud = cloud;
+    }
+
+    public Platforms getPlatforms() {
+        return platforms;
+    }
+
+    public void setPlatforms(Platforms platforms) {
+        this.platforms = platforms;
     }
 }

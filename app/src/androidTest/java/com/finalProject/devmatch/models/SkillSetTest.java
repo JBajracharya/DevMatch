@@ -12,11 +12,11 @@ public class SkillSetTest {
     @Before
     public void makeSkillset(){
         skills = new SkillSet();
-        skills.language.setJavascript(true);
+        skills.getLanguage().setJavascript(true);
     }
 
     @Test
     public void testJavascriptTrue(){
-        assertTrue(skills.language.isJavascript());
+        assertTrue(skills.getLanguage().isJavascript());
     }
 }

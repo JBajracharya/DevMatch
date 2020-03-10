@@ -13,13 +13,18 @@ public class DeveloperTest {
     @Before
     public void makeDeveloper(){
         skills = new SkillSet();
-        skills.language.setJavascript(true);
+        skills.getLanguage().setJavascript(true);
         dev = new Developer("Devin","Github.com/test","Devinthetestdev@gmail.com");
         dev.setSkills(skills);
+        dev.setType("Front End");
     }
 
     @Test
     public void testDeveloperJavascriptTrue(){
-        assertTrue(dev.getSkills().language.isJavascript());
+        assertTrue(dev.getSkills().getLanguage().isJavascript());
+    }
+    @Test
+    public void testEnumsAreWorking(){
+        System.out.println(dev.getType());
     }
 }
