@@ -1,6 +1,8 @@
 package com.finalProject.devmatch.models;
 
 
+import java.util.ArrayList;
+
 public class Projects {
 
 
@@ -9,6 +11,8 @@ public class Projects {
     private String position;
     private String date;
     private String link;
+
+    private ArrayList<Developer> developers;
 
 
     public Projects(String name, String description, String position, String date, String link) {
