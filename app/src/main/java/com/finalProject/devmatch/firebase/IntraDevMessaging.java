@@ -3,16 +3,18 @@ package com.finalProject.devmatch.firebase;
 public class IntraDevMessaging {
     private String id;
     private String text;
-    private String name;
+    private String from;
+    private String to;
     private String photoUrl;
     private String imageUrl;
 
     public IntraDevMessaging() {
     }
 
-    public IntraDevMessaging(String text, String name, String photoUrl, String imageUrl) {
+    public IntraDevMessaging(String text, String from, String to, String photoUrl, String imageUrl) {
         this.text = text;
-        this.name = name;
+        this.from = from;
+        this.to = to;
         this.photoUrl = photoUrl;
         this.imageUrl = imageUrl;
     }
@@ -27,14 +29,6 @@ public class IntraDevMessaging {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getPhotoUrl() {
@@ -55,6 +49,22 @@ public class IntraDevMessaging {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
     }
 }
 
