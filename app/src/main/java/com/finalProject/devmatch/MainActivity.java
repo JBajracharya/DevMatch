@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(this, EditProfile.class));
 //
 //                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
+
+
                 return true;
 //                break;
 
@@ -72,6 +74,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
@@ -98,6 +105,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            }
 //        });
 
+//    }
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+
+
+
+
+
 
         // initializing aws authentication
         AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
@@ -119,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                             switch (result.getUserState()){
                                                 case SIGNED_IN:
                                                     Log.i("INIT", "logged in!");
+                                                    username = AWSMobileClient.getInstance().getUsername();
                                                     break;
                                                 case SIGNED_OUT:
                                                     Log.i(TAG, "onResult: User did not choose to sign-in");
