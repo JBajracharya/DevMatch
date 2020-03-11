@@ -12,14 +12,6 @@ public class SkillSet {
         private boolean sql;
         private boolean html;
         private boolean css;
-        private boolean arrays;
-        private boolean linkedlists;
-        private boolean stacks;
-        private boolean queues;
-        private boolean trees;
-        private boolean hashes;
-        private boolean heaps;
-        private boolean sets;
         private boolean postgresql;
         private boolean mysql;
         private boolean mongoDB;
@@ -112,70 +104,6 @@ public class SkillSet {
 
     public void setCss(boolean css) {
         this.css = css;
-    }
-
-    public boolean isArrays() {
-        return arrays;
-    }
-
-    public void setArrays(boolean arrays) {
-        this.arrays = arrays;
-    }
-
-    public boolean isLinkedlists() {
-        return linkedlists;
-    }
-
-    public void setLinkedlists(boolean linkedlists) {
-        this.linkedlists = linkedlists;
-    }
-
-    public boolean isStacks() {
-        return stacks;
-    }
-
-    public void setStacks(boolean stacks) {
-        this.stacks = stacks;
-    }
-
-    public boolean isQueues() {
-        return queues;
-    }
-
-    public void setQueues(boolean queues) {
-        this.queues = queues;
-    }
-
-    public boolean isTrees() {
-        return trees;
-    }
-
-    public void setTrees(boolean trees) {
-        this.trees = trees;
-    }
-
-    public boolean isHashes() {
-        return hashes;
-    }
-
-    public void setHashes(boolean hashes) {
-        this.hashes = hashes;
-    }
-
-    public boolean isHeaps() {
-        return heaps;
-    }
-
-    public void setHeaps(boolean heaps) {
-        this.heaps = heaps;
-    }
-
-    public boolean isSets() {
-        return sets;
-    }
-
-    public void setSets(boolean sets) {
-        this.sets = sets;
     }
 
     public boolean isPostgresql() {
