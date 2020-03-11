@@ -13,6 +13,6 @@ public class Messages extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.messages, container, false);
+        return inflater.inflate(R.layout.item_message, container, false);
     }
 }
