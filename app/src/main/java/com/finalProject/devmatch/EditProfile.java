@@ -117,7 +117,6 @@ public class EditProfile extends AppCompatActivity {
                 if (css.isChecked()) {
                     skills.setCss(true);
                 }
-
                 if (postgresql.isChecked()) {
                     skills.setPostgresql(true);
                 }
