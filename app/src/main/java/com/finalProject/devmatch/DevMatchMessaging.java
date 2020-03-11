@@ -100,7 +100,7 @@ public class DevMatchMessaging extends AppCompatActivity
     private String mPhotoUrl;
     private SharedPreferences mSharedPreferences;
     private GoogleApiClient mGoogleApiClient;
-    private static final String MESSAGE_URL = "http://friendlychat.firebase.google.com/message/";
+
 
     private Button mSendButton;
     private RecyclerView mMessageRecyclerView;
@@ -231,11 +231,11 @@ public class DevMatchMessaging extends AppCompatActivity
         SnapshotParser<IntraDevMessaging> parser = new SnapshotParser<IntraDevMessaging>() {
             @Override
             public IntraDevMessaging parseSnapshot(DataSnapshot dataSnapshot) {
-                IntraDevMessaging friendlyMessage = dataSnapshot.getValue(IntraDevMessaging.class);
-                if (friendlyMessage != null) {
-                    friendlyMessage.setId(dataSnapshot.getKey());
+                IntraDevMessaging devMessage = dataSnapshot.getValue(IntraDevMessaging.class);
+                if (devMessage != null) {
+                    devMessage.setId(dataSnapshot.getKey());
                 }
-                return friendlyMessage;
+                return devMessage;
             }
         };
 
@@ -257,14 +257,14 @@ public class DevMatchMessaging extends AppCompatActivity
             @Override
             protected void onBindViewHolder(final MessageViewHolder viewHolder,
                                             int position,
-                                            IntraDevMessaging friendlyMessage) {
+                                            IntraDevMessaging devMessage) {
                 mProgressBar.setVisibility(ProgressBar.INVISIBLE);
-                if (friendlyMessage.getText() != null) {
-                    viewHolder.messageTextView.setText(friendlyMessage.getText());
+                if (devMessage.getText() != null) {
+                    viewHolder.messageTextView.setText(devMessage.getText());
                     viewHolder.messageTextView.setVisibility(TextView.VISIBLE);
                     viewHolder.messageImageView.setVisibility(ImageView.GONE);
-                } else if (friendlyMessage.getImageUrl() != null) {
-                    String imageUrl = friendlyMessage.getImageUrl();
+                } else if (devMessage.getImageUrl() != null) {
+                    String imageUrl = devMessage.getImageUrl();
                     if (imageUrl.startsWith("gs://")) {
                         StorageReference storageReference = FirebaseStorage.getInstance()
                                 .getReferenceFromUrl(imageUrl);
@@ -285,7 +285,7 @@ public class DevMatchMessaging extends AppCompatActivity
                                 });
                     } else {
                         Glide.with(viewHolder.messageImageView.getContext())
-                                .load(friendlyMessage.getImageUrl())
+                                .load(devMessage.getImageUrl())
                                 .into(viewHolder.messageImageView);
                     }
                     viewHolder.messageImageView.setVisibility(ImageView.VISIBLE);
@@ -293,13 +293,13 @@ public class DevMatchMessaging extends AppCompatActivity
                 }
 
 
-                viewHolder.messengerTextView.setText(friendlyMessage.getName());
-                if (friendlyMessage.getPhotoUrl() == null) {
+                viewHolder.messengerTextView.setText(devMessage.getName());
+                if (devMessage.getPhotoUrl() == null) {
                     viewHolder.messengerImageView.setImageDrawable(ContextCompat.getDrawable(DevMatchMessaging.this,
                             R.drawable.ic_account_circle_black_36dp));
                 } else {
                     Glide.with(DevMatchMessaging.this)
-                            .load(friendlyMessage.getPhotoUrl())
+                            .load(devMessage.getPhotoUrl())
                             .into(viewHolder.messengerImageView);
                 }
 
@@ -310,14 +310,14 @@ public class DevMatchMessaging extends AppCompatActivity
             @Override
             public void onItemRangeInserted(int positionStart, int itemCount) {
                 super.onItemRangeInserted(positionStart, itemCount);
-                int friendlyMessageCount = mFirebaseAdapter.getItemCount();
+                int devMessageCount = mFirebaseAdapter.getItemCount();
                 int lastVisiblePosition =
                         mLinearLayoutManager.findLastCompletelyVisibleItemPosition();
                 // If the recycler view is initially being loaded or the
                 // user is at the bottom of the list, scroll to the bottom
                 // of the list to show the newly added message.
                 if (lastVisiblePosition == -1 ||
-                        (positionStart >= (friendlyMessageCount - 1) &&
+                        (positionStart >= (devMessageCount - 1) &&
                                 lastVisiblePosition == (positionStart - 1))) {
                     mMessageRecyclerView.scrollToPosition(positionStart);
                 }
@@ -469,11 +469,11 @@ public class DevMatchMessaging extends AppCompatActivity
                                                 @Override
                                                 public void onComplete(@NonNull Task<Uri> task) {
                                                     if (task.isSuccessful()) {
-                                                        IntraDevMessaging friendlyMessage =
+                                                        IntraDevMessaging devMessage =
                                                                 new IntraDevMessaging(null, mUsername, mPhotoUrl,
                                                                         task.getResult().toString());
                                                         mFirebaseDatabaseReference.child(MESSAGES_CHILD).child(key)
-                                                                .setValue(friendlyMessage);
+                                                                .setValue(devMessage);
                                                     }
                                                 }
                                             });
