@@ -34,14 +34,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
                 break;
             case R.id.nav_message:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Messages()).commit();
-                break;
+                startActivity(new Intent(this, DevMatchMessaging.class));
+                return true;
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Messages()).commit();
+//                break;
             case R.id.nav_project:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectFragment()).commit();
                 break;
-            case R.id.nav_projectSearch:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectSearch()).commit();
-                break;
+//            case R.id.nav_projectSearch:
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectSearch()).commit();
+//                break;
         }
         drawer.closeDrawer(GravityCompat.START);
 
