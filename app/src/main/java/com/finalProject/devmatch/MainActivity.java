@@ -26,6 +26,7 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     static String TAG = "mainActivity";
+    String username = "";
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -34,7 +35,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
                 break;
             case R.id.nav_message:
-                startActivity(new Intent(this, DevMatchMessaging.class));
+                Intent intent = new Intent(this, DevMatchMessaging.class);
+                intent.putExtra("username", username);
+                startActivity(intent);
                 return true;
 //                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Messages()).commit();
 //                break;
@@ -101,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                             switch (result.getUserState()){
                                                 case SIGNED_IN:
                                                     Log.i("INIT", "logged in!");
+                                                    username = AWSMobileClient.getInstance().getUsername();
                                                     break;
                                                 case SIGNED_OUT:
                                                     Log.i(TAG, "onResult: User did not choose to sign-in");

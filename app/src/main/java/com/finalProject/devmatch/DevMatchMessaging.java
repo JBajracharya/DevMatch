@@ -68,6 +68,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DevMatchMessaging extends AppCompatActivity
@@ -116,6 +120,7 @@ public class DevMatchMessaging extends AppCompatActivity
     private FirebaseRecyclerAdapter<IntraDevMessaging, MessageViewHolder>
             mFirebaseAdapter;
     private FirebaseAuth mAuth;
+    String token;
 
 
     private void signInAnonymously() {
@@ -177,7 +182,7 @@ public class DevMatchMessaging extends AppCompatActivity
                         }
 
                         // Get new Instance ID token
-                        String token = task.getResult().getToken();
+                        token = task.getResult().getToken();
 
                         // Log and toast
                         Log.i("TOKEN", token);
@@ -190,10 +195,13 @@ public class DevMatchMessaging extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent incomingIntent = getIntent();
+        mUsername = incomingIntent.getStringExtra("username");
         setContentView(R.layout.devmatch_messaging);
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         // Set default username is anonymous.
-        mUsername = ANONYMOUS;
+        //mUsername = ANONYMOUS;
 
         // Initialize Firebase Auth
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -262,6 +270,8 @@ public class DevMatchMessaging extends AppCompatActivity
                 if (devMessage.getText() != null) {
                     viewHolder.messageTextView.setText(devMessage.getText());
                     viewHolder.messageTextView.setVisibility(TextView.VISIBLE);
+                    viewHolder.messengerTextView.setText(token);
+                    viewHolder.messengerTextView.setVisibility(TextView.VISIBLE);
                     viewHolder.messageImageView.setVisibility(ImageView.GONE);
                 } else if (devMessage.getImageUrl() != null) {
                     String imageUrl = devMessage.getImageUrl();
@@ -293,7 +303,11 @@ public class DevMatchMessaging extends AppCompatActivity
                 }
 
 
-                viewHolder.messengerTextView.setText(devMessage.getName());
+                DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+                Date dateobj = new Date();
+
+                //viewHolder.messengerTextView.setText(devMessage.getName());
+                viewHolder.messengerTextView.setText(dateobj.toString());
                 if (devMessage.getPhotoUrl() == null) {
                     viewHolder.messengerImageView.setImageDrawable(ContextCompat.getDrawable(DevMatchMessaging.this,
                             R.drawable.ic_account_circle_black_36dp));
@@ -353,6 +367,7 @@ public class DevMatchMessaging extends AppCompatActivity
                 IntraDevMessaging devMessage = new
                         IntraDevMessaging(mMessageEditText.getText().toString(),
                         mUsername,
+                        "",
                         mPhotoUrl,
                         null /* no image */);
                 mFirebaseDatabaseReference.child(MESSAGES_CHILD)
@@ -430,7 +445,7 @@ public class DevMatchMessaging extends AppCompatActivity
                     final Uri uri = data.getData();
                     Log.d(TAG, "Uri: " + uri.toString());
 
-                    IntraDevMessaging tempMessage = new IntraDevMessaging(null, mUsername, mPhotoUrl,
+                    IntraDevMessaging tempMessage = new IntraDevMessaging(null, mUsername, "", mPhotoUrl,
                             LOADING_IMAGE_URL);
                     mFirebaseDatabaseReference.child(MESSAGES_CHILD).push()
                             .setValue(tempMessage, new DatabaseReference.CompletionListener() {
@@ -470,7 +485,7 @@ public class DevMatchMessaging extends AppCompatActivity
                                                 public void onComplete(@NonNull Task<Uri> task) {
                                                     if (task.isSuccessful()) {
                                                         IntraDevMessaging devMessage =
-                                                                new IntraDevMessaging(null, mUsername, mPhotoUrl,
+                                                                new IntraDevMessaging(null, mUsername, "", mPhotoUrl,
                                                                         task.getResult().toString());
                                                         mFirebaseDatabaseReference.child(MESSAGES_CHILD).child(key)
                                                                 .setValue(devMessage);

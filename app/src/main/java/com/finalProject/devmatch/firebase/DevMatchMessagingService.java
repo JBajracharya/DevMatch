@@ -39,6 +39,8 @@ public class DevMatchMessagingService extends FirebaseMessagingService
     // [START receive_message]
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+        Log.i("MESSAGE RECEIVED", remoteMessage.getData().toString());
+        Log.i("MESSAGE RECEIVED", remoteMessage.getNotification().getBody().toString());
         // [START_EXCLUDE]
         // There are two types of messages data messages and notification messages. Data messages
         // are handled
