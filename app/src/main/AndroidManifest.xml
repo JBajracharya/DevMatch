@@ -25,6 +25,7 @@
         </service>
 
         <activity android:name=".EditProfile" />
+        <activity android:name=".DevMatchMessaging"/>
         <activity android:name=".SearchForProjects" />
         <activity android:name=".CreateProject" />
         <activity
