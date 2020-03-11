@@ -26,23 +26,41 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     static String TAG = "mainActivity";
+    String username = "";
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
-                break;
-            case R.id.nav_message:
-                startActivity(new Intent(this, DevMatchMessaging.class));
+                startActivity(new Intent(this, EditProfile.class));
+//
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
                 return true;
+//                break;
+
+            case R.id.nav_message:
+
+                Intent intent = new Intent(this, DevMatchMessaging.class);
+                intent.putExtra("username", username);
+                startActivity(intent);
 //                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Messages()).commit();
+
+                return true;
 //                break;
             case R.id.nav_project:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectFragment()).commit();
-                break;
-//            case R.id.nav_projectSearch:
+
+                startActivity(new Intent(this, CreateProject.class));
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectFragment()).commit();
+//
+                return true;
+//                break;
+
+
+            case R.id.nav_projectSearch:
+                startActivity(new Intent(this, SearchForProjects.class));
 //                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectSearch()).commit();
+                return true;
+
 //                break;
         }
         drawer.closeDrawer(GravityCompat.START);
