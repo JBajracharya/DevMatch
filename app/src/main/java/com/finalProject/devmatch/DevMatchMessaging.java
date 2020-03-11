@@ -350,13 +350,13 @@ public class DevMatchMessaging extends AppCompatActivity
         mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntraDevMessaging friendlyMessage = new
+                IntraDevMessaging devMessage = new
                         IntraDevMessaging(mMessageEditText.getText().toString(),
                         mUsername,
                         mPhotoUrl,
                         null /* no image */);
                 mFirebaseDatabaseReference.child(MESSAGES_CHILD)
-                        .push().setValue(friendlyMessage);
+                        .push().setValue(devMessage);
                 mMessageEditText.setText("");
             }
         });
