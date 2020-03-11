@@ -46,14 +46,6 @@ public class EditProfile extends AppCompatActivity {
         final CheckBox sql = findViewById(R.id.sql);
         final CheckBox html = findViewById(R.id.html);
         final CheckBox css = findViewById(R.id.css);
-        final CheckBox arrays = findViewById(R.id.arrays);
-        final CheckBox linkedLists = findViewById(R.id.linkedLists);
-        final CheckBox stacks = findViewById(R.id.stacks);
-        final CheckBox queues = findViewById(R.id.queues);
-        final CheckBox trees = findViewById(R.id.trees);
-        final CheckBox hashes = findViewById(R.id.hashes);
-        final CheckBox heaps = findViewById(R.id.heaps);
-        final CheckBox sets = findViewById(R.id.sets);
         final CheckBox postgresql = findViewById(R.id.postgresql);
         final CheckBox mysql = findViewById(R.id.mysql);
         final CheckBox mongoDB = findViewById(R.id.mongoDB);
@@ -124,31 +116,6 @@ public class EditProfile extends AppCompatActivity {
                 }
                 if (css.isChecked()) {
                     skills.setCss(true);
-                }
-
-                if (arrays.isChecked()) {
-                    skills.setArrays(true);
-                }
-                if (linkedLists.isChecked()) {
-                    skills.setLinkedlists(true);
-                }
-                if (stacks.isChecked()) {
-                    skills.setStacks(true);
-                }
-                if (queues.isChecked()) {
-                    skills.setQueues(true);
-                }
-                if (trees.isChecked()) {
-                    skills.setTrees(true);
-                }
-                if (hashes.isChecked()) {
-                    skills.setHashes(true);
-                }
-                if (heaps.isChecked()) {
-                    skills.setHeaps(true);
-                }
-                if (sets.isChecked()) {
-                    skills.setSets(true);
                 }
 
                 if (postgresql.isChecked()) {
