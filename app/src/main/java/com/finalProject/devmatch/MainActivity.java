@@ -8,9 +8,9 @@ import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.SignInUIOptions;
 import com.amazonaws.mobile.client.UserState;
 import com.amazonaws.mobile.client.UserStateDetails;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -20,13 +20,38 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.util.Log;
 
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     static String TAG = "mainActivity";
+    String username = "";
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_profile:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
+                break;
+            case R.id.nav_message:
+                Intent intent = new Intent(this, DevMatchMessaging.class);
+                intent.putExtra("username", username);
+                startActivity(intent);
+                return true;
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Messages()).commit();
+//                break;
+            case R.id.nav_project:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectFragment()).commit();
+                break;
+//            case R.id.nav_projectSearch:
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectSearch()).commit();
+//                break;
+        }
+        drawer.closeDrawer(GravityCompat.START);
+
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +66,17 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
 
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
+            navigationView.setCheckedItem(R.id.nav_profile);
+        }
 
 
 //        FloatingActionButton fab = findViewById(R.id.fab);
@@ -104,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                                             switch (result.getUserState()){
                                                 case SIGNED_IN:
                                                     Log.i("INIT", "logged in!");
+                                                    username = AWSMobileClient.getInstance().getUsername();
                                                     break;
                                                 case SIGNED_OUT:
                                                     Log.i(TAG, "onResult: User did not choose to sign-in");

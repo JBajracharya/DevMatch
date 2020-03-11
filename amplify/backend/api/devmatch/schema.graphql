@@ -7,6 +7,8 @@ type Developer @model {
   skills: String!
   type: String!
   currentProjects: [TeamMate] @connection(name: "AssignedProjects")
+#  one to one relationship
+  skillSet: Skillset @connection(fields: ["skillSetID"])
 }
 
 # creating many to many using two 1-M connections
