@@ -34,6 +34,7 @@ import com.finalProject.devmatch.models.Projects;
 import com.finalProject.devmatch.models.SkillSet;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -96,9 +97,16 @@ public class EditProfile extends AppCompatActivity {
         profileUsername.setText(AWSMobileClient.getInstance().getUsername());
         profileUsername.setVisibility(VISIBLE);
 
-//        TextView profileEmail = (TextView) findViewById(R.id.email);
-//        profileEmail.setText(AWSMobileClient.getInstance().getUserAttributes().getValue);
-//        profileUsername.setVisibility(VISIBLE);
+//        Log.i(TAG, "User Details"+ AWSMobileClient.getInstance().getUserAttributes().toString());
+
+        TextView profileEmail = (TextView) findViewById(R.id.email);
+        try {
+            profileEmail.setText(AWSMobileClient.getInstance().getUserAttributes().toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        profileEmail.setVisibility(VISIBLE);
+
 
         Window window = this.getWindow();
 
@@ -156,6 +164,15 @@ public class EditProfile extends AppCompatActivity {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                TextView profileEmail = (TextView) findViewById(R.id.email);
+                try {
+                    profileEmail.setText(AWSMobileClient.getInstance().getUserAttributes().toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                profileEmail.setVisibility(VISIBLE);
+
 
                 Log.i(TAG,"Clicked");
 
