@@ -28,8 +28,6 @@ type Project @model {
   developers: [TeamMate] @connection(name: "AssignedDevelopers")
 }
 
-
-
 type Skillset @model {
   id: ID!
   java: Boolean
@@ -56,4 +54,3 @@ type Skillset @model {
       web: Boolean
       react: Boolean
 }
-

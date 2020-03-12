@@ -81,6 +81,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return true;
 
 //                break;
+            case R.id.nav_projectSearch:
+                startActivity(new Intent(this, SearchForProjects.class));
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectSearch()).commit();
+                return true;
         }
         drawer.closeDrawer(GravityCompat.START);
 
