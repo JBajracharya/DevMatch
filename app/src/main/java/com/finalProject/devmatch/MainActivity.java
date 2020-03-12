@@ -242,6 +242,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
         headerView.setBackgroundColor(Color.rgb(0, 0, 0));
+//        Todo: LOOK HERE DELETE LATER
         TextView navUsername = (TextView) headerView.findViewById(R.id.menu_Uname);
         navUsername.setTextColor(Color.rgb(255, 255, 255));
         navUsername.setText(AWSMobileClient.getInstance().getUsername());
@@ -308,4 +309,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
         );
     }
+
 }

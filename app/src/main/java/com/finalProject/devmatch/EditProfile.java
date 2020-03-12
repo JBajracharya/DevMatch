@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -11,7 +12,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -28,6 +31,10 @@ import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.finalProject.devmatch.models.Developer;
 import com.finalProject.devmatch.models.SkillSet;
+import com.google.android.material.navigation.NavigationView;
+
+
+import static android.view.View.VISIBLE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,10 +44,11 @@ import javax.annotation.Nonnull;
 import type.CreateDeveloperInput;
 import type.CreateSkillsetInput;
 
-public class EditProfile extends AppCompatActivity {
+public class EditProfile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AWSAppSyncClient mAWSAppSyncClient;
     private String TAG = "STG";
+
 
     // THIS WILL BE REPLACED WITH A QUERY TO GET CURRENT USER OBJ
     final Developer dev = new Developer();
@@ -53,6 +61,20 @@ public class EditProfile extends AppCompatActivity {
         setContentView(R.layout.activity_edit_profile);
 
         Window window = this.getWindow();
+
+//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+//        View headerView = navigationView.getHeaderView(0);
+
+        TextView profileUsername = (TextView) findViewById(R.id.name);
+        profileUsername.setText(AWSMobileClient.getInstance().getUsername());
+        profileUsername.setVisibility(VISIBLE);
+
+        TextView profileEmail = (TextView) findViewById(R.id.email);
+        profileEmail.setText(AWSMobileClient.getInstance().getUserAttributes().getValue);
+        profileUsername.setVisibility(VISIBLE);
+
+
+
 
 // clear FLAG_TRANSLUCENT_STATUS flag:
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -70,9 +92,9 @@ public class EditProfile extends AppCompatActivity {
 
         Log.i(TAG,"EditProfile Activity Created");
 
-        final EditText name = findViewById(R.id.name);
+        final TextView name = findViewById(R.id.name);
         final EditText github = findViewById(R.id.github);
-        final EditText email = findViewById(R.id.email);
+        final TextView email = findViewById(R.id.email);
         final RadioButton frontEnd = findViewById(R.id.frontEnd);
         final RadioButton backEnd = findViewById(R.id.backEnd);
         final RadioButton fullStack = findViewById(R.id.fullStack);
@@ -114,6 +136,7 @@ public class EditProfile extends AppCompatActivity {
                 Log.i(TAG,"Clicked");
 
                 dev.setName(name.getText().toString());
+
                 dev.setGithub(github.getText().toString());
                 dev.setEmail(email.getText().toString());
 
@@ -296,4 +319,12 @@ public class EditProfile extends AppCompatActivity {
                     Log.i(TAG,"Failure");
                 }
             };
+
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        return false;
+    }
+
 }
