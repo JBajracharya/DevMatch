@@ -7,8 +7,8 @@ type Developer @model {
   skills: String!
   type: String!
   currentProjects: [TeamMate] @connection(name: "AssignedProjects")
-#  one to one relationship
-  skillSet: Skillset @connection(fields: ["skillSetID"])
+  #  one to one relationship
+  skillSet: Skillset @connection
 }
 
 # creating many to many using two 1-M connections
@@ -33,35 +33,34 @@ type Project @model {
 type Skillset @model {
   id: ID!
   java: Boolean
-    python: Boolean
-    cSharp: Boolean
-    cplusplus: Boolean
-    ruby: Boolean
-    dotNet: Boolean
-    javascript: Boolean
-    sql: Boolean
-    html: Boolean
-    css: Boolean
-      arrays: Boolean
-      linkedlists: Boolean
-      stacks: Boolean
-      queues: Boolean
-      trees: Boolean
-      hashes: Boolean
-      heaps: Boolean
-      sets: Boolean
-    postgresql: Boolean
-    mysql: Boolean
-    mongoDB: Boolean
-    dynamoDB: Boolean
-    AWS: Boolean
-    heroku: Boolean
-    firebase: Boolean
-    azure: Boolean
-      iOS: Boolean
-      android: Boolean
-      linux: Boolean
-      web: Boolean
-      react: Boolean
+  python: Boolean
+  cSharp: Boolean
+  cplusplus: Boolean
+  ruby: Boolean
+  dotNet: Boolean
+  javascript: Boolean
+  sql: Boolean
+  html: Boolean
+  css: Boolean
+  arrays: Boolean
+  linkedlists: Boolean
+  stacks: Boolean
+  queues: Boolean
+  trees: Boolean
+  hashes: Boolean
+  heaps: Boolean
+  sets: Boolean
+  postgresql: Boolean
+  mysql: Boolean
+  mongoDB: Boolean
+  dynamoDB: Boolean
+  AWS: Boolean
+  heroku: Boolean
+  firebase: Boolean
+  azure: Boolean
+  iOS: Boolean
+  android: Boolean
+  linux: Boolean
+  web: Boolean
+  react: Boolean
 }
-
