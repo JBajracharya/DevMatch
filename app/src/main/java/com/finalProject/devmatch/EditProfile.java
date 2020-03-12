@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,6 +43,8 @@ import type.CreateDeveloperInput;
 import type.CreateSkillsetInput;
 import type.UpdateDeveloperInput;
 
+import static android.view.View.VISIBLE;
+
 public class EditProfile extends AppCompatActivity {
 
     private AWSAppSyncClient mAWSAppSyncClient;
@@ -50,9 +53,9 @@ public class EditProfile extends AppCompatActivity {
     SkillSet skills;
     ArrayList<Projects> projects;
 
-    EditText name;
+    TextView name;
      EditText github;
-     EditText email;
+     TextView email;
      RadioButton frontEnd;
      RadioButton backEnd;
      RadioButton fullStack;
@@ -89,7 +92,13 @@ public class EditProfile extends AppCompatActivity {
                 .context(getApplicationContext())
                 .awsConfiguration(new AWSConfiguration(getApplicationContext()))
                 .build();
+        TextView profileUsername = (TextView) findViewById(R.id.name);
+        profileUsername.setText(AWSMobileClient.getInstance().getUsername());
+        profileUsername.setVisibility(VISIBLE);
 
+//        TextView profileEmail = (TextView) findViewById(R.id.email);
+//        profileEmail.setText(AWSMobileClient.getInstance().getUserAttributes().getValue);
+//        profileUsername.setVisibility(VISIBLE);
 
         Window window = this.getWindow();
 
