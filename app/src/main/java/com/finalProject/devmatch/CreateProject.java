@@ -64,11 +64,12 @@ public class CreateProject extends AppCompatActivity {
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#000000"));
         bar.setBackgroundDrawable(colorDrawable);
     }
-    public void runProjectsCreateMutation(String name, String description, String language, String dataBase,
+    public void runProjectsCreateMutation(String name, String description, String language,String dataBase,
                                           String env, String platform, String date, String link) {
         CreateProjectInput createProjectInput = CreateProjectInput.builder()
                 .name(name)
                 .description(description)
+                .owner(AWSMobileClient.getInstance().getUsername())
                 .language(language)
                 .database(dataBase)
                 .environment(env)
