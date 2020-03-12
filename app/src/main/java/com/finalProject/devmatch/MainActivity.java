@@ -4,11 +4,20 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.amazonaws.amplify.generated.graphql.ListProjectsQuery;
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.SignInUIOptions;
 import com.amazonaws.mobile.client.UserState;
 import com.amazonaws.mobile.client.UserStateDetails;
+import com.amazonaws.mobile.config.AWSConfiguration;
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
+import com.apollographql.apollo.GraphQLCall;
+import com.apollographql.apollo.api.Response;
+import com.apollographql.apollo.exception.ApolloException;
+import com.finalProject.devmatch.dummy.DummyContent;
+import com.finalProject.devmatch.models.Projects;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -18,8 +27,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 
 import android.view.Gravity;
@@ -31,13 +45,21 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Nonnull;
+
 import static android.view.View.VISIBLE;
 import static com.amazonaws.mobile.client.UserState.SIGNED_IN;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ProjectListFragment.OnListFragmentInteractionListener {
     private DrawerLayout drawer;
     static String TAG = "mainActivity";
     String username;
+
+    List<Projects> listOfProjects;
+    private AWSAppSyncClient mAWSAppSyncClient;
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -220,9 +242,86 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Log.e("INIT", "Initialization error.", e);
                     }
                 }
+
+
         );
 
+//        recyclerview start :::::::::::::::::::::::::::::::::;
+        //        pulls in context from aws
+        mAWSAppSyncClient = AWSAppSyncClient.builder()
+                .context(getApplicationContext())
+                .awsConfiguration(new AWSConfiguration(getApplicationContext()))
+                .build();
+
+
+        this.listOfProjects = new ArrayList<Projects>();
+//        runQuery();
+
+
+        listOfProjects.add(new Projects("Test", "Test", "Test", "Test"));
+        listOfProjects.add(new Projects("match", "match", "test", "test"));
+
+
+//        showing list of projects in the recycler view
+        RecyclerView recyclerView = findViewById(R.id.fragment3);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new MyProjectListRecyclerViewAdapter(this.listOfProjects, this));
+
     }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
+    }
+
+    //    get task data from dynamo db and show to the the recycler View :::::::::::::::::::::
+    public void runQuery(){
+        mAWSAppSyncClient.query(ListProjectsQuery.builder().build())
+                .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
+                .enqueue(projectCallback);
+    }
+
+    private GraphQLCall.Callback<ListProjectsQuery.Data> projectCallback = new GraphQLCall.Callback<ListProjectsQuery.Data>() {
+        @Override
+        public void onResponse(@Nonnull final Response<ListProjectsQuery.Data> response) {
+            Log.i(TAG, response.data().listProjects().items().toString());
+
+            listOfProjects.clear();
+
+            for( ListProjectsQuery.Item item : response.data().listProjects().items()) {
+                Log.i(TAG, item.name());
+                listOfProjects.add(new Projects(item.name(),item.description(), item.date(), item.link()));
+            }
+            for (Projects t :
+                    listOfProjects) {
+                Log.i(TAG, "taskList" + t.getName() );
+            }
+
+
+//            this is necessary any time you modify content in the view
+//            looper lets us send an action to the main ui thread (getMainLooper)
+            Handler handlerForMainThread = new Handler(Looper.getMainLooper()) {
+                @Override
+                public void handleMessage(Message inputMessage) {
+
+
+                    RecyclerView recyclerView = findViewById(R.id.fragment3);
+                    recyclerView.getAdapter().notifyItemInserted(0);
+                    recyclerView.getAdapter().notifyDataSetChanged();
+                    recyclerView.getLayoutManager().scrollToPosition(0);
+                }
+            };
+            handlerForMainThread.obtainMessage().sendToTarget();
+
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e(TAG, e.toString());
+        }
+    };
+
+//  Recycler View end  :::::::::::::::::::::::::::::::::::::::::::::::::::
 
     @Override
     public void onBackPressed() {
@@ -308,4 +407,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
         );
     }
+
+
 }
