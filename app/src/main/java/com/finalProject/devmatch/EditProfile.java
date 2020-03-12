@@ -3,13 +3,18 @@ package com.finalProject.devmatch;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+
+import com.amazonaws.amplify.generated.graphql.CreateDeveloperMutation;
+import com.amazonaws.amplify.generated.graphql.CreateSkillsetMutation;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
@@ -19,16 +24,24 @@ import com.finalProject.devmatch.models.SkillSet;
 import javax.annotation.Nonnull;
 
 import type.CreateDeveloperInput;
+import type.CreateSkillsetInput;
 
 public class EditProfile extends AppCompatActivity {
 
     private AWSAppSyncClient mAWSAppSyncClient;
     private String TAG = "STG";
 
+    // THIS WILL BE REPLACED WITH A QUERY TO GET CURRENT USER OBJ
+    final Developer dev = new Developer();
+    //////////
+    final SkillSet skills = new SkillSet();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        Log.i(TAG,"EditProfile Activity Created");
 
         final EditText name = findViewById(R.id.name);
         final EditText github = findViewById(R.id.github);
@@ -66,14 +79,12 @@ public class EditProfile extends AppCompatActivity {
                 .awsConfiguration(new AWSConfiguration(getApplicationContext()))
                 .build();
 
-        // THIS WILL BE REPLACED WITH A QUERY TO GET CURRENT USER OBJ
-        final Developer dev = new Developer();
-        //////////
-        final SkillSet skills = new SkillSet();
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Log.i(TAG,"Clicked");
 
                 dev.setName(name.getText().toString());
                 dev.setGithub(github.getText().toString());
@@ -161,43 +172,79 @@ public class EditProfile extends AppCompatActivity {
 
                 dev.setSkills(skills);
 
-                // Then save this into database
+                runSkillsetCreateMutation(skills);
             }
         });
     }
-//    public void runTaskCreateMutation(String name, String github, String email, SkillSet skills, String type) {
-//        CreateDeveloperInput createDeveloperInput = CreateDeveloperInput.builder().
-//                name(name).
-//                github(github).
-//                email(email).
-////                skills(skills).
-//                type(type).
-//                build();
-//
-//        mAWSAppSyncClient.mutate(CreateTaskMutation.builder().input(createTaskInput).build())
-//                .enqueue(mutationCallback);
-//    }
-//
-//    private GraphQLCall.Callback<CreateTaskMutation.Data> mutationCallback = new GraphQLCall.Callback<CreateTaskMutation.Data>() {
-//        @Override
-//        public void onResponse(@Nonnull Response<CreateTaskMutation.Data> response) {
-//            Log.i(TAG, response.data().toString());
-//        }
-//
-//        @Override
-//        public void onFailure(@Nonnull ApolloException e) {
-//            Log.e("Error", e.toString());
-//        }
-//
-//    };
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (requestCode == 543 && resultCode == RESULT_OK && null != data) {
-//
-//            setImage(data.getData());
-//        }
-//    }
+    public void runSkillsetCreateMutation(SkillSet skills) {
+        CreateSkillsetInput createSkillsetInput = CreateSkillsetInput.builder().
+                java(skills.isJava()).
+                python(skills.isPython()).
+                cSharp(skills.iscSharp()).
+                cplusplus(skills.isCplusplus()).
+                ruby(skills.isRuby()).
+                dotNet(skills.isDotNet()).
+                javascript(skills.isJavascript()).
+                sql(skills.isSql()).
+                html(skills.isHtml()).
+                css(skills.isCss()).
+                postgresql(skills.isPostgresql()).
+                mysql(skills.isMysql()).
+                mongoDB(skills.isMongoDB()).
+                dynamoDB(skills.isDynamoDB()).
+                aWS(skills.isAWS()).
+                heroku(skills.isHeroku()).
+                firebase(skills.isFirebase()).
+                azure(skills.isAzure()).
+                iOS(skills.isiOS()).
+                android(skills.isAndroid()).
+                linux(skills.isLinux()).
+                web(skills.isWeb()).
+                react(skills.isReact()).
+                build();
+
+        mAWSAppSyncClient.mutate(CreateSkillsetMutation.builder().input(createSkillsetInput).build())
+                .enqueue(mutationCallback);
+    }
+
+    private GraphQLCall.Callback<CreateSkillsetMutation.Data> mutationCallback = new GraphQLCall.Callback<CreateSkillsetMutation.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<CreateSkillsetMutation.Data> response) {
+            Log.i(TAG,"Success");
+            runDeveloperCreateMutation(dev.getName(),dev.getGithub(),dev.getEmail(),response.data().createSkillset().id(),"Front End");
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("Error", e.toString());
+        }
+
+    };
+
+    public void runDeveloperCreateMutation(String name, String github, String email, String id, String type) {
+        CreateDeveloperInput createDeveloperInput = CreateDeveloperInput.builder().
+                name(name).
+                github(github).
+                email(email).
+                developerSkillSetId(id).
+                type(type).
+                build();
+
+        mAWSAppSyncClient.mutate(CreateDeveloperMutation.builder().input(createDeveloperInput).build())
+                .enqueue(mutationCallbacky);
+    }
+
+    private GraphQLCall.Callback<CreateDeveloperMutation.Data> mutationCallbacky = new GraphQLCall.Callback<CreateDeveloperMutation.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<CreateDeveloperMutation.Data> response) {
+            Log.i(TAG, response.data().toString());
+            Log.i(TAG,"SUCCESS");
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("Error", e.toString());
+        }
+
+    };
 }

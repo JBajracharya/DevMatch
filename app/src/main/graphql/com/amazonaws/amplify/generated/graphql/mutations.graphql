@@ -8,13 +8,38 @@ mutation CreateDeveloper(
     name
     github
     email
-    skills
     type
     currentProjects {
       items {
         id
       }
       nextToken
+    }
+    skillSet {
+      id
+      java
+      python
+      cSharp
+      cplusplus
+      ruby
+      dotNet
+      javascript
+      sql
+      html
+      css
+      postgresql
+      mysql
+      mongoDB
+      dynamoDB
+      AWS
+      heroku
+      firebase
+      azure
+      iOS
+      android
+      linux
+      web
+      react
     }
   }
 }
@@ -27,13 +52,38 @@ mutation UpdateDeveloper(
     name
     github
     email
-    skills
     type
     currentProjects {
       items {
         id
       }
       nextToken
+    }
+    skillSet {
+      id
+      java
+      python
+      cSharp
+      cplusplus
+      ruby
+      dotNet
+      javascript
+      sql
+      html
+      css
+      postgresql
+      mysql
+      mongoDB
+      dynamoDB
+      AWS
+      heroku
+      firebase
+      azure
+      iOS
+      android
+      linux
+      web
+      react
     }
   }
 }
@@ -46,13 +96,38 @@ mutation DeleteDeveloper(
     name
     github
     email
-    skills
     type
     currentProjects {
       items {
         id
       }
       nextToken
+    }
+    skillSet {
+      id
+      java
+      python
+      cSharp
+      cplusplus
+      ruby
+      dotNet
+      javascript
+      sql
+      html
+      css
+      postgresql
+      mysql
+      mongoDB
+      dynamoDB
+      AWS
+      heroku
+      firebase
+      azure
+      iOS
+      android
+      linux
+      web
+      react
     }
   }
 }
@@ -67,10 +142,35 @@ mutation CreateTeamMate(
       name
       github
       email
-      skills
       type
       currentProjects {
         nextToken
+      }
+      skillSet {
+        id
+        java
+        python
+        cSharp
+        cplusplus
+        ruby
+        dotNet
+        javascript
+        sql
+        html
+        css
+        postgresql
+        mysql
+        mongoDB
+        dynamoDB
+        AWS
+        heroku
+        firebase
+        azure
+        iOS
+        android
+        linux
+        web
+        react
       }
     }
     currentProject {
@@ -97,10 +197,35 @@ mutation UpdateTeamMate(
       name
       github
       email
-      skills
       type
       currentProjects {
         nextToken
+      }
+      skillSet {
+        id
+        java
+        python
+        cSharp
+        cplusplus
+        ruby
+        dotNet
+        javascript
+        sql
+        html
+        css
+        postgresql
+        mysql
+        mongoDB
+        dynamoDB
+        AWS
+        heroku
+        firebase
+        azure
+        iOS
+        android
+        linux
+        web
+        react
       }
     }
     currentProject {
@@ -127,10 +252,35 @@ mutation DeleteTeamMate(
       name
       github
       email
-      skills
       type
       currentProjects {
         nextToken
+      }
+      skillSet {
+        id
+        java
+        python
+        cSharp
+        cplusplus
+        ruby
+        dotNet
+        javascript
+        sql
+        html
+        css
+        postgresql
+        mysql
+        mongoDB
+        dynamoDB
+        AWS
+        heroku
+        firebase
+        azure
+        iOS
+        android
+        linux
+        web
+        react
       }
     }
     currentProject {
@@ -219,14 +369,6 @@ mutation CreateSkillset(
     sql
     html
     css
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
     postgresql
     mysql
     mongoDB
@@ -258,14 +400,6 @@ mutation UpdateSkillset(
     sql
     html
     css
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
     postgresql
     mysql
     mongoDB
@@ -297,14 +431,6 @@ mutation DeleteSkillset(
     sql
     html
     css
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
     postgresql
     mysql
     mongoDB
