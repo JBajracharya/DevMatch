@@ -22,6 +22,7 @@ public class Projects {
     private String date;
     private String link;
 
+    private ArrayList<String> devRequests;
     private ArrayList<String> developers;
 
 
@@ -82,7 +83,6 @@ public class Projects {
                 this.language = Language.css;
                 break;
 
-
         }
 
     }
@@ -93,8 +93,6 @@ public class Projects {
         mysql,
         mongoDB,
         dynamoDB,
-
-
     }
 
     public void setDatabase(String database){
@@ -112,7 +110,6 @@ public class Projects {
                 this.dataBase =Database.dynamoDB;
                 break;
 
-
         }
 
     }
@@ -121,10 +118,6 @@ public class Projects {
         heroku,
         firebase,
         azure,
-
-
-
-
     }
 
     public void setEnvironment(String environment){
@@ -182,12 +175,6 @@ public class Projects {
         }
 
     }
-
-
-
-
-
-
 
     public Projects(){
 
@@ -280,6 +267,14 @@ public class Projects {
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    public ArrayList<String> getDevRequests() {
+        return devRequests;
+    }
+
+    public void setDevRequests(ArrayList<String> devRequests) {
+        this.devRequests = devRequests;
     }
 
 }
