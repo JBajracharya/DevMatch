@@ -34,6 +34,7 @@ import com.finalProject.devmatch.models.SkillSet;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
@@ -49,13 +50,46 @@ public class EditProfile extends AppCompatActivity {
     SkillSet skills;
     ArrayList<Projects> projects;
 
+    EditText name;
+     EditText github;
+     EditText email;
+     RadioButton frontEnd;
+     RadioButton backEnd;
+     RadioButton fullStack;
+     CheckBox java;
+     CheckBox python;
+     CheckBox cSharp;
+     CheckBox cPlusPlus;
+     CheckBox ruby;
+     CheckBox dotNet;
+     CheckBox javascript;
+     CheckBox sql;
+     CheckBox html;
+     CheckBox css;
+     CheckBox postgresql;
+     CheckBox mysql;
+     CheckBox mongoDB;
+     CheckBox dynamoDB;
+     CheckBox AWS;
+     CheckBox heroku;
+     CheckBox firebase;
+     CheckBox azure;
+     CheckBox iOS;
+     CheckBox android;
+     CheckBox linux;
+     CheckBox web;
+     CheckBox react;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        getDev();
-        skills = dev.getSkills();
+        mAWSAppSyncClient = AWSAppSyncClient.builder()
+                .context(getApplicationContext())
+                .awsConfiguration(new AWSConfiguration(getApplicationContext()))
+                .build();
+
 
         Window window = this.getWindow();
 
@@ -75,114 +109,39 @@ public class EditProfile extends AppCompatActivity {
 
         Log.i(TAG,"EditProfile Activity Created");
 
-        final EditText name = findViewById(R.id.name);
-        final EditText github = findViewById(R.id.github);
-        final EditText email = findViewById(R.id.email);
-        final RadioButton frontEnd = findViewById(R.id.frontEnd);
-        final RadioButton backEnd = findViewById(R.id.backEnd);
-        final RadioButton fullStack = findViewById(R.id.fullStack);
-        final CheckBox java = findViewById(R.id.java);
-        final CheckBox python = findViewById(R.id.python);
-        final CheckBox cSharp = findViewById(R.id.cSharp);
-        final CheckBox cPlusPlus = findViewById(R.id.cPlusPlus);
-        final CheckBox ruby = findViewById(R.id.ruby);
-        final CheckBox dotNet = findViewById(R.id.dotNet);
-        final CheckBox javascript = findViewById(R.id.javascript);
-        final CheckBox sql = findViewById(R.id.sql);
-        final CheckBox html = findViewById(R.id.html);
-        final CheckBox css = findViewById(R.id.css);
-        final CheckBox postgresql = findViewById(R.id.postgresql);
-        final CheckBox mysql = findViewById(R.id.mysql);
-        final CheckBox mongoDB = findViewById(R.id.mongoDB);
-        final CheckBox dynamoDB = findViewById(R.id.dynamoDB);
-        final CheckBox AWS = findViewById(R.id.AWS);
-        final CheckBox heroku = findViewById(R.id.heroku);
-        final CheckBox firebase = findViewById(R.id.firebase);
-        final CheckBox azure = findViewById(R.id.azure);
-        final CheckBox iOS = findViewById(R.id.iOS);
-        final CheckBox android = findViewById(R.id.android);
-        final CheckBox linux = findViewById(R.id.linux);
-        final CheckBox web = findViewById(R.id.web);
-        final CheckBox react = findViewById(R.id.react);
+        name = findViewById(R.id.name);
+        github = findViewById(R.id.github);
+        email = findViewById(R.id.email);
+        frontEnd = findViewById(R.id.frontEnd);
+        backEnd = findViewById(R.id.backEnd);
+        fullStack = findViewById(R.id.fullStack);
+        java = findViewById(R.id.java);
+        python = findViewById(R.id.python);
+        cSharp = findViewById(R.id.cSharp);
+        cPlusPlus = findViewById(R.id.cPlusPlus);
+        ruby = findViewById(R.id.ruby);
+        dotNet = findViewById(R.id.dotNet);
+        javascript = findViewById(R.id.javascript);
+        sql = findViewById(R.id.sql);
+        html = findViewById(R.id.html);
+        css = findViewById(R.id.css);
+        postgresql = findViewById(R.id.postgresql);
+        mysql = findViewById(R.id.mysql);
+        mongoDB = findViewById(R.id.mongoDB);
+        dynamoDB = findViewById(R.id.dynamoDB);
+        AWS = findViewById(R.id.AWS);
+        heroku = findViewById(R.id.heroku);
+        firebase = findViewById(R.id.firebase);
+        azure = findViewById(R.id.azure);
+        iOS = findViewById(R.id.iOS);
+        android = findViewById(R.id.android);
+        linux = findViewById(R.id.linux);
+        web = findViewById(R.id.web);
+        react = findViewById(R.id.react);
         final Button update = findViewById(R.id.update);
 
-        name.setText(dev.getName());
-        github.setText(dev.getGithub());
-        email.setText(dev.getEmail());
-        if(skills.isJava()){
-            java.setChecked(true);
-        }
-        if(skills.isPython()){
-            python.setChecked(true);
-        }
-        if(skills.iscSharp()){
-            cSharp.setChecked(true);
-        }
-        if(skills.isCplusplus()){
-            cPlusPlus.setChecked(true);
-        }
-        if(skills.isRuby()){
-            ruby.setChecked(true);
-        }
-        if(skills.isDotNet()){
-            dotNet.setChecked(true);
-        }
-        if(skills.isJavascript()){
-            javascript.setChecked(true);
-        }
-        if(skills.isSql()){
-            sql.setChecked(true);
-        }
-        if(skills.isHtml()){
-            html.setChecked(true);
-        }
-        if(skills.isCss()){
-            css.setChecked(true);
-        }
-        if(skills.isPostgresql()){
-            postgresql.setChecked(true);
-        }
-        if(skills.isMysql()){
-            mysql.setChecked(true);
-        }
-        if(skills.isMongoDB()){
-            mongoDB.setChecked(true);
-        }
-        if(skills.isDynamoDB()){
-            dynamoDB.setChecked(true);
-        }
-        if(skills.isAWS()){
-            AWS.setChecked(true);
-        }
-        if(skills.isHeroku()){
-            heroku.setChecked(true);
-        }
-        if(skills.isFirebase()){
-            firebase.setChecked(true);
-        }
-        if(skills.isAzure()){
-            azure.setChecked(true);
-        }
-        if(skills.isiOS()){
-            iOS.setChecked(true);
-        }
-        if(skills.isAndroid()){
-            android.setChecked(true);
-        }
-        if(skills.isLinux()){
-            linux.setChecked(true);
-        }
-        if(skills.isWeb()){
-            web.setChecked(true);
-        }
-        if(skills.isReact()){
-            react.setChecked(true);
-        }
+        getDev();
 
-        mAWSAppSyncClient = AWSAppSyncClient.builder()
-                .context(getApplicationContext())
-                .awsConfiguration(new AWSConfiguration(getApplicationContext()))
-                .build();
 
 
         update.setOnClickListener(new View.OnClickListener() {
@@ -411,21 +370,27 @@ public class EditProfile extends AppCompatActivity {
             GraphQLCall.Callback<ListDevelopersQuery.Data>() {
                 @Override
                 public void onResponse(@Nonnull final Response<ListDevelopersQuery.Data> response) {
-                    List<ListDevelopersQuery.Item> items = response.data().listDevelopers().items();
+                    assert response.data() != null;
+                    List<ListDevelopersQuery.Item> items = Objects.requireNonNull(response.data().listDevelopers()).items();
+                    assert items != null;
                     for(int i = 0; i < items.size(); i++){
-                        if(items.get(i).username() == AWSMobileClient.getInstance().getUsername()){
+                        if(Objects.equals(items.get(i).username(), AWSMobileClient.getInstance().getUsername())){
                             ListDevelopersQuery.SkillSet skillSet = items.get(i).skillSet();
-                            SkillSet skills = new SkillSet(skillSet.id(),skillSet.java(),skillSet.python(),
-                                    skillSet.cSharp(),skillSet.cplusplus(),skillSet.ruby(),skillSet.dotNet(),
-                                    skillSet.javascript(),skillSet.sql(),skillSet.html(),skillSet.css(),
-                                    skillSet.postgresql(),skillSet.mysql(),skillSet.mongoDB(),skillSet.dynamoDB(),
-                                    skillSet.AWS(),skillSet.heroku(),skillSet.firebase(),skillSet.azure(),skillSet.iOS(),
-                                    skillSet.android(),skillSet.linux(),skillSet.web(),skillSet.react());
+                            if(skillSet != null){
+                                Log.i(TAG,skillSet.toString());
+                                skills = new SkillSet(skillSet.id(),skillSet.java(),skillSet.python(),
+                                        skillSet.cSharp(),skillSet.cplusplus(),skillSet.ruby(),skillSet.dotNet(),
+                                        skillSet.javascript(),skillSet.sql(),skillSet.html(),skillSet.css(),
+                                        skillSet.postgresql(),skillSet.mysql(),skillSet.mongoDB(),skillSet.dynamoDB(),
+                                        skillSet.AWS(),skillSet.heroku(),skillSet.firebase(),skillSet.azure(),skillSet.iOS(),
+                                        skillSet.android(),skillSet.linux(),skillSet.web(),skillSet.react());
+                            }
                             ListDevelopersQuery.Item item = items.get(i);
                             dev = new Developer(item.id(),item.username(),item.username(),item.github(),item.email());
                             dev.setSkills(skills);
                             getProjects();
                             dev.setCurrentProjects(projects);
+                            devStuff();
 
                         }
                     }
@@ -446,7 +411,7 @@ public class EditProfile extends AppCompatActivity {
             GraphQLCall.Callback<ListProjectsQuery.Data>() {
                 @Override
                 public void onResponse(@Nonnull final Response<ListProjectsQuery.Data> response) {
-                    ArrayList<String> developers;
+                    ArrayList<String> developers = new ArrayList<>();
                     List<ListProjectsQuery.Item> items = response.data().listProjects().items();
                     for(int i = 0; i < items.size(); i++){
                         if(items.get(i).developers().toString().contains(AWSMobileClient.getInstance().getUsername())){
@@ -461,6 +426,15 @@ public class EditProfile extends AppCompatActivity {
                             project.setPlatform(item.platform());
                             project.setDate(item.date());
                             project.setLink(item.link());
+                            String devs = item.developers().toString();
+                            for(int j = 0; j < devs.length(); j++){
+                                int beg = 0;
+                                if(devs.charAt(j) == ','){
+                                    developers.add(devs.substring(beg,j));
+                                    beg = j + 1;
+                                }
+                            }
+                            project.setDevelopers(developers);
                             projects.add(project);
                         }
                     }
@@ -471,4 +445,78 @@ public class EditProfile extends AppCompatActivity {
                     Log.i(TAG,"Failure");
                 }
             };
+    public void devStuff(){
+        name.setText(dev.getName());
+        github.setText(dev.getGithub());
+        email.setText(dev.getEmail());
+        if(skills.isJava()){
+            java.setChecked(true);
+        }
+        if(skills.isPython()){
+            python.setChecked(true);
+        }
+        if(skills.iscSharp()){
+            cSharp.setChecked(true);
+        }
+        if(skills.isCplusplus()){
+            cPlusPlus.setChecked(true);
+        }
+        if(skills.isRuby()){
+            ruby.setChecked(true);
+        }
+        if(skills.isDotNet()){
+            dotNet.setChecked(true);
+        }
+        if(skills.isJavascript()){
+            javascript.setChecked(true);
+        }
+        if(skills.isSql()){
+            sql.setChecked(true);
+        }
+        if(skills.isHtml()){
+            html.setChecked(true);
+        }
+        if(skills.isCss()){
+            css.setChecked(true);
+        }
+        if(skills.isPostgresql()){
+            postgresql.setChecked(true);
+        }
+        if(skills.isMysql()){
+            mysql.setChecked(true);
+        }
+        if(skills.isMongoDB()){
+            mongoDB.setChecked(true);
+        }
+        if(skills.isDynamoDB()){
+            dynamoDB.setChecked(true);
+        }
+        if(skills.isAWS()){
+            AWS.setChecked(true);
+        }
+        if(skills.isHeroku()){
+            heroku.setChecked(true);
+        }
+        if(skills.isFirebase()){
+            firebase.setChecked(true);
+        }
+        if(skills.isAzure()){
+            azure.setChecked(true);
+        }
+        if(skills.isiOS()){
+            iOS.setChecked(true);
+        }
+        if(skills.isAndroid()){
+            android.setChecked(true);
+        }
+        if(skills.isLinux()){
+            linux.setChecked(true);
+        }
+        if(skills.isWeb()){
+            web.setChecked(true);
+        }
+        if(skills.isReact()){
+            react.setChecked(true);
+        }
+    }
 }
