@@ -1313,6 +1313,7 @@
                         "isDeprecated": false,
                         "deprecationReason": null
                     },
+                    {
                         "name": "android",
                         "description": null,
                         "args": [],
@@ -1589,13 +1590,9 @@
                         "name": "attributeExists",
                         "description": null,
                         "type": {
-                            "kind": "LIST",
-                            "name": null,
-                            "ofType": {
-                                "kind": "INPUT_OBJECT",
-                                "name": "ModelProjectFilterInput",
-                                "ofType": null
-                            }
+                            "kind": "SCALAR",
+                            "name": "Boolean",
+                            "ofType": null
                         },
                         "defaultValue": null
                     },
@@ -2720,16 +2717,6 @@
                             "ofType": null
                         },
                         "defaultValue": null
-                    },
-                    {
-                        "name": "developerSkillSetId",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
-                            "ofType": null
-                        },
-                        "defaultValue": null
                     }
                 ],
                 "interfaces": null,
@@ -2901,16 +2888,6 @@
                         "type": {
                             "kind": "SCALAR",
                             "name": "String",
-                            "ofType": null
-                        },
-                        "defaultValue": null
-                    },
-                    {
-                        "name": "developerSkillSetId",
-                        "description": null,
-                        "type": {
-                            "kind": "SCALAR",
-                            "name": "ID",
                             "ofType": null
                         },
                         "defaultValue": null
