@@ -2,6 +2,9 @@ package com.finalProject.devmatch;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,8 @@ import com.finalProject.devmatch.ProjectListFragment.OnListFragmentInteractionLi
 import com.finalProject.devmatch.dummy.DummyContent.DummyItem;
 import com.finalProject.devmatch.models.Projects;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 /**
@@ -19,7 +24,7 @@ import java.util.List;
  * TODO: Replace the implementation with code for your data type.
  */
 public class MyProjectListRecyclerViewAdapter extends RecyclerView.Adapter<MyProjectListRecyclerViewAdapter.ViewHolder> {
-
+    static String TAG = "RecyclerView";
     private final List<Projects> mValues;
     private final OnListFragmentInteractionListener mListener;
 
@@ -36,14 +41,24 @@ public class MyProjectListRecyclerViewAdapter extends RecyclerView.Adapter<MyPro
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mValues.get(position);
         holder.mNameView.setText(mValues.get(position).getName());
         holder.mDescriptionView.setText(mValues.get(position).getDescription());
 
+
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i(TAG, "clicked on the view");
+
+                Context context = v.getContext();
+                Intent goToProjectDetailPage = new Intent(context, ProjectDetail.class);
+                goToProjectDetailPage.putExtra("mNameView", holder.mNameView.getText());
+                goToProjectDetailPage.putExtra("mDescriptionView", holder.mDescriptionView.getText());
+                goToProjectDetailPage.putExtra("mLinkView", mValues.get(position).getLink());
+                context.startActivity(goToProjectDetailPage);
+
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
