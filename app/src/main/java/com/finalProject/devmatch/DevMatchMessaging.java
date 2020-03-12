@@ -24,9 +24,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -48,14 +45,12 @@ import com.finalProject.devmatch.firebase.IntraDevMessaging;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.firebase.ui.database.SnapshotParser;
-//import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -103,7 +98,7 @@ public class DevMatchMessaging extends AppCompatActivity
     private String mUsername;
     private String mPhotoUrl;
     private SharedPreferences mSharedPreferences;
-    private GoogleApiClient mGoogleApiClient;
+
 
 
     private Button mSendButton;
@@ -121,17 +116,15 @@ public class DevMatchMessaging extends AppCompatActivity
             mFirebaseAdapter;
     private FirebaseAuth mAuth;
     String token;
+    String sharedUSERNAME;
 
 
     private void signInAnonymously() {
-        // showProgressBar();
-        // [START signin_anonymously]
         mFirebaseAuth.signInAnonymously()
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInAnonymously:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             FirebaseInstanceId.getInstance().getInstanceId()
@@ -143,13 +136,9 @@ public class DevMatchMessaging extends AppCompatActivity
                                                 return;
                                             }
 
-                                            // Get new Instance ID token
                                             String token = task.getResult().getToken();
                                             Log.d("TOKENMMMMMMM", token);
 
-                                            // Log and toast
-                                            //String msg = getString(R.string.msg_token_fmt, token);
-                                            //Log.d(TAG, msg);
                                             Toast.makeText(DevMatchMessaging.this, token, Toast.LENGTH_SHORT).show();
                                         }
                                     });
@@ -157,14 +146,8 @@ public class DevMatchMessaging extends AppCompatActivity
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInAnonymously:failure", task.getException());
-                            //   Toast.makeText(AnonymousAuthActivity.this, "Authentication failed.",
-                            //           Toast.LENGTH_SHORT).show();
-                            //    updateUI(null);
                         }
 
-                        // [START_EXCLUDE]
-                        //   hideProgressBar();
-                        // [END_EXCLUDE]
                     }
                 });
         // [END signin_anonymously]
@@ -184,7 +167,6 @@ public class DevMatchMessaging extends AppCompatActivity
                         // Get new Instance ID token
                         token = task.getResult().getToken();
 
-                        // Log and toast
                         Log.i("TOKEN", token);
                     }
                 });
@@ -197,7 +179,8 @@ public class DevMatchMessaging extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         Intent incomingIntent = getIntent();
-        mUsername = incomingIntent.getStringExtra("username");
+        sharedUSERNAME = incomingIntent.getStringExtra("username");
+        //Log.i("USERNAME IS", mUsername);
         setContentView(R.layout.devmatch_messaging);
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         // Set default username is anonymous.
@@ -213,7 +196,6 @@ public class DevMatchMessaging extends AppCompatActivity
             // Not signed in, launch the Sign In activity
             //startActivity(new Intent(this, SignInActivity.class));
             signInAnonymously();
-
 
             finish();
             return;
@@ -327,9 +309,7 @@ public class DevMatchMessaging extends AppCompatActivity
                 int devMessageCount = mFirebaseAdapter.getItemCount();
                 int lastVisiblePosition =
                         mLinearLayoutManager.findLastCompletelyVisibleItemPosition();
-                // If the recycler view is initially being loaded or the
-                // user is at the bottom of the list, scroll to the bottom
-                // of the list to show the newly added message.
+
                 if (lastVisiblePosition == -1 ||
                         (positionStart >= (devMessageCount - 1) &&
                                 lastVisiblePosition == (positionStart - 1))) {
@@ -364,9 +344,10 @@ public class DevMatchMessaging extends AppCompatActivity
         mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String messagePost = sharedUSERNAME + ": " + mMessageEditText.getText().toString();
                 IntraDevMessaging devMessage = new
-                        IntraDevMessaging(mMessageEditText.getText().toString(),
-                        mUsername,
+                        IntraDevMessaging(messagePost,
+                        sharedUSERNAME,
                         "",
                         mPhotoUrl,
                         null /* no image */);
@@ -406,6 +387,7 @@ public class DevMatchMessaging extends AppCompatActivity
     @Override
     public void onResume() {
         super.onResume();
+        sharedUSERNAME = getIntent().getStringExtra("username");
         mFirebaseAdapter.startListening();
     }
 
@@ -414,17 +396,6 @@ public class DevMatchMessaging extends AppCompatActivity
         super.onDestroy();
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-////        MenuInflater inflater = getMenuInflater();
-////        inflater.inflate(R.menu.main_menu, menu);
-////        return true;
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//
-//    }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
@@ -445,7 +416,8 @@ public class DevMatchMessaging extends AppCompatActivity
                     final Uri uri = data.getData();
                     Log.d(TAG, "Uri: " + uri.toString());
 
-                    IntraDevMessaging tempMessage = new IntraDevMessaging(null, mUsername, "", mPhotoUrl,
+                    sharedUSERNAME = getIntent().getStringExtra("username");
+                    IntraDevMessaging tempMessage = new IntraDevMessaging(null, sharedUSERNAME, "", mPhotoUrl,
                             LOADING_IMAGE_URL);
                     mFirebaseDatabaseReference.child(MESSAGES_CHILD).push()
                             .setValue(tempMessage, new DatabaseReference.CompletionListener() {
@@ -485,7 +457,7 @@ public class DevMatchMessaging extends AppCompatActivity
                                                 public void onComplete(@NonNull Task<Uri> task) {
                                                     if (task.isSuccessful()) {
                                                         IntraDevMessaging devMessage =
-                                                                new IntraDevMessaging(null, mUsername, "", mPhotoUrl,
+                                                                new IntraDevMessaging(null, sharedUSERNAME, "", mPhotoUrl,
                                                                         task.getResult().toString());
                                                         mFirebaseDatabaseReference.child(MESSAGES_CHILD).child(key)
                                                                 .setValue(devMessage);

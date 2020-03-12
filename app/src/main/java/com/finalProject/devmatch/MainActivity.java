@@ -29,7 +29,7 @@ import static com.amazonaws.mobile.client.UserState.SIGNED_IN;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     static String TAG = "mainActivity";
-    String username = "";
+    String username;
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -44,8 +44,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                break;
 
             case R.id.nav_message:
-                if(AWSMobileClient.getInstance().currentUserState().equals(SIGNED_IN)) {
+                if(AWSMobileClient.getInstance().currentUserState().getUserState().equals(SIGNED_IN)) {
                     Intent intent = new Intent(this, DevMatchMessaging.class);
+                    Log.i("@@2@@@2@@@@@@@@@@@", username);
                     intent.putExtra("username", username);
                     startActivity(intent);
                     return true;
@@ -76,6 +77,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
 
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        username = AWSMobileClient.getInstance().getUsername();
+        if(username != null)
+        {
+            Log.i("USERNAME!!!!!!!!!!", username);
+        }
     }
 
     @Override
@@ -114,6 +125,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        });
 
 //    }
+
+
 //
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
@@ -147,6 +160,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onResult(UserStateDetails userStateDetails) {
                         Log.i("INIT", "onResult: " + userStateDetails.getUserState());
+                        username = AWSMobileClient.getInstance().getUsername();
+                        Log.i("USERUSERUSER", username);
                         if(userStateDetails.getUserState().equals(UserState.SIGNED_OUT)) {
 
                             //        Drop-in pre build auth
@@ -161,7 +176,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                             switch (result.getUserState()){
                                                 case SIGNED_IN:
                                                     Log.i("INIT", "logged in!");
-                                                    username = AWSMobileClient.getInstance().getUsername();
                                                     break;
                                                 case SIGNED_OUT:
                                                     Log.i(TAG, "onResult: User did not choose to sign-in");
@@ -187,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 }
         );
-
+        username = AWSMobileClient.getInstance().getUsername();
 
     }
 
@@ -220,6 +234,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.action_settings) {
                 return true;
         }
+        if(id == R.id.authenticate)
+        {
+            authenticate();
+        }
 
         if(id == R.id.action_signOut) {
             //    method to log out user and send to log in page :::::::::::::::::::
@@ -230,5 +248,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void authenticate()
+    {
+        AWSMobileClient.getInstance().showSignIn(
+                this,
+                SignInUIOptions.builder()
+                        .nextActivity(MainActivity.class)
+                        .canCancel(true)
+                        .build(),
+                new Callback<UserStateDetails>() {
+                    @Override
+                    public void onResult(UserStateDetails result) {
+                        //Log.d(TAG, "onResult: " + result.getUserState());
+                        switch (result.getUserState()){
+                            case SIGNED_IN:
+                                Log.i("INIT", "logged in!");
+                                break;
+                            case SIGNED_OUT:
+                                //Log.i(TAG, "onResult: User did not choose to sign-in");
+                                break;
+                            default:
+                                AWSMobileClient.getInstance().signOut();
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        //Log.e(TAG, "onError: ", e);
+                    }
+                }
+        );
     }
 }
