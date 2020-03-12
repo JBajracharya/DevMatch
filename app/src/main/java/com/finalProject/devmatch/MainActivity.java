@@ -22,6 +22,9 @@ import android.util.Log;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import static com.amazonaws.mobile.client.UserState.SIGNED_IN;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -41,13 +44,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                break;
 
             case R.id.nav_message:
-
-                Intent intent = new Intent(this, DevMatchMessaging.class);
-                intent.putExtra("username", username);
-                startActivity(intent);
+                if(AWSMobileClient.getInstance().currentUserState().equals(SIGNED_IN)) {
+                    Intent intent = new Intent(this, DevMatchMessaging.class);
+                    intent.putExtra("username", username);
+                    startActivity(intent);
+                    return true;
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Please login or register", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
 //                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Messages()).commit();
-
-                return true;
 //                break;
             case R.id.nav_project:
 
