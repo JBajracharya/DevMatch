@@ -237,11 +237,11 @@ public class Projects {
         this.language = language;
     }
 
-    public ArrayList<Developer> getDevelopers() {
+    public ArrayList<String> getDevelopers() {
         return developers;
     }
 
-    public void setDevelopers(ArrayList<Developer> developers) {
+    public void setDevelopers(ArrayList<String> developers) {
         this.developers = developers;
     }
 
