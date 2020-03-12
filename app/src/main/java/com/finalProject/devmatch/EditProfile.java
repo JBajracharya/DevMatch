@@ -20,6 +20,7 @@ import com.amazonaws.amplify.generated.graphql.CreateDeveloperMutation;
 import com.amazonaws.amplify.generated.graphql.CreateSkillsetMutation;
 import com.amazonaws.amplify.generated.graphql.ListDevelopersQuery;
 import com.amazonaws.amplify.generated.graphql.ListProjectsQuery;
+import com.amazonaws.amplify.generated.graphql.UpdateDeveloperMutation;
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
@@ -38,6 +39,7 @@ import javax.annotation.Nonnull;
 
 import type.CreateDeveloperInput;
 import type.CreateSkillsetInput;
+import type.UpdateDeveloperInput;
 
 public class EditProfile extends AppCompatActivity {
 
@@ -360,7 +362,7 @@ public class EditProfile extends AppCompatActivity {
         @Override
         public void onResponse(@Nonnull Response<CreateSkillsetMutation.Data> response) {
             Log.i(TAG,"Success");
-            runDeveloperCreateMutation(dev.getName(),dev.getGithub(),dev.getEmail(),response.data().createSkillset().id(),"Front End");
+            runDeveloperUpdateMutation(dev.getId(),dev.getName(),dev.getGithub(),dev.getEmail(),response.data().createSkillset().id(),"Front End");
         }
 
         @Override
@@ -370,23 +372,24 @@ public class EditProfile extends AppCompatActivity {
 
     };
 
-    public void runDeveloperCreateMutation(String name, String github, String email, String id, String type) {
-        CreateDeveloperInput createDeveloperInput = CreateDeveloperInput.builder().
+    public void runDeveloperUpdateMutation(String id, String name, String github, String email, String skillId, String type) {
+        UpdateDeveloperInput updateDeveloperInput = UpdateDeveloperInput.builder().
                 username(AWSMobileClient.getInstance().getUsername()).
+                id(id).
                 name(name).
                 github(github).
                 email(email).
-                developerSkillSetId(id).
+                developerSkillSetId(skillId).
                 type(type).
                 build();
 
-        mAWSAppSyncClient.mutate(CreateDeveloperMutation.builder().input(createDeveloperInput).build())
+        mAWSAppSyncClient.mutate(UpdateDeveloperMutation.builder().input(updateDeveloperInput).build())
                 .enqueue(mutationCallbacky);
     }
 
-    private GraphQLCall.Callback<CreateDeveloperMutation.Data> mutationCallbacky = new GraphQLCall.Callback<CreateDeveloperMutation.Data>() {
+    private GraphQLCall.Callback<UpdateDeveloperMutation.Data> mutationCallbacky = new GraphQLCall.Callback<UpdateDeveloperMutation.Data>() {
         @Override
-        public void onResponse(@Nonnull Response<CreateDeveloperMutation.Data> response) {
+        public void onResponse(@Nonnull Response<UpdateDeveloperMutation.Data> response) {
             Log.i(TAG, response.data().toString());
             Log.i(TAG,"SUCCESS");
         }
