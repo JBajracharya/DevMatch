@@ -1,10 +1,18 @@
 package com.finalProject.devmatch;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import androidx.core.content.ContextCompat;
+
+
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+
 import android.util.Log;
 
 import com.amazonaws.amplify.generated.graphql.CreateDeveloperMutation;
@@ -30,6 +38,10 @@ public class SearchForProjects extends AppCompatActivity implements ProjectListF
     List<Projects> listOfProjects;
     private AWSAppSyncClient mAWSAppSyncClient;
 
+import android.view.Window;
+import android.view.WindowManager;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +54,7 @@ public class SearchForProjects extends AppCompatActivity implements ProjectListF
                 .awsConfiguration(new AWSConfiguration(getApplicationContext()))
                 .build();
 
+
         this.listOfProjects = new ArrayList<Projects>();
 
         listOfProjects.add(new Projects("test", "test", "test", "test","test"));
@@ -50,6 +63,23 @@ public class SearchForProjects extends AppCompatActivity implements ProjectListF
         RecyclerView recyclerView = findViewById(R.id.fragment);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyProjectListRecyclerViewAdapter(this.listOfProjects, this));
+
+        Window window = this.getWindow();
+
+// clear FLAG_TRANSLUCENT_STATUS flag:
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+// finally change the color
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorBlack));
+        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.colorBlack));
+//
+        ActionBar bar = this.getSupportActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#000000"));
+        bar.setBackgroundDrawable(colorDrawable);
+
     }
 
     @Override
