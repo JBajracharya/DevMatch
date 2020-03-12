@@ -1,10 +1,11 @@
 
 type Developer @model {
   id: ID!
-  name: String!
-  github: String!
-  email: String!
-  type: String!
+  username: String
+  name: String
+  github: String
+  email: String
+  type: String
   currentProjects: [TeamMate] @connection(name: "AssignedProjects")
 #  one to one relationship
   skillSet: Skillset @connection

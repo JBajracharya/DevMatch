@@ -1,7 +1,5 @@
 package com.finalProject.devmatch;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,16 +8,23 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.amazonaws.amplify.generated.graphql.CreateDeveloperMutation;
 import com.amazonaws.amplify.generated.graphql.CreateSkillsetMutation;
+import com.amazonaws.amplify.generated.graphql.ListDevelopersQuery;
+import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
-
+import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.finalProject.devmatch.models.Developer;
 import com.finalProject.devmatch.models.SkillSet;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Nonnull;
 
@@ -223,6 +228,7 @@ public class EditProfile extends AppCompatActivity {
 
     public void runDeveloperCreateMutation(String name, String github, String email, String id, String type) {
         CreateDeveloperInput createDeveloperInput = CreateDeveloperInput.builder().
+                username(AWSMobileClient.getInstance().getUsername()).
                 name(name).
                 github(github).
                 email(email).
@@ -239,6 +245,7 @@ public class EditProfile extends AppCompatActivity {
         public void onResponse(@Nonnull Response<CreateDeveloperMutation.Data> response) {
             Log.i(TAG, response.data().toString());
             Log.i(TAG,"SUCCESS");
+            getDevs();
         }
 
         @Override
@@ -247,4 +254,24 @@ public class EditProfile extends AppCompatActivity {
         }
 
     };
+
+    public void getDevs(){
+
+        mAWSAppSyncClient.query(ListDevelopersQuery.builder().build())
+                .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
+                .enqueue(devsCallback);
+    }
+    private GraphQLCall.Callback<ListDevelopersQuery.Data> devsCallback = new
+            GraphQLCall.Callback<ListDevelopersQuery.Data>() {
+                @Override
+                public void onResponse(@Nonnull final Response<ListDevelopersQuery.Data> response) {
+                    List<ListDevelopersQuery.Item> items = response.data().listDevelopers().items();
+                    // items is a list of developers from DynamoDB
+                }
+
+                @Override
+                public void onFailure(@Nonnull ApolloException e) {
+                    Log.i(TAG,"Failure");
+                }
+            };
 }

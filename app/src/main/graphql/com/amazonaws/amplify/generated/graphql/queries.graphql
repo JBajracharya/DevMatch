@@ -2,6 +2,7 @@
 query GetDeveloper($id: ID!) {
   getDeveloper(id: $id) {
     id
+    username
     name
     github
     email
@@ -48,6 +49,7 @@ query ListDevelopers(
   listDevelopers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      username
       name
       github
       email

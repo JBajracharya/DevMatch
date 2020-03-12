@@ -5,6 +5,7 @@ mutation CreateDeveloper(
 ) {
   createDeveloper(input: $input, condition: $condition) {
     id
+    username
     name
     github
     email
@@ -49,6 +50,7 @@ mutation UpdateDeveloper(
 ) {
   updateDeveloper(input: $input, condition: $condition) {
     id
+    username
     name
     github
     email
@@ -93,6 +95,7 @@ mutation DeleteDeveloper(
 ) {
   deleteDeveloper(input: $input, condition: $condition) {
     id
+    username
     name
     github
     email
@@ -139,6 +142,7 @@ mutation CreateTeamMate(
     id
     developer {
       id
+      username
       name
       github
       email
@@ -194,6 +198,7 @@ mutation UpdateTeamMate(
     id
     developer {
       id
+      username
       name
       github
       email
@@ -249,6 +254,7 @@ mutation DeleteTeamMate(
     id
     developer {
       id
+      username
       name
       github
       email
