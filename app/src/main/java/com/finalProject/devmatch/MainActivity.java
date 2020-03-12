@@ -22,30 +22,56 @@ import android.util.Log;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import static com.amazonaws.mobile.client.UserState.SIGNED_IN;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     static String TAG = "mainActivity";
-    String username = "";
+    String username;
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
-                break;
-            case R.id.nav_message:
-                Intent intent = new Intent(this, DevMatchMessaging.class);
-                intent.putExtra("username", username);
-                startActivity(intent);
+                startActivity(new Intent(this, EditProfile.class));
+//
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
+
+
                 return true;
+//                break;
+
+            case R.id.nav_message:
+                if(AWSMobileClient.getInstance().currentUserState().getUserState().equals(SIGNED_IN)) {
+                    Intent intent = new Intent(this, DevMatchMessaging.class);
+                    Log.i("@@2@@@2@@@@@@@@@@@", username);
+                    intent.putExtra("username", username);
+                    startActivity(intent);
+                    return true;
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Please login or register", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
 //                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Messages()).commit();
 //                break;
             case R.id.nav_project:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectFragment()).commit();
-                break;
-//            case R.id.nav_projectSearch:
+
+                startActivity(new Intent(this, CreateProject.class));
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectFragment()).commit();
+//
+                return true;
+//                break;
+
+
+            case R.id.nav_projectSearch:
+                startActivity(new Intent(this, SearchForProjects.class));
 //                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectSearch()).commit();
+                return true;
+
 //                break;
             case R.id.nav_projectSearch:
                 startActivity(new Intent(this, SearchForProjects.class));
@@ -58,9 +84,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        username = AWSMobileClient.getInstance().getUsername();
+        if(username != null)
+        {
+            Log.i("USERNAME!!!!!!!!!!", username);
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
@@ -72,10 +113,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
-            navigationView.setCheckedItem(R.id.nav_profile);
-        }
+//        if (savedInstanceState == null) {
+//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
+//            navigationView.setCheckedItem(R.id.nav_profile);
+//        }
 
 
 //        FloatingActionButton fab = findViewById(R.id.fab);
@@ -87,6 +128,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            }
 //        });
 
+//    }
+
+
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+
+
+
+
+
 
         // initializing aws authentication
         AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
@@ -94,6 +164,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onResult(UserStateDetails userStateDetails) {
                         Log.i("INIT", "onResult: " + userStateDetails.getUserState());
+                        username = AWSMobileClient.getInstance().getUsername();
+                        Log.i("USERUSERUSER", username);
                         if(userStateDetails.getUserState().equals(UserState.SIGNED_OUT)) {
 
                             //        Drop-in pre build auth
@@ -108,7 +180,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                             switch (result.getUserState()){
                                                 case SIGNED_IN:
                                                     Log.i("INIT", "logged in!");
-                                                    username = AWSMobileClient.getInstance().getUsername();
                                                     break;
                                                 case SIGNED_OUT:
                                                     Log.i(TAG, "onResult: User did not choose to sign-in");
@@ -134,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 }
         );
-
+        username = AWSMobileClient.getInstance().getUsername();
 
     }
 
@@ -167,6 +238,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.action_settings) {
                 return true;
         }
+        if(id == R.id.authenticate)
+        {
+            authenticate();
+        }
 
         if(id == R.id.action_signOut) {
             //    method to log out user and send to log in page :::::::::::::::::::
@@ -177,5 +252,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void authenticate()
+    {
+        AWSMobileClient.getInstance().showSignIn(
+                this,
+                SignInUIOptions.builder()
+                        .nextActivity(MainActivity.class)
+                        .canCancel(true)
+                        .build(),
+                new Callback<UserStateDetails>() {
+                    @Override
+                    public void onResult(UserStateDetails result) {
+                        //Log.d(TAG, "onResult: " + result.getUserState());
+                        switch (result.getUserState()){
+                            case SIGNED_IN:
+                                Log.i("INIT", "logged in!");
+                                break;
+                            case SIGNED_OUT:
+                                //Log.i(TAG, "onResult: User did not choose to sign-in");
+                                break;
+                            default:
+                                AWSMobileClient.getInstance().signOut();
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        //Log.e(TAG, "onError: ", e);
+                    }
+                }
+        );
     }
 }

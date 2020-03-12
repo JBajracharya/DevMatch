@@ -2,10 +2,10 @@
 query GetDeveloper($id: ID!) {
   getDeveloper(id: $id) {
     id
+    username
     name
     github
     email
-    skills
     type
     currentProjects {
       items {
@@ -25,14 +25,6 @@ query GetDeveloper($id: ID!) {
       sql
       html
       css
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
       postgresql
       mysql
       mongoDB
@@ -57,10 +49,10 @@ query ListDevelopers(
   listDevelopers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      username
       name
       github
       email
-      skills
       type
       currentProjects {
         nextToken
@@ -77,14 +69,6 @@ query ListDevelopers(
         sql
         html
         css
-        arrays
-        linkedlists
-        stacks
-        queues
-        trees
-        hashes
-        heaps
-        sets
         postgresql
         mysql
         mongoDB
@@ -152,14 +136,6 @@ query GetSkillset($id: ID!) {
     sql
     html
     css
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
     postgresql
     mysql
     mongoDB
@@ -193,14 +169,6 @@ query ListSkillsets(
       sql
       html
       css
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
       postgresql
       mysql
       mongoDB

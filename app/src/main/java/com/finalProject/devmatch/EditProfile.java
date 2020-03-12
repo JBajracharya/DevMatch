@@ -1,34 +1,52 @@
 package com.finalProject.devmatch;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.amazonaws.amplify.generated.graphql.CreateDeveloperMutation;
+import com.amazonaws.amplify.generated.graphql.CreateSkillsetMutation;
+import com.amazonaws.amplify.generated.graphql.ListDevelopersQuery;
+import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.finalProject.devmatch.models.Developer;
 import com.finalProject.devmatch.models.SkillSet;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Nonnull;
 
 import type.CreateDeveloperInput;
+import type.CreateSkillsetInput;
 
 public class EditProfile extends AppCompatActivity {
 
     private AWSAppSyncClient mAWSAppSyncClient;
     private String TAG = "STG";
 
+    // THIS WILL BE REPLACED WITH A QUERY TO GET CURRENT USER OBJ
+    final Developer dev = new Developer();
+    //////////
+    final SkillSet skills = new SkillSet();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        Log.i(TAG,"EditProfile Activity Created");
 
         final EditText name = findViewById(R.id.name);
         final EditText github = findViewById(R.id.github);
@@ -46,14 +64,6 @@ public class EditProfile extends AppCompatActivity {
         final CheckBox sql = findViewById(R.id.sql);
         final CheckBox html = findViewById(R.id.html);
         final CheckBox css = findViewById(R.id.css);
-        final CheckBox arrays = findViewById(R.id.arrays);
-        final CheckBox linkedLists = findViewById(R.id.linkedLists);
-        final CheckBox stacks = findViewById(R.id.stacks);
-        final CheckBox queues = findViewById(R.id.queues);
-        final CheckBox trees = findViewById(R.id.trees);
-        final CheckBox hashes = findViewById(R.id.hashes);
-        final CheckBox heaps = findViewById(R.id.heaps);
-        final CheckBox sets = findViewById(R.id.sets);
         final CheckBox postgresql = findViewById(R.id.postgresql);
         final CheckBox mysql = findViewById(R.id.mysql);
         final CheckBox mongoDB = findViewById(R.id.mongoDB);
@@ -74,14 +84,12 @@ public class EditProfile extends AppCompatActivity {
                 .awsConfiguration(new AWSConfiguration(getApplicationContext()))
                 .build();
 
-        // THIS WILL BE REPLACED WITH A QUERY TO GET CURRENT USER OBJ
-        final Developer dev = new Developer();
-        //////////
-        final SkillSet skills = new SkillSet();
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Log.i(TAG,"Clicked");
 
                 dev.setName(name.getText().toString());
                 dev.setGithub(github.getText().toString());
@@ -125,32 +133,6 @@ public class EditProfile extends AppCompatActivity {
                 if (css.isChecked()) {
                     skills.setCss(true);
                 }
-
-                if (arrays.isChecked()) {
-                    skills.setArrays(true);
-                }
-                if (linkedLists.isChecked()) {
-                    skills.setLinkedlists(true);
-                }
-                if (stacks.isChecked()) {
-                    skills.setStacks(true);
-                }
-                if (queues.isChecked()) {
-                    skills.setQueues(true);
-                }
-                if (trees.isChecked()) {
-                    skills.setTrees(true);
-                }
-                if (hashes.isChecked()) {
-                    skills.setHashes(true);
-                }
-                if (heaps.isChecked()) {
-                    skills.setHeaps(true);
-                }
-                if (sets.isChecked()) {
-                    skills.setSets(true);
-                }
-
                 if (postgresql.isChecked()) {
                     skills.setPostgresql(true);
                 }
@@ -195,43 +177,101 @@ public class EditProfile extends AppCompatActivity {
 
                 dev.setSkills(skills);
 
-                // Then save this into database
+                runSkillsetCreateMutation(skills);
             }
         });
     }
-//    public void runTaskCreateMutation(String name, String github, String email, SkillSet skills, String type) {
-//        CreateDeveloperInput createDeveloperInput = CreateDeveloperInput.builder().
-//                name(name).
-//                github(github).
-//                email(email).
-////                skills(skills).
-//                type(type).
-//                build();
-//
-//        mAWSAppSyncClient.mutate(CreateTaskMutation.builder().input(createTaskInput).build())
-//                .enqueue(mutationCallback);
-//    }
-//
-//    private GraphQLCall.Callback<CreateTaskMutation.Data> mutationCallback = new GraphQLCall.Callback<CreateTaskMutation.Data>() {
-//        @Override
-//        public void onResponse(@Nonnull Response<CreateTaskMutation.Data> response) {
-//            Log.i(TAG, response.data().toString());
-//        }
-//
-//        @Override
-//        public void onFailure(@Nonnull ApolloException e) {
-//            Log.e("Error", e.toString());
-//        }
-//
-//    };
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (requestCode == 543 && resultCode == RESULT_OK && null != data) {
-//
-//            setImage(data.getData());
-//        }
-//    }
+    public void runSkillsetCreateMutation(SkillSet skills) {
+        CreateSkillsetInput createSkillsetInput = CreateSkillsetInput.builder().
+                java(skills.isJava()).
+                python(skills.isPython()).
+                cSharp(skills.iscSharp()).
+                cplusplus(skills.isCplusplus()).
+                ruby(skills.isRuby()).
+                dotNet(skills.isDotNet()).
+                javascript(skills.isJavascript()).
+                sql(skills.isSql()).
+                html(skills.isHtml()).
+                css(skills.isCss()).
+                postgresql(skills.isPostgresql()).
+                mysql(skills.isMysql()).
+                mongoDB(skills.isMongoDB()).
+                dynamoDB(skills.isDynamoDB()).
+                aWS(skills.isAWS()).
+                heroku(skills.isHeroku()).
+                firebase(skills.isFirebase()).
+                azure(skills.isAzure()).
+                iOS(skills.isiOS()).
+                android(skills.isAndroid()).
+                linux(skills.isLinux()).
+                web(skills.isWeb()).
+                react(skills.isReact()).
+                build();
+
+        mAWSAppSyncClient.mutate(CreateSkillsetMutation.builder().input(createSkillsetInput).build())
+                .enqueue(mutationCallback);
+    }
+
+    private GraphQLCall.Callback<CreateSkillsetMutation.Data> mutationCallback = new GraphQLCall.Callback<CreateSkillsetMutation.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<CreateSkillsetMutation.Data> response) {
+            Log.i(TAG,"Success");
+            runDeveloperCreateMutation(dev.getName(),dev.getGithub(),dev.getEmail(),response.data().createSkillset().id(),"Front End");
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("Error", e.toString());
+        }
+
+    };
+
+    public void runDeveloperCreateMutation(String name, String github, String email, String id, String type) {
+        CreateDeveloperInput createDeveloperInput = CreateDeveloperInput.builder().
+                username(AWSMobileClient.getInstance().getUsername()).
+                name(name).
+                github(github).
+                email(email).
+                developerSkillSetId(id).
+                type(type).
+                build();
+
+        mAWSAppSyncClient.mutate(CreateDeveloperMutation.builder().input(createDeveloperInput).build())
+                .enqueue(mutationCallbacky);
+    }
+
+    private GraphQLCall.Callback<CreateDeveloperMutation.Data> mutationCallbacky = new GraphQLCall.Callback<CreateDeveloperMutation.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<CreateDeveloperMutation.Data> response) {
+            Log.i(TAG, response.data().toString());
+            Log.i(TAG,"SUCCESS");
+            getDevs();
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("Error", e.toString());
+        }
+
+    };
+
+    public void getDevs(){
+
+        mAWSAppSyncClient.query(ListDevelopersQuery.builder().build())
+                .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
+                .enqueue(devsCallback);
+    }
+    private GraphQLCall.Callback<ListDevelopersQuery.Data> devsCallback = new
+            GraphQLCall.Callback<ListDevelopersQuery.Data>() {
+                @Override
+                public void onResponse(@Nonnull final Response<ListDevelopersQuery.Data> response) {
+                    List<ListDevelopersQuery.Item> items = response.data().listDevelopers().items();
+                    // items is a list of developers from DynamoDB
+                }
+
+                @Override
+                public void onFailure(@Nonnull ApolloException e) {
+                    Log.i(TAG,"Failure");
+                }
+            };
 }

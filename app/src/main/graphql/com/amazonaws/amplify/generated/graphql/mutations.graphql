@@ -5,10 +5,10 @@ mutation CreateDeveloper(
 ) {
   createDeveloper(input: $input, condition: $condition) {
     id
+    username
     name
     github
     email
-    skills
     type
     currentProjects {
       items {
@@ -28,14 +28,6 @@ mutation CreateDeveloper(
       sql
       html
       css
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
       postgresql
       mysql
       mongoDB
@@ -58,10 +50,10 @@ mutation UpdateDeveloper(
 ) {
   updateDeveloper(input: $input, condition: $condition) {
     id
+    username
     name
     github
     email
-    skills
     type
     currentProjects {
       items {
@@ -81,14 +73,6 @@ mutation UpdateDeveloper(
       sql
       html
       css
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
       postgresql
       mysql
       mongoDB
@@ -111,10 +95,10 @@ mutation DeleteDeveloper(
 ) {
   deleteDeveloper(input: $input, condition: $condition) {
     id
+    username
     name
     github
     email
-    skills
     type
     currentProjects {
       items {
@@ -134,14 +118,6 @@ mutation DeleteDeveloper(
       sql
       html
       css
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
       postgresql
       mysql
       mongoDB
@@ -166,10 +142,10 @@ mutation CreateTeamMate(
     id
     developer {
       id
+      username
       name
       github
       email
-      skills
       type
       currentProjects {
         nextToken
@@ -186,14 +162,6 @@ mutation CreateTeamMate(
         sql
         html
         css
-        arrays
-        linkedlists
-        stacks
-        queues
-        trees
-        hashes
-        heaps
-        sets
         postgresql
         mysql
         mongoDB
@@ -230,10 +198,10 @@ mutation UpdateTeamMate(
     id
     developer {
       id
+      username
       name
       github
       email
-      skills
       type
       currentProjects {
         nextToken
@@ -250,14 +218,6 @@ mutation UpdateTeamMate(
         sql
         html
         css
-        arrays
-        linkedlists
-        stacks
-        queues
-        trees
-        hashes
-        heaps
-        sets
         postgresql
         mysql
         mongoDB
@@ -294,10 +254,10 @@ mutation DeleteTeamMate(
     id
     developer {
       id
+      username
       name
       github
       email
-      skills
       type
       currentProjects {
         nextToken
@@ -314,14 +274,6 @@ mutation DeleteTeamMate(
         sql
         html
         css
-        arrays
-        linkedlists
-        stacks
-        queues
-        trees
-        hashes
-        heaps
-        sets
         postgresql
         mysql
         mongoDB
@@ -423,14 +375,6 @@ mutation CreateSkillset(
     sql
     html
     css
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
     postgresql
     mysql
     mongoDB
@@ -462,14 +406,6 @@ mutation UpdateSkillset(
     sql
     html
     css
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
     postgresql
     mysql
     mongoDB
@@ -501,14 +437,6 @@ mutation DeleteSkillset(
     sql
     html
     css
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
     postgresql
     mysql
     mongoDB

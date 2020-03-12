@@ -2,10 +2,10 @@
 subscription OnCreateDeveloper {
   onCreateDeveloper {
     id
+    username
     name
     github
     email
-    skills
     type
     currentProjects {
       items {
@@ -25,14 +25,6 @@ subscription OnCreateDeveloper {
       sql
       html
       css
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
       postgresql
       mysql
       mongoDB
@@ -52,10 +44,10 @@ subscription OnCreateDeveloper {
 subscription OnUpdateDeveloper {
   onUpdateDeveloper {
     id
+    username
     name
     github
     email
-    skills
     type
     currentProjects {
       items {
@@ -75,14 +67,6 @@ subscription OnUpdateDeveloper {
       sql
       html
       css
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
       postgresql
       mysql
       mongoDB
@@ -102,10 +86,10 @@ subscription OnUpdateDeveloper {
 subscription OnDeleteDeveloper {
   onDeleteDeveloper {
     id
+    username
     name
     github
     email
-    skills
     type
     currentProjects {
       items {
@@ -125,14 +109,6 @@ subscription OnDeleteDeveloper {
       sql
       html
       css
-      arrays
-      linkedlists
-      stacks
-      queues
-      trees
-      hashes
-      heaps
-      sets
       postgresql
       mysql
       mongoDB
@@ -154,10 +130,10 @@ subscription OnCreateTeamMate {
     id
     developer {
       id
+      username
       name
       github
       email
-      skills
       type
       currentProjects {
         nextToken
@@ -174,14 +150,6 @@ subscription OnCreateTeamMate {
         sql
         html
         css
-        arrays
-        linkedlists
-        stacks
-        queues
-        trees
-        hashes
-        heaps
-        sets
         postgresql
         mysql
         mongoDB
@@ -215,10 +183,10 @@ subscription OnUpdateTeamMate {
     id
     developer {
       id
+      username
       name
       github
       email
-      skills
       type
       currentProjects {
         nextToken
@@ -235,14 +203,6 @@ subscription OnUpdateTeamMate {
         sql
         html
         css
-        arrays
-        linkedlists
-        stacks
-        queues
-        trees
-        hashes
-        heaps
-        sets
         postgresql
         mysql
         mongoDB
@@ -276,10 +236,10 @@ subscription OnDeleteTeamMate {
     id
     developer {
       id
+      username
       name
       github
       email
-      skills
       type
       currentProjects {
         nextToken
@@ -296,14 +256,6 @@ subscription OnDeleteTeamMate {
         sql
         html
         css
-        arrays
-        linkedlists
-        stacks
-        queues
-        trees
-        hashes
-        heaps
-        sets
         postgresql
         mysql
         mongoDB
@@ -393,14 +345,6 @@ subscription OnCreateSkillset {
     sql
     html
     css
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
     postgresql
     mysql
     mongoDB
@@ -429,14 +373,6 @@ subscription OnUpdateSkillset {
     sql
     html
     css
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
     postgresql
     mysql
     mongoDB
@@ -465,14 +401,6 @@ subscription OnDeleteSkillset {
     sql
     html
     css
-    arrays
-    linkedlists
-    stacks
-    queues
-    trees
-    hashes
-    heaps
-    sets
     postgresql
     mysql
     mongoDB
