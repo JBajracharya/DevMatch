@@ -53,6 +53,9 @@ public class SkillSet {
         this.web = web;
         this.react = react;
     }
+    public SkillSet() {
+
+    }
 
     public boolean isJava() {
         return java;
