@@ -92,6 +92,7 @@ query GetProject($id: ID!) {
     id
     name
     description
+    owner
     language
     database
     environment
@@ -116,6 +117,7 @@ query ListProjects(
       id
       name
       description
+      owner
       language
       database
       environment

@@ -181,6 +181,7 @@ mutation CreateTeamMate(
       id
       name
       description
+      owner
       language
       database
       environment
@@ -240,6 +241,7 @@ mutation UpdateTeamMate(
       id
       name
       description
+      owner
       language
       database
       environment
@@ -299,6 +301,7 @@ mutation DeleteTeamMate(
       id
       name
       description
+      owner
       language
       database
       environment
@@ -319,6 +322,7 @@ mutation CreateProject(
     id
     name
     description
+    owner
     language
     database
     environment
@@ -341,6 +345,7 @@ mutation UpdateProject(
     id
     name
     description
+    owner
     language
     database
     environment
@@ -363,6 +368,7 @@ mutation DeleteProject(
     id
     name
     description
+    owner
     language
     database
     environment

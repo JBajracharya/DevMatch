@@ -14,17 +14,15 @@ public class Projects {
     private String id;
     private String name;
     private String description;
+    private String owner;
     private Language language;
     private Database dataBase;
     private Environment environment;
-
-
-
     private Platform platform;
     private String date;
     private String link;
 
-    private ArrayList<Developer> developers;
+    private ArrayList<String> developers;
 
 
     public Projects(String name, String description, String date, String link) {
@@ -274,6 +272,14 @@ public class Projects {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
 }

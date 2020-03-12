@@ -22,6 +22,7 @@ type Project @model {
   id: ID!
   name: String
   description: String
+  owner: String!
   language: String
   database: String
   environment: String

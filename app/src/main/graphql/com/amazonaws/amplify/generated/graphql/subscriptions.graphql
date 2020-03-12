@@ -169,6 +169,7 @@ subscription OnCreateTeamMate {
       id
       name
       description
+      owner
       language
       database
       environment
@@ -225,6 +226,7 @@ subscription OnUpdateTeamMate {
       id
       name
       description
+      owner
       language
       database
       environment
@@ -281,6 +283,7 @@ subscription OnDeleteTeamMate {
       id
       name
       description
+      owner
       language
       database
       environment
@@ -298,6 +301,7 @@ subscription OnCreateProject {
     id
     name
     description
+    owner
     language
     database
     environment
@@ -317,6 +321,7 @@ subscription OnUpdateProject {
     id
     name
     description
+    owner
     language
     database
     environment
@@ -336,6 +341,7 @@ subscription OnDeleteProject {
     id
     name
     description
+    owner
     language
     database
     environment
