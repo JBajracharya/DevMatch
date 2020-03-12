@@ -2,6 +2,7 @@ package com.finalProject.devmatch.models;
 
 public class SkillSet {
 
+        private String id;
         private boolean java;
         private boolean python;
         private boolean cSharp;
@@ -25,6 +26,33 @@ public class SkillSet {
         private boolean linux;
         private boolean web;
         private boolean react;
+
+    public SkillSet(String id, boolean java, boolean python, boolean cSharp, boolean cplusplus, boolean ruby, boolean dotNet, boolean javascript, boolean sql, boolean html, boolean css, boolean postgresql, boolean mysql, boolean mongoDB, boolean dynamoDB, boolean AWS, boolean heroku, boolean firebase, boolean azure, boolean iOS, boolean android, boolean linux, boolean web, boolean react) {
+        this.id = id;
+        this.java = java;
+        this.python = python;
+        this.cSharp = cSharp;
+        this.cplusplus = cplusplus;
+        this.ruby = ruby;
+        this.dotNet = dotNet;
+        this.javascript = javascript;
+        this.sql = sql;
+        this.html = html;
+        this.css = css;
+        this.postgresql = postgresql;
+        this.mysql = mysql;
+        this.mongoDB = mongoDB;
+        this.dynamoDB = dynamoDB;
+        this.AWS = AWS;
+        this.heroku = heroku;
+        this.firebase = firebase;
+        this.azure = azure;
+        this.iOS = iOS;
+        this.android = android;
+        this.linux = linux;
+        this.web = web;
+        this.react = react;
+    }
 
     public boolean isJava() {
         return java;
@@ -208,5 +236,13 @@ public class SkillSet {
 
     public void setReact(boolean react) {
         this.react = react;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
