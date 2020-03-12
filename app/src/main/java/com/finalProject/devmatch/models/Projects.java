@@ -11,6 +11,7 @@ import okhttp3.internal.platform.Platform;
 public class Projects {
 
 
+    private String id;
     private String name;
     private String description;
     private Language language;
@@ -23,7 +24,7 @@ public class Projects {
     private String date;
     private String link;
 
-    private ArrayList<Developer> developers;
+    private ArrayList<String> developers;
 
 
     public Projects(String name, String description, String date, String link) {
@@ -32,6 +33,7 @@ public class Projects {
         this.date = date;
         this.link = link;
     }
+
 
     private enum Language {
 
@@ -266,5 +268,12 @@ public class Projects {
         this.platform = platform;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
 }

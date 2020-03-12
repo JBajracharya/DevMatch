@@ -92,7 +92,10 @@ query GetProject($id: ID!) {
     id
     name
     description
-    position
+    language
+    database
+    environment
+    platform
     date
     link
     developers {
@@ -113,7 +116,10 @@ query ListProjects(
       id
       name
       description
-      position
+      language
+      database
+      environment
+      platform
       date
       link
       developers {

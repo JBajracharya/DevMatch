@@ -169,7 +169,10 @@ subscription OnCreateTeamMate {
       id
       name
       description
-      position
+      language
+      database
+      environment
+      platform
       date
       link
       developers {
@@ -222,7 +225,10 @@ subscription OnUpdateTeamMate {
       id
       name
       description
-      position
+      language
+      database
+      environment
+      platform
       date
       link
       developers {
@@ -275,7 +281,10 @@ subscription OnDeleteTeamMate {
       id
       name
       description
-      position
+      language
+      database
+      environment
+      platform
       date
       link
       developers {
@@ -289,7 +298,10 @@ subscription OnCreateProject {
     id
     name
     description
-    position
+    language
+    database
+    environment
+    platform
     date
     link
     developers {
@@ -305,7 +317,10 @@ subscription OnUpdateProject {
     id
     name
     description
-    position
+    language
+    database
+    environment
+    platform
     date
     link
     developers {
@@ -321,7 +336,10 @@ subscription OnDeleteProject {
     id
     name
     description
-    position
+    language
+    database
+    environment
+    platform
     date
     link
     developers {

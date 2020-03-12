@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat;
 import com.amazonaws.amplify.generated.graphql.CreateDeveloperMutation;
 import com.amazonaws.amplify.generated.graphql.CreateSkillsetMutation;
 import com.amazonaws.amplify.generated.graphql.ListDevelopersQuery;
+import com.amazonaws.amplify.generated.graphql.ListProjectsQuery;
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
@@ -27,6 +28,7 @@ import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.finalProject.devmatch.models.Developer;
+import com.finalProject.devmatch.models.Projects;
 import com.finalProject.devmatch.models.SkillSet;
 
 import java.util.ArrayList;
@@ -41,16 +43,17 @@ public class EditProfile extends AppCompatActivity {
 
     private AWSAppSyncClient mAWSAppSyncClient;
     private String TAG = "STG";
-
-    // THIS WILL BE REPLACED WITH A QUERY TO GET CURRENT USER OBJ
-    final Developer dev = new Developer();
-    //////////
-    final SkillSet skills = new SkillSet();
+    Developer dev;
+    SkillSet skills;
+    ArrayList<Projects> projects;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        getDev();
+        skills = dev.getSkills();
 
         Window window = this.getWindow();
 
@@ -127,74 +130,120 @@ public class EditProfile extends AppCompatActivity {
 
                 if(java.isChecked()) {
                     skills.setJava(true);
+                } else {
+                    skills.setJava(false);
                 }
                 if(python.isChecked()) {
                     skills.setPython(true);
+                } else {
+                    skills.setPython(false);
                 }
                 if(cSharp.isChecked()) {
                     skills.setcSharp(true);
+                } else {
+                    skills.setcSharp(false);
                 }
                 if (cPlusPlus.isChecked()) {
                     skills.setCplusplus(true);
+                } else {
+                    skills.setCplusplus(false);
                 }
                 if (ruby.isChecked()) {
                     skills.setRuby(true);
+                } else {
+                    skills.setRuby(false);
                 }
                 if (dotNet.isChecked()) {
                     skills.setDotNet(true);
+                } else {
+                    skills.setDotNet(false);
                 }
                 if (javascript.isChecked()) {
                     skills.setJavascript(true);
+                } else {
+                    skills.setJavascript(false);
                 }
                 if (sql.isChecked()) {
                     skills.setSql(true);
+                } else {
+                    skills.setSql(false);
                 }
                 if (html.isChecked()) {
                     skills.setHtml(true);
+                } else {
+                    skills.setHtml(false);
                 }
                 if (css.isChecked()) {
                     skills.setCss(true);
+                } else {
+                    skills.setCss(false);
                 }
                 if (postgresql.isChecked()) {
                     skills.setPostgresql(true);
+                } else {
+                    skills.setPostgresql(false);
                 }
                 if (mysql.isChecked()) {
                     skills.setMysql(true);
+                } else {
+                    skills.setMysql(false);
                 }
                 if (mongoDB.isChecked()) {
                     skills.setMongoDB(true);
+                } else {
+                    skills.setMongoDB(false);
                 }
                 if (dynamoDB.isChecked()) {
                     skills.setDynamoDB(true);
+                } else {
+                    skills.setDynamoDB(false);
                 }
 
                 if (AWS.isChecked()) {
                     skills.setAWS(true);
+                } else {
+                    skills.setAWS(false);
                 }
                 if (heroku.isChecked()) {
                     skills.setHeroku(true);
+                } else {
+                    skills.setHeroku(false);
                 }
                 if (firebase.isChecked()) {
                     skills.setFirebase(true);
+                } else {
+                    skills.setFirebase(false);
                 }
                 if (azure.isChecked()) {
                     skills.setAzure(true);
+                } else {
+                    skills.setAzure(false);
                 }
 
                 if (iOS.isChecked()) {
                     skills.setiOS(true);
+                } else {
+                    skills.setiOS(false);
                 }
                 if (android.isChecked()) {
                     skills.setAndroid(true);
+                } else {
+                    skills.setAndroid(false);
                 }
                 if (linux.isChecked()) {
                     skills.setLinux(true);
+                } else {
+                    skills.setLinux(false);
                 }
                 if (web.isChecked()) {
                     skills.setWeb(true);
+                } else {
+                    skills.setWeb(false);
                 }
                 if (react.isChecked()) {
                     skills.setReact(true);
+                } else {
+                    skills.setReact(false);
                 }
 
                 dev.setSkills(skills);
@@ -267,7 +316,6 @@ public class EditProfile extends AppCompatActivity {
         public void onResponse(@Nonnull Response<CreateDeveloperMutation.Data> response) {
             Log.i(TAG, response.data().toString());
             Log.i(TAG,"SUCCESS");
-            getDevs();
         }
 
         @Override
@@ -277,7 +325,7 @@ public class EditProfile extends AppCompatActivity {
 
     };
 
-    public void getDevs(){
+    public void getDev(){
 
         mAWSAppSyncClient.query(ListDevelopersQuery.builder().build())
                 .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
@@ -288,7 +336,58 @@ public class EditProfile extends AppCompatActivity {
                 @Override
                 public void onResponse(@Nonnull final Response<ListDevelopersQuery.Data> response) {
                     List<ListDevelopersQuery.Item> items = response.data().listDevelopers().items();
-                    // items is a list of developers from DynamoDB
+                    for(int i = 0; i < items.size(); i++){
+                        if(items.get(i).username() == AWSMobileClient.getInstance().getUsername()){
+                            ListDevelopersQuery.SkillSet skillSet = items.get(i).skillSet();
+                            SkillSet skills = new SkillSet(skillSet.id(),skillSet.java(),skillSet.python(),
+                                    skillSet.cSharp(),skillSet.cplusplus(),skillSet.ruby(),skillSet.dotNet(),
+                                    skillSet.javascript(),skillSet.sql(),skillSet.html(),skillSet.css(),
+                                    skillSet.postgresql(),skillSet.mysql(),skillSet.mongoDB(),skillSet.dynamoDB(),
+                                    skillSet.AWS(),skillSet.heroku(),skillSet.firebase(),skillSet.azure(),skillSet.iOS(),
+                                    skillSet.android(),skillSet.linux(),skillSet.web(),skillSet.react());
+                            ListDevelopersQuery.Item item = items.get(i);
+                            dev = new Developer(item.id(),item.username(),item.username(),item.github(),item.email());
+                            dev.setSkills(skills);
+                            getProjects();
+                            dev.setCurrentProjects(projects);
+
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(@Nonnull ApolloException e) {
+                    Log.i(TAG,"Failure");
+                }
+            };
+    public void getProjects(){
+
+        mAWSAppSyncClient.query(ListProjectsQuery.builder().build())
+                .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
+                .enqueue(projsCallback);
+    }
+    private GraphQLCall.Callback<ListProjectsQuery.Data> projsCallback = new
+            GraphQLCall.Callback<ListProjectsQuery.Data>() {
+                @Override
+                public void onResponse(@Nonnull final Response<ListProjectsQuery.Data> response) {
+                    ArrayList<String> developers;
+                    List<ListProjectsQuery.Item> items = response.data().listProjects().items();
+                    for(int i = 0; i < items.size(); i++){
+                        if(items.get(i).developers().toString().contains(AWSMobileClient.getInstance().getUsername())){
+                            ListProjectsQuery.Item item = items.get(i);
+                            Projects project = new Projects();
+                            project.setId(item.id());
+                            project.setName(item.name());
+                            project.setDescription(item.description());
+                            project.setLanguage(item.language());
+                            project.setDatabase(item.database());
+                            project.setEnvironment(item.environment());
+                            project.setPlatform(item.platform());
+                            project.setDate(item.date());
+                            project.setLink(item.link());
+                            projects.add(project);
+                        }
+                    }
                 }
 
                 @Override

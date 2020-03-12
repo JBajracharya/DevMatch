@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Developer {
 
+    private String id;
     private String username;
     private String name;
     private String github;
@@ -13,6 +14,26 @@ public class Developer {
 
     private ArrayList<Projects> currentProjects;
     private ArrayList<Projects> portfolio;
+
+    public Developer(String id, String username, String name, String github, String email, SkillSet skills, Type type, ArrayList<Projects> currentProjects, ArrayList<Projects> portfolio) {
+        this.id = id;
+        this.username = username;
+        this.name = name;
+        this.github = github;
+        this.email = email;
+        this.skills = skills;
+        this.type = type;
+        this.currentProjects = currentProjects;
+        this.portfolio = portfolio;
+    }
+
+    public Developer(String id, String username, String name, String github, String email) {
+        this.id = id;
+        this.username = username;
+        this.name = name;
+        this.github = github;
+        this.email = email;
+    }
 
 
     private enum Type {
@@ -107,5 +128,13 @@ public class Developer {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
