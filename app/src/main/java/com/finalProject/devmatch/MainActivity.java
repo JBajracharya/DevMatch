@@ -90,10 +90,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
-            navigationView.setCheckedItem(R.id.nav_profile);
-        }
+//        if (savedInstanceState == null) {
+//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
+//            navigationView.setCheckedItem(R.id.nav_profile);
+//        }
 
 
 //        FloatingActionButton fab = findViewById(R.id.fab);

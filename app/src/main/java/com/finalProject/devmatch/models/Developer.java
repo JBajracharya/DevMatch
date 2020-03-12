@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Developer {
 
+    private String username;
     private String name;
     private String github;
     private String email;
@@ -98,5 +99,13 @@ public class Developer {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
