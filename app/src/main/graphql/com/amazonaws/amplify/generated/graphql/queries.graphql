@@ -7,12 +7,6 @@ query GetDeveloper($id: ID!) {
     github
     email
     type
-    currentProjects {
-      items {
-        id
-      }
-      nextToken
-    }
     skillSet {
       id
       java
@@ -54,9 +48,6 @@ query ListDevelopers(
       github
       email
       type
-      currentProjects {
-        nextToken
-      }
       skillSet {
         id
         java
@@ -99,12 +90,8 @@ query GetProject($id: ID!) {
     platform
     date
     link
-    developers {
-      items {
-        id
-      }
-      nextToken
-    }
+    devRequests
+    developers
   }
 }
 query ListProjects(
@@ -124,9 +111,8 @@ query ListProjects(
       platform
       date
       link
-      developers {
-        nextToken
-      }
+      devRequests
+      developers
     }
     nextToken
   }
