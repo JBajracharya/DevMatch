@@ -181,7 +181,10 @@ mutation CreateTeamMate(
       id
       name
       description
-      position
+      language
+      database
+      environment
+      platform
       date
       link
       developers {
@@ -237,7 +240,10 @@ mutation UpdateTeamMate(
       id
       name
       description
-      position
+      language
+      database
+      environment
+      platform
       date
       link
       developers {
@@ -293,7 +299,10 @@ mutation DeleteTeamMate(
       id
       name
       description
-      position
+      language
+      database
+      environment
+      platform
       date
       link
       developers {
@@ -310,7 +319,10 @@ mutation CreateProject(
     id
     name
     description
-    position
+    language
+    database
+    environment
+    platform
     date
     link
     developers {
@@ -329,7 +341,10 @@ mutation UpdateProject(
     id
     name
     description
-    position
+    language
+    database
+    environment
+    platform
     date
     link
     developers {
@@ -348,7 +363,10 @@ mutation DeleteProject(
     id
     name
     description
-    position
+    language
+    database
+    environment
+    platform
     date
     link
     developers {

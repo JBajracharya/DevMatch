@@ -20,14 +20,16 @@ type TeamMate @model (queries: null) {
 
 type Project @model {
   id: ID!
-  name: String!
-  description: String!
-  position: String!
-  date: String!
-  link: String!
+  name: String
+  description: String
+  language: String
+  database: String
+  environment: String
+  platform: String
+  date: String
+  link: String
   developers: [TeamMate] @connection(name: "AssignedDevelopers")
 }
-
 
 
 type Skillset @model {
