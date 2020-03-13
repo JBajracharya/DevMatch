@@ -11,6 +11,7 @@ public class Developer {
     private String email;
     private SkillSet skills;
     private Type type;
+    private String projects;
 
     private ArrayList<Projects> currentProjects;
     private ArrayList<Projects> portfolio;

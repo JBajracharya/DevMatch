@@ -57,6 +57,7 @@ public class MyProjectListRecyclerViewAdapter extends RecyclerView.Adapter<MyPro
                 goToProjectDetailPage.putExtra("mNameView", holder.mNameView.getText());
                 goToProjectDetailPage.putExtra("mDescriptionView", holder.mDescriptionView.getText());
                 goToProjectDetailPage.putExtra("mLinkView", mValues.get(position).getLink());
+                goToProjectDetailPage.putExtra("mID",mValues.get(position).getId());
                 context.startActivity(goToProjectDetailPage);
 
                 if (null != mListener) {

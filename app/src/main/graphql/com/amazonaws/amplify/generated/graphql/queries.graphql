@@ -7,12 +7,7 @@ query GetDeveloper($id: ID!) {
     github
     email
     type
-    currentProjects {
-      items {
-        id
-      }
-      nextToken
-    }
+    projects
     skillSet {
       id
       java
@@ -54,9 +49,7 @@ query ListDevelopers(
       github
       email
       type
-      currentProjects {
-        nextToken
-      }
+      projects
       skillSet {
         id
         java
@@ -92,18 +85,15 @@ query GetProject($id: ID!) {
     id
     name
     description
+    owner
     language
     database
     environment
     platform
     date
     link
-    developers {
-      items {
-        id
-      }
-      nextToken
-    }
+    devRequests
+    developers
   }
 }
 query ListProjects(
@@ -116,15 +106,15 @@ query ListProjects(
       id
       name
       description
+      owner
       language
       database
       environment
       platform
       date
       link
-      developers {
-        nextToken
-      }
+      devRequests
+      developers
     }
     nextToken
   }
