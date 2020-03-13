@@ -74,13 +74,13 @@ public class CreateProject extends AppCompatActivity {
 
         Spinner spinner3 = (Spinner) findViewById(R.id.environment);
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
-                R.array.environment_array, android.R.layout.simple_spinner_item);
+                R.array.platform_array, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
 
         Spinner spinner4 = (Spinner) findViewById(R.id.platform);
         ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this,
-                R.array.platform_array, android.R.layout.simple_spinner_item);
+                R.array.environment_array, android.R.layout.simple_spinner_item);
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner4.setAdapter(adapter4);
 
