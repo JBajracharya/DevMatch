@@ -53,6 +53,7 @@ public class Profile extends AppCompatActivity {
         email = findViewById(R.id.email);
         type = findViewById(R.id.type);
         Button editProfile = findViewById(R.id.editProfile);
+        Button createProfile = findViewById(R.id.createProfile);
 
         getDev();
 
@@ -60,6 +61,13 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Profile.this, EditProfile.class);
+                Profile.this.startActivity(i);
+            }
+        });
+        createProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Profile.this,CreateProfile.class);
                 Profile.this.startActivity(i);
             }
         });
@@ -79,18 +87,13 @@ public class Profile extends AppCompatActivity {
                     Log.i(TAG,"response");
                     for(int i = 0; i < items.size(); i++){
                         System.out.println("STG " + items.get(i));
-                        if(items.get(i).username() == AWSMobileClient.getInstance().getUsername()){
+                        if(items.get(i).username().equals(AWSMobileClient.getInstance().getUsername())){
                             username.setText(items.get(i).username());
                             name.setText(items.get(i).name());
                             github.setText(items.get(i).github());
                             email.setText(items.get(i).email());
                             type.setText(items.get(i).type());
                         }
-                    }
-                    if(username.getText() != AWSMobileClient.getInstance().getUsername()){
-                        Log.i(TAG,username.getText().toString());
-                        Intent i = new Intent(Profile.this,CreateProfile.class);
-                        Profile.this.startActivity(i);
                     }
 
                         }

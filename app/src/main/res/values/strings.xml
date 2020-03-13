@@ -7,12 +7,12 @@
 
 
     <string-array name="language_array">
-        <item>java</item>
-        <item>javascript</item>
-        <item>python</item>
-        <item>csharp</item>
-        <item>cplusplus</item>
-        <item>ruby</item>
+        <item>Java</item>
+        <item>JavaScript</item>
+        <item>Python</item>
+        <item>Csharp</item>
+        <item>Cplusplus</item>
+        <item>Ruby</item>
         <item>dotNet</item>
         <item>sql</item>
         <item>html</item>
@@ -21,27 +21,27 @@
     </string-array>
 
     <string-array name="database_array">
-        <item>postgresql</item>
-        <item>mysql</item>
+        <item>Postgresql</item>
+        <item>Mysql</item>
         <item>mongoDB</item>
         <item>dynamoDB</item>
         <item></item>
     </string-array>
 
     <string-array name="environment_array">
-        <item>aws</item>
-        <item>heroku</item>
-        <item>firebase</item>
-        <item>azure</item>
+        <item>AWS</item>
+        <item>Heroku</item>
+        <item>Firebase</item>
+        <item>Azure</item>
         <item></item>
     </string-array>
 
     <string-array name="platform_array">
-        <item>iOS</item>
-        <item>android</item>
-        <item>linux</item>
-        <item>web</item>
-        <item>react</item>
+        <item>IOS</item>
+        <item>Android</item>
+        <item>Linux</item>
+        <item>Web</item>
+        <item>React</item>
         <item></item>
     </string-array>
 

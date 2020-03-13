@@ -254,12 +254,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .build();
 
 
-        this.listOfProjects = new ArrayList<Projects>();
+        this.listOfProjects = new ArrayList<>();
 //        getProjects();
 
-
-        listOfProjects.add(new Projects("Test", "Test", "Test", "Test"));
-        listOfProjects.add(new Projects("match", "match", "test", "test"));
 
 
 //        showing list of projects in the recycler view
@@ -267,6 +264,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyProjectListRecyclerViewAdapter(this.listOfProjects, this));
 
+        getProjects();
     }
 
     @Override

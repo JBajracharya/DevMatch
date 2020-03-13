@@ -14,6 +14,8 @@
         android:text="Edit Profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintStart_toEndOf="@+id/createProfile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/type" />
 
@@ -57,13 +59,14 @@
         android:id="@+id/email"
         android:layout_width="148dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="41dp"
+        android:layout_marginTop="381dp"
+        android:layout_marginBottom="121dp"
         android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/type"
+        app:layout_constraintBottom_toTopOf="@+id/createProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/type"
@@ -74,6 +77,19 @@
         app:layout_constraintBottom_toTopOf="@+id/editProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <Button
+        android:id="@+id/createProfile"
+        android:layout_width="104dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="141dp"
+        android:text="Create Profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editProfile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
