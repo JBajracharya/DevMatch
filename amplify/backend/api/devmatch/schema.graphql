@@ -6,29 +6,27 @@ type Developer @model {
   github: String
   email: String
   type: String
-  currentProjects: [TeamMate] @connection(name: "AssignedProjects")
+  projects: String
 #  one to one relationship
   skillSet: Skillset @connection
 }
 
 # creating many to many using two 1-M connections
-type TeamMate @model (queries: null) {
-  id: ID!
-  developer: Developer! @connection(name:"AssignedProjects")
-  currentProject: Project! @connection(name: "AssignedDevelopers")
-}
+
 
 type Project @model {
   id: ID!
   name: String
   description: String
+  owner: String!
   language: String
   database: String
   environment: String
   platform: String
   date: String
   link: String
-  developers: [TeamMate] @connection(name: "AssignedDevelopers")
+  devRequests: String
+  developers: String
 }
 
 

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,7 @@ import com.finalProject.devmatch.models.Projects;
 import com.finalProject.devmatch.models.SkillSet;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,6 +44,8 @@ import type.CreateDeveloperInput;
 import type.CreateSkillsetInput;
 import type.UpdateDeveloperInput;
 
+import static android.view.View.VISIBLE;
+
 public class EditProfile extends AppCompatActivity {
 
     private AWSAppSyncClient mAWSAppSyncClient;
@@ -50,9 +54,9 @@ public class EditProfile extends AppCompatActivity {
     SkillSet skills;
     ArrayList<Projects> projects;
 
-    EditText name;
+    TextView name;
      EditText github;
-     EditText email;
+     TextView email;
      RadioButton frontEnd;
      RadioButton backEnd;
      RadioButton fullStack;
@@ -89,6 +93,19 @@ public class EditProfile extends AppCompatActivity {
                 .context(getApplicationContext())
                 .awsConfiguration(new AWSConfiguration(getApplicationContext()))
                 .build();
+        TextView profileUsername = (TextView) findViewById(R.id.name);
+        profileUsername.setText(AWSMobileClient.getInstance().getUsername());
+        profileUsername.setVisibility(VISIBLE);
+
+//        Log.i(TAG, "User Details"+ AWSMobileClient.getInstance().getUserAttributes().toString());
+
+        TextView profileEmail = (TextView) findViewById(R.id.email);
+        try {
+            profileEmail.setText(AWSMobileClient.getInstance().getUserAttributes().toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        profileEmail.setVisibility(VISIBLE);
 
 
         Window window = this.getWindow();
@@ -147,6 +164,15 @@ public class EditProfile extends AppCompatActivity {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                TextView profileEmail = (TextView) findViewById(R.id.email);
+                try {
+                    profileEmail.setText(AWSMobileClient.getInstance().getUserAttributes().toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                profileEmail.setVisibility(VISIBLE);
+
 
                 Log.i(TAG,"Clicked");
 
