@@ -21,8 +21,8 @@
 
     <EditText
         android:id="@+id/editText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="248dp"
+        android:layout_height="120dp"
         android:layout_marginTop="3dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -64,368 +64,430 @@
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
 
-    <CheckBox
-        android:id="@+id/ruby"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ruby"
-        app:layout_constraintBottom_toBottomOf="@+id/sql"
+    <!--    <RadioGroup-->
+    <!--        android:id="@+id/radioGroup"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.488"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        tools:layout_editor_absoluteY="149dp">-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/backEnd"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Back End"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintHorizontal_bias="0.528"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            tools:layout_editor_absoluteY="116dp" />-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/fullStack"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Full Stack"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintHorizontal_bias="0.949"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            tools:layout_editor_absoluteY="116dp" />-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/frontEnd"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Front End"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintHorizontal_bias="0.05"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            tools:layout_editor_absoluteY="116dp" />-->
+    <!--    </RadioGroup>-->
+
+    <!--    <RadioGroup-->
+    <!--        android:id="@+id/radioGroupLangs"-->
+    <!--        android:layout_width="389dp"-->
+    <!--        android:layout_height="116dp"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        tools:layout_editor_absoluteX="6dp"-->
+    <!--        tools:layout_editor_absoluteY="264dp">-->
+
+
+    <!--    end group-->
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup2"
+        android:layout_width="386dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/sql"
-        app:layout_constraintTop_toTopOf="@+id/sql"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/java"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Java"
-        app:layout_constraintEnd_toStartOf="@+id/javascript"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="282dp" />
+        app:layout_constraintTop_toBottomOf="@+id/LanguagesNeeded">
 
-    <CheckBox
-        android:id="@+id/cSharp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="C#"
-        app:layout_constraintBottom_toBottomOf="@+id/javascript"
-        app:layout_constraintEnd_toStartOf="@+id/sql"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/javascript"
-        app:layout_constraintTop_toTopOf="@+id/javascript"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/sql"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SQL"
-        app:layout_constraintBottom_toBottomOf="@+id/cSharp"
-        app:layout_constraintEnd_toStartOf="@+id/ruby"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cSharp"
-        app:layout_constraintTop_toTopOf="@+id/cSharp"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/javascript"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="JavaScript"
-        app:layout_constraintBottom_toBottomOf="@+id/java"
-        app:layout_constraintEnd_toStartOf="@+id/cSharp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/java"
-        app:layout_constraintTop_toTopOf="@+id/java"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/html"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HTML"
-        app:layout_constraintBottom_toBottomOf="@+id/css"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/css"
-        app:layout_constraintTop_toTopOf="@+id/css"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/cPlusPlus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="C++"
-        app:layout_constraintEnd_toStartOf="@+id/dotNet"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="324dp" />
-
-    <CheckBox
-        android:id="@+id/dotNet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=".NET"
-        app:layout_constraintBottom_toBottomOf="@+id/cPlusPlus"
-        app:layout_constraintEnd_toStartOf="@+id/python"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cPlusPlus"
-        app:layout_constraintTop_toTopOf="@+id/cPlusPlus"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/python"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Python"
-        app:layout_constraintBottom_toBottomOf="@+id/dotNet"
-        app:layout_constraintEnd_toStartOf="@+id/css"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/dotNet"
-        app:layout_constraintTop_toTopOf="@+id/dotNet"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/css"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CSS"
-        app:layout_constraintBottom_toBottomOf="@+id/python"
-        app:layout_constraintEnd_toStartOf="@+id/html"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/python"
-        app:layout_constraintTop_toTopOf="@+id/python"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="149dp">
-
-        <RadioButton
-            android:id="@+id/backEnd"
+        <com.google.android.material.chip.Chip
+            android:id="@+id/ruby"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back End"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.528"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="116dp" />
+            android:text="Ruby"
+            app:layout_constraintBottom_toBottomOf="@+id/html"
+            app:layout_constraintEnd_toStartOf="@+id/sql"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/html"
+            app:layout_constraintTop_toTopOf="@+id/html" />
 
-        <RadioButton
-            android:id="@+id/fullStack"
+        <com.google.android.material.chip.Chip
+            android:id="@+id/html"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Full Stack"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.949"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="116dp" />
+            android:text="HTML"
+            app:layout_constraintBottom_toBottomOf="@+id/javascript"
+            app:layout_constraintEnd_toStartOf="@+id/ruby"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/javascript"
+            app:layout_constraintTop_toTopOf="@+id/javascript" />
 
-        <RadioButton
-            android:id="@+id/frontEnd"
+        <com.google.android.material.chip.Chip
+            android:id="@+id/javascript"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Front End"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
+            android:text="JavaScript"
+            app:layout_constraintBottom_toBottomOf="@+id/java"
+            app:layout_constraintEnd_toStartOf="@+id/html"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/java"
+            app:layout_constraintTop_toTopOf="@+id/java" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/java"
+            android:layout_width="67dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="4dp"
+            android:text="Java"
+            app:layout_constraintEnd_toStartOf="@+id/javascript"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="116dp" />
-    </RadioGroup>
+            app:layout_constraintTop_toBottomOf="@+id/css" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/cSharp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C#"
+            app:layout_constraintBottom_toBottomOf="@+id/python"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/python"
+            app:layout_constraintTop_toTopOf="@+id/python" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/sql"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SQL"
+            app:layout_constraintBottom_toBottomOf="@+id/ruby"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ruby"
+            app:layout_constraintTop_toTopOf="@+id/ruby" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/dotNet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=".NET"
+            app:layout_constraintBottom_toBottomOf="@+id/cPlusPlus"
+            app:layout_constraintEnd_toStartOf="@+id/python"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cPlusPlus"
+            app:layout_constraintTop_toTopOf="@+id/cPlusPlus" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/cPlusPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C++"
+            app:layout_constraintBottom_toBottomOf="@+id/css"
+            app:layout_constraintEnd_toStartOf="@+id/dotNet"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/css"
+            app:layout_constraintTop_toTopOf="@+id/css" />
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/python"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Python"
+            app:layout_constraintBottom_toBottomOf="@+id/dotNet"
+            app:layout_constraintEnd_toStartOf="@+id/cSharp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dotNet"
+            app:layout_constraintTop_toTopOf="@+id/dotNet" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/css"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="CSS"
+            app:layout_constraintEnd_toStartOf="@+id/cPlusPlus"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LanguagesNeeded" />
+    </com.google.android.material.chip.ChipGroup>
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Databases"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="356dp" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup2" />
 
-    <CheckBox
-        android:id="@+id/mongoDB"
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MongoDB"
-        app:layout_constraintEnd_toStartOf="@+id/dynamoDB"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/mysql"
-        tools:layout_editor_absoluteY="383dp" />
-
-    <CheckBox
-        android:id="@+id/dynamoDB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DynamoDB"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/mongoDB"
-        tools:layout_editor_absoluteY="383dp" />
-
-    <CheckBox
-        android:id="@+id/mysql"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MySQL"
-        app:layout_constraintEnd_toStartOf="@+id/mongoDB"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/postgresql"
-        tools:layout_editor_absoluteY="383dp" />
-
-    <CheckBox
-        android:id="@+id/postgresql"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Postgres"
-        app:layout_constraintEnd_toStartOf="@+id/mysql"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="383dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/mongoDB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MongoDB"
+            app:layout_constraintBottom_toBottomOf="@+id/mysql"
+            app:layout_constraintEnd_toStartOf="@+id/dynamoDB"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/mysql"
+            app:layout_constraintTop_toTopOf="@+id/mysql" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/dynamoDB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DynamoDB"
+            app:layout_constraintBottom_toBottomOf="@+id/mongoDB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/mongoDB"
+            app:layout_constraintTop_toTopOf="@+id/mongoDB" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/mysql"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MySQL"
+            app:layout_constraintBottom_toBottomOf="@+id/postgresql"
+            app:layout_constraintEnd_toStartOf="@+id/mongoDB"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/postgresql"
+            app:layout_constraintTop_toTopOf="@+id/postgresql"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/postgresql"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Postgres"
+            app:layout_constraintEnd_toStartOf="@+id/mysql"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    </com.google.android.material.chip.ChipGroup>
 
     <TextView
-        android:id="@+id/Familiarity"
+        android:id="@+id/LanguagesNeeded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Familiarity with:"
+        android:layout_marginTop="8dp"
+        android:text="Languages Needed"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="245dp" />
+        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Cloud Technology"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="415dp" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup3" />
 
-    <CheckBox
-        android:id="@+id/AWS"
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AWS"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/heroku"
-        tools:layout_editor_absoluteY="442dp" />
-
-    <CheckBox
-        android:id="@+id/heroku"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Heroku"
-        app:layout_constraintEnd_toStartOf="@+id/AWS"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/firebase"
-        tools:layout_editor_absoluteY="442dp" />
-
-    <CheckBox
-        android:id="@+id/azure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Azure"
-        app:layout_constraintEnd_toStartOf="@+id/firebase"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="442dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-    <CheckBox
-        android:id="@+id/firebase"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Firebase"
-        app:layout_constraintEnd_toStartOf="@+id/heroku"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/azure"
-        tools:layout_editor_absoluteY="442dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/AWS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AWS"
+            app:layout_constraintBottom_toBottomOf="@+id/heroku"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/heroku"
+            app:layout_constraintTop_toTopOf="@+id/heroku" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/heroku"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Heroku"
+            app:layout_constraintBottom_toBottomOf="@+id/firebase"
+            app:layout_constraintEnd_toStartOf="@+id/AWS"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/firebase"
+            app:layout_constraintTop_toTopOf="@+id/firebase" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/azure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Azure"
+            app:layout_constraintEnd_toStartOf="@+id/firebase"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/firebase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Firebase"
+            app:layout_constraintBottom_toBottomOf="@+id/azure"
+            app:layout_constraintEnd_toStartOf="@+id/heroku"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/azure"
+            app:layout_constraintTop_toTopOf="@+id/azure" />
+
+    </com.google.android.material.chip.ChipGroup>
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Platforms"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="474dp" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup4" />
 
-    <CheckBox
-        android:id="@+id/react"
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="React"
-        app:layout_constraintBottom_toBottomOf="@+id/linux"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/linux"
-        app:layout_constraintTop_toTopOf="@+id/linux" />
-
-    <CheckBox
-        android:id="@+id/web"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Web"
-        app:layout_constraintBottom_toBottomOf="@+id/android"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/android"
-        app:layout_constraintTop_toTopOf="@+id/android"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <CheckBox
-        android:id="@+id/iOS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="iOS"
-        app:layout_constraintEnd_toStartOf="@+id/android"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linux" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
 
-    <CheckBox
-        android:id="@+id/android"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Android"
-        app:layout_constraintBottom_toBottomOf="@+id/iOS"
-        app:layout_constraintEnd_toStartOf="@+id/web"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/iOS"
-        app:layout_constraintTop_toTopOf="@+id/iOS"
-        app:layout_constraintVertical_bias="0.0" />
 
-    <CheckBox
-        android:id="@+id/linux"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Linux"
-        app:layout_constraintEnd_toStartOf="@+id/react"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="498dp" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/react"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="React"
+            app:layout_constraintBottom_toBottomOf="@+id/linux"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/linux"
+            app:layout_constraintTop_toTopOf="@+id/linux" />
 
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="date|textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editText6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Expected complete date" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/web"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Web"
+            app:layout_constraintBottom_toBottomOf="@+id/android"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/android"
+            app:layout_constraintTop_toTopOf="@+id/android"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/iOS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iOS"
+            app:layout_constraintEnd_toStartOf="@+id/android"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linux" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Android"
+            app:layout_constraintBottom_toBottomOf="@+id/iOS"
+            app:layout_constraintEnd_toStartOf="@+id/web"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/iOS"
+            app:layout_constraintTop_toTopOf="@+id/iOS"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/linux"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Linux"
+            app:layout_constraintEnd_toStartOf="@+id/react"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <!--    end group-->
+    </com.google.android.material.chip.ChipGroup>
 
     <EditText
         android:id="@+id/editText6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Link"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="622dp" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup5" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Create"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="667dp" />
+        app:layout_constraintTop_toBottomOf="@+id/editText6" />
 </androidx.constraintlayout.widget.ConstraintLayout>
