@@ -72,11 +72,6 @@ public class Profile extends AppCompatActivity {
             }
         });
     }
-    @Override
-    public void onResume(){
-        super.onResume();
-        getDev();
-    }
     public void getDev(){
 
         mAWSAppSyncClient.query(ListDevelopersQuery.builder().build())
