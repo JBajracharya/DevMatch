@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.amazonaws.amplify.generated.graphql.CreateDeveloperMutation;
@@ -53,10 +55,14 @@ public class CreateProject extends AppCompatActivity {
 
         Window window = this.getWindow();
 
+        final EditText name = findViewById(R.id.name);
+        final EditText description = findViewById(R.id.editText3);
+        final EditText link = findViewById(R.id.editText6);
+        final Button create = findViewById(R.id.button2);
 
 
 // search for project dropdown start :::::::::::::::::::::::::::::::::::
-        Spinner spinner = (Spinner) findViewById(R.id.language);
+        final Spinner spinner = (Spinner) findViewById(R.id.language);
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.language_array, android.R.layout.simple_spinner_item);
@@ -66,24 +72,31 @@ public class CreateProject extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
 
-        Spinner spinner2 = (Spinner) findViewById(R.id.database);
+        final Spinner spinner2 = (Spinner) findViewById(R.id.database);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.database_array, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
 
-        Spinner spinner3 = (Spinner) findViewById(R.id.environment);
+        final Spinner spinner3 = (Spinner) findViewById(R.id.environment);
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
                 R.array.platform_array, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
 
-        Spinner spinner4 = (Spinner) findViewById(R.id.platform);
+        final Spinner spinner4 = (Spinner) findViewById(R.id.platform);
         ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this,
                 R.array.environment_array, android.R.layout.simple_spinner_item);
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner4.setAdapter(adapter4);
 
+        create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runProjectsCreateMutation(name.getText().toString(),description.getText().toString(),spinner.getSelectedItem().toString(),spinner2.getSelectedItem().toString(),
+                        spinner3.getSelectedItem().toString(),spinner4.getSelectedItem().toString(),link.getText().toString());
+            }
+        });
 
 
 
@@ -103,7 +116,7 @@ public class CreateProject extends AppCompatActivity {
     }
   
     public void runProjectsCreateMutation(String name, String description, String language,String dataBase,
-                                          String env, String platform, String date, String link) {
+                                          String env, String platform, String link) {
         CreateProjectInput createProjectInput = CreateProjectInput.builder()
                 .name(name)
                 .description(description)
@@ -112,7 +125,6 @@ public class CreateProject extends AppCompatActivity {
                 .database(dataBase)
                 .environment(env)
                 .platform(platform)
-                .date(date)
                 .link(link)
                 .build();
 
