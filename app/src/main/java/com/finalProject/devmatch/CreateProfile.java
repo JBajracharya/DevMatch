@@ -69,11 +69,11 @@ public class CreateProfile extends AppCompatActivity {
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#000000"));
         bar.setBackgroundDrawable(colorDrawable);
 
-        Log.i(TAG,"EditProfile Activity Created");
+        Log.i(TAG,"Create Profile Activity Created");
 
-        final EditText name = findViewById(R.id.name);
+//        final EditText name = findViewById(R.id.name);
         final EditText github = findViewById(R.id.github);
-        final EditText email = findViewById(R.id.email);
+//        final EditText email = findViewById(R.id.email);
         final RadioButton frontEnd = findViewById(R.id.frontEnd);
         final RadioButton backEnd = findViewById(R.id.backEnd);
         final RadioButton fullStack = findViewById(R.id.fullStack);
@@ -114,9 +114,9 @@ public class CreateProfile extends AppCompatActivity {
 
                 Log.i(TAG,"Clicked");
 
-                dev.setName(name.getText().toString());
+//                dev.setName(name.getText().toString());
                 dev.setGithub(github.getText().toString());
-                dev.setEmail(email.getText().toString());
+//                dev.setEmail(email.getText().toString());
 
                 if(frontEnd.isChecked()) {
                     dev.setType("Front End");
@@ -201,6 +201,8 @@ public class CreateProfile extends AppCompatActivity {
                 dev.setSkills(skills);
 
                 runSkillsetCreateMutation(skills);
+                Intent i = new Intent(CreateProfile.this,Profile.class);
+                CreateProfile.this.startActivity(i);
             }
         });
 
