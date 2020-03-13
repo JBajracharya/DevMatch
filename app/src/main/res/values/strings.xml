@@ -5,16 +5,44 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="sign_out">Sign out</string>
 
-        <string-array name="planets_array">
-            <item>Mercury</item>
-            <item>Venus</item>
-            <item>Earth</item>
-            <item>Mars</item>
-            <item>Jupiter</item>
-            <item>Saturn</item>
-            <item>Uranus</item>
-            <item>Neptune</item>
-        </string-array>
 
+    <string-array name="language_array">
+        <item>java</item>
+        <item>javascript</item>
+        <item>python</item>
+        <item>csharp</item>
+        <item>cplusplus</item>
+        <item>ruby</item>
+        <item>dotNet</item>
+        <item>sql</item>
+        <item>html</item>
+        <item>css</item>
+        <item></item>
+    </string-array>
+
+    <string-array name="database_array">
+        <item>postgresql</item>
+        <item>mysql</item>
+        <item>mongoDB</item>
+        <item>dynamoDB</item>
+        <item></item>
+    </string-array>
+
+    <string-array name="environment_array">
+        <item>aws</item>
+        <item>heroku</item>
+        <item>firebase</item>
+        <item>azure</item>
+        <item></item>
+    </string-array>
+
+    <string-array name="platform_array">
+        <item>iOS</item>
+        <item>android</item>
+        <item>linux</item>
+        <item>web</item>
+        <item>react</item>
+        <item></item>
+    </string-array>
 
 </resources>

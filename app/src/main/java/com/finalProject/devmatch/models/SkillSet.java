@@ -27,6 +27,10 @@ public class SkillSet {
         private boolean web;
         private boolean react;
 
+        public SkillSet(){
+
+        }
+
     public SkillSet(String id, boolean java, boolean python, boolean cSharp, boolean cplusplus, boolean ruby, boolean dotNet, boolean javascript, boolean sql, boolean html, boolean css, boolean postgresql, boolean mysql, boolean mongoDB, boolean dynamoDB, boolean AWS, boolean heroku, boolean firebase, boolean azure, boolean iOS, boolean android, boolean linux, boolean web, boolean react) {
         this.id = id;
         this.java = java;
@@ -53,11 +57,6 @@ public class SkillSet {
         this.web = web;
         this.react = react;
     }
-
-    public SkillSet() {
-
-    }
-
 
     public boolean isJava() {
         return java;
