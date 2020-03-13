@@ -140,9 +140,9 @@ public class Projects {
     }
 
     private enum Platform {
-         iOS,
-         android,
-         linux,
+        iOS,
+        android,
+        linux,
         web,
         react,
 

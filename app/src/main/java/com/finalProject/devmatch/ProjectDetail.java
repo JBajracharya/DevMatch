@@ -61,13 +61,14 @@ public class ProjectDetail extends AppCompatActivity {
                 .build();
 
 
-        name = findViewById(R.id.name);
+
+        name = findViewById(R.id.link);
         description = findViewById(R.id.description);
         link = findViewById(R.id.link);
-        owner = findViewById(R.id.owner);
-        date = findViewById(R.id.date);
         env = findViewById(R.id.env);
+        owner = findViewById(R.id.owner);
         platform = findViewById(R.id.platform);
+        date = findViewById(R.id.date);
         apply = findViewById(R.id.apply);
         requester = findViewById(R.id.Owner);
         approve = findViewById(R.id.approve);
@@ -76,7 +77,9 @@ public class ProjectDetail extends AppCompatActivity {
         approve.setVisibility(View.INVISIBLE);
         apply.setVisibility(View.INVISIBLE);
 
-        id = getIntent().getStringExtra("mID");
+        id = getIntent().getStringExtra("mName");
+
+        getProjects();
 
         getProjects();
 
@@ -111,9 +114,13 @@ public class ProjectDetail extends AppCompatActivity {
                 @Override
                 public void onResponse(@Nonnull final Response<ListProjectsQuery.Data> response) {
                     List<ListProjectsQuery.Item> items = response.data().listProjects().items();
+                    Log.i(TAG,"queyr");
                     for (int i = 0; i < items.size(); i++) {
                         ListProjectsQuery.Item p = items.get(i);
-                        if (p.id() == id) {
+                        Log.i(TAG,id);
+                        Log.i(TAG,items.get(i).name());
+                        if (p.name().equals(id)) {
+                            Log.i(TAG,items.get(i).toString());
                             project = new Projects();
                             project.setId(id);
                             project.setName(p.name());
@@ -125,17 +132,21 @@ public class ProjectDetail extends AppCompatActivity {
                             project.setPlatform(p.platform());
                             project.setDate(p.date());
                             project.setLink(p.link());
-                            projectStuff();
 
-                            if (AWSMobileClient.getInstance().getUsername() == project.getOwner() && !project.getDevRequests().isEmpty()) {
-                                requester.setText(project.getDevRequests().get(0));
-                                requester.setVisibility(View.VISIBLE);
-                                approve.setVisibility(View.VISIBLE);
-                                getDev();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    projectStuff();
+                                    if (AWSMobileClient.getInstance().getUsername().equals(project.getOwner()) && !project.getDevRequests().isEmpty()) {
+                                        requester.setText(project.getDevRequests().get(0));
+                                        requester.setVisibility(View.VISIBLE);
+                                        approve.setVisibility(View.VISIBLE);
+                                        getDev();
 
-                            } else {
-                                apply.setVisibility(View.VISIBLE);
-                            }
+                                    }
+                                }
+                            });
+
                         }
                     }
                 }
@@ -235,9 +246,9 @@ public class ProjectDetail extends AppCompatActivity {
         description.setText(project.getDescription());
         link.setText(project.getLink());
         owner.setText(project.getOwner());
-        date.setText(project.getDate());
-        description.setText(project.getDescription());
-        env.setText(project.getEnvironment());
         platform.setText(project.getPlatform());
+        env.setText(project.getEnvironment());
+        date.setText(project.getDate());
+
     }
 }
