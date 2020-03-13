@@ -10,6 +10,7 @@ mutation CreateDeveloper(
     github
     email
     type
+    projects
     skillSet {
       id
       java
@@ -49,6 +50,7 @@ mutation UpdateDeveloper(
     github
     email
     type
+    projects
     skillSet {
       id
       java
@@ -88,6 +90,7 @@ mutation DeleteDeveloper(
     github
     email
     type
+    projects
     skillSet {
       id
       java

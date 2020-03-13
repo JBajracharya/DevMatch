@@ -6,6 +6,7 @@ type Developer @model {
   github: String
   email: String
   type: String
+  projects: String
 #  one to one relationship
   skillSet: Skillset @connection
 }
