@@ -10,12 +10,7 @@ mutation CreateDeveloper(
     github
     email
     type
-    currentProjects {
-      items {
-        id
-      }
-      nextToken
-    }
+    projects
     skillSet {
       id
       java
@@ -55,12 +50,7 @@ mutation UpdateDeveloper(
     github
     email
     type
-    currentProjects {
-      items {
-        id
-      }
-      nextToken
-    }
+    projects
     skillSet {
       id
       java
@@ -100,12 +90,7 @@ mutation DeleteDeveloper(
     github
     email
     type
-    currentProjects {
-      items {
-        id
-      }
-      nextToken
-    }
+    projects
     skillSet {
       id
       java
@@ -134,183 +119,6 @@ mutation DeleteDeveloper(
     }
   }
 }
-mutation CreateTeamMate(
-  $input: CreateTeamMateInput!
-  $condition: ModelTeamMateConditionInput
-) {
-  createTeamMate(input: $input, condition: $condition) {
-    id
-    developer {
-      id
-      username
-      name
-      github
-      email
-      type
-      currentProjects {
-        nextToken
-      }
-      skillSet {
-        id
-        java
-        python
-        cSharp
-        cplusplus
-        ruby
-        dotNet
-        javascript
-        sql
-        html
-        css
-        postgresql
-        mysql
-        mongoDB
-        dynamoDB
-        AWS
-        heroku
-        firebase
-        azure
-        iOS
-        android
-        linux
-        web
-        react
-      }
-    }
-    currentProject {
-      id
-      name
-      description
-      language
-      database
-      environment
-      platform
-      date
-      link
-      developers {
-        nextToken
-      }
-    }
-  }
-}
-mutation UpdateTeamMate(
-  $input: UpdateTeamMateInput!
-  $condition: ModelTeamMateConditionInput
-) {
-  updateTeamMate(input: $input, condition: $condition) {
-    id
-    developer {
-      id
-      username
-      name
-      github
-      email
-      type
-      currentProjects {
-        nextToken
-      }
-      skillSet {
-        id
-        java
-        python
-        cSharp
-        cplusplus
-        ruby
-        dotNet
-        javascript
-        sql
-        html
-        css
-        postgresql
-        mysql
-        mongoDB
-        dynamoDB
-        AWS
-        heroku
-        firebase
-        azure
-        iOS
-        android
-        linux
-        web
-        react
-      }
-    }
-    currentProject {
-      id
-      name
-      description
-      language
-      database
-      environment
-      platform
-      date
-      link
-      developers {
-        nextToken
-      }
-    }
-  }
-}
-mutation DeleteTeamMate(
-  $input: DeleteTeamMateInput!
-  $condition: ModelTeamMateConditionInput
-) {
-  deleteTeamMate(input: $input, condition: $condition) {
-    id
-    developer {
-      id
-      username
-      name
-      github
-      email
-      type
-      currentProjects {
-        nextToken
-      }
-      skillSet {
-        id
-        java
-        python
-        cSharp
-        cplusplus
-        ruby
-        dotNet
-        javascript
-        sql
-        html
-        css
-        postgresql
-        mysql
-        mongoDB
-        dynamoDB
-        AWS
-        heroku
-        firebase
-        azure
-        iOS
-        android
-        linux
-        web
-        react
-      }
-    }
-    currentProject {
-      id
-      name
-      description
-      language
-      database
-      environment
-      platform
-      date
-      link
-      developers {
-        nextToken
-      }
-    }
-  }
-}
 mutation CreateProject(
   $input: CreateProjectInput!
   $condition: ModelProjectConditionInput
@@ -319,18 +127,15 @@ mutation CreateProject(
     id
     name
     description
+    owner
     language
     database
     environment
     platform
     date
     link
-    developers {
-      items {
-        id
-      }
-      nextToken
-    }
+    devRequests
+    developers
   }
 }
 mutation UpdateProject(
@@ -341,18 +146,15 @@ mutation UpdateProject(
     id
     name
     description
+    owner
     language
     database
     environment
     platform
     date
     link
-    developers {
-      items {
-        id
-      }
-      nextToken
-    }
+    devRequests
+    developers
   }
 }
 mutation DeleteProject(
@@ -363,18 +165,15 @@ mutation DeleteProject(
     id
     name
     description
+    owner
     language
     database
     environment
     platform
     date
     link
-    developers {
-      items {
-        id
-      }
-      nextToken
-    }
+    devRequests
+    developers
   }
 }
 mutation CreateSkillset(

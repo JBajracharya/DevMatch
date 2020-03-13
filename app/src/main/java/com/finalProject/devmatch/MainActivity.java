@@ -255,7 +255,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         this.listOfProjects = new ArrayList<Projects>();
-//        runQuery();
+//        getProjects();
 
 
         listOfProjects.add(new Projects("Test", "Test", "Test", "Test"));
@@ -275,7 +275,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     //    get task data from dynamo db and show to the the recycler View :::::::::::::::::::::
-    public void runQuery(){
+    public void getProjects(){
         mAWSAppSyncClient.query(ListProjectsQuery.builder().build())
                 .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
                 .enqueue(projectCallback);
