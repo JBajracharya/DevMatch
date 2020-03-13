@@ -22,6 +22,8 @@ public class DeveloperTest {
     @Test
     public void testDeveloperJavascriptTrue(){
         assertTrue(dev.getSkills().isJavascript());
+        assertFalse(dev.getSkills().isAndroid());
+        assertFalse(dev.getSkills().isAzure());
     }
     @Test
     public void testEnumsAreWorking(){

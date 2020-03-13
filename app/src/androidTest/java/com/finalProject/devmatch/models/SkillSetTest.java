@@ -13,10 +13,14 @@ public class SkillSetTest {
     public void makeSkillset(){
         skills = new SkillSet();
         skills.setJavascript(true);
+        skills.setReact(true);
+        skills.setiOS(true);
     }
 
     @Test
     public void testJavascriptTrue(){
         assertTrue(skills.isJavascript());
+        assertTrue(skills.isReact());
+        assertTrue(skills.isiOS());
     }
 }
