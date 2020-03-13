@@ -1,20 +1,10 @@
 package com.finalProject.devmatch;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 
-import android.app.ActionBar;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,8 +29,6 @@ import javax.annotation.Nonnull;
 import type.UpdateDeveloperInput;
 import type.UpdateProjectInput;
 
-import static com.amazonaws.mobile.client.UserState.SIGNED_IN;
-
 public class ProjectDetail extends AppCompatActivity {
 
     private AWSAppSyncClient mAWSAppSyncClient;
@@ -60,42 +48,17 @@ public class ProjectDetail extends AppCompatActivity {
 
     TextView requester;
     Button approve;
-    String username;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_detail);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
-//        toolbar.setBackgroundColor(Color.rgb(0, 0, 0));
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mAWSAppSyncClient = AWSAppSyncClient.builder()
                 .context(getApplicationContext())
                 .awsConfiguration(new AWSConfiguration(getApplicationContext()))
                 .build();
-
-
-        Window window = this.getWindow();
-
-// clear FLAG_TRANSLUCENT_STATUS flag:
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
-// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-
-// finally change the color
-        window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorBlack));
-        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.colorBlack));
-
-       // ActionBar bar = this.getActionBar();
-       // ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#000000"));
-//        bar.setBackgroundDrawable(colorDrawable);
-//       bar.hide();
-
-
 
 
 
@@ -120,27 +83,6 @@ public class ProjectDetail extends AppCompatActivity {
 
         getProjects();
 
-//        Button messageButton = findViewById(R.id.messaging);
-//        messageButton.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View v)
-//            {
-//                if(AWSMobileClient.getInstance().currentUserState().getUserState().equals(SIGNED_IN)) {
-//                    Intent intent = new Intent(this, DevMatchMessaging.class);
-//                    Log.i("@@2@@@2@@@@@@@@@@@", username);
-//                    intent.putExtra("username", username);
-//                    startActivity(intent);
-//
-//                }
-//                else
-//                {
-//                    Toast.makeText(getApplicationContext(), "Please login or register", Toast.LENGTH_SHORT).show();
-//                }
-//
-//            }
-//        });
-
 
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,39 +101,6 @@ public class ProjectDetail extends AppCompatActivity {
         });
     }
 
-    // create an action bar button
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        // R.menu.mymenu is a reference to an xml file named mymenu.xml which should be inside your res/menu directory.
-        // If you don't have res/menu, just create a directory named "menu" inside res
-        getMenuInflater().inflate(R.menu.barbuttonmenu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    // handle button activities
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.mybutton)
-        {
-            if(AWSMobileClient.getInstance().currentUserState().getUserState().equals(SIGNED_IN)) {
-                Intent intent = new Intent(this, DevMatchMessaging.class);
-                Log.i("@@2@@@2@@@@@@@@@@@", username);
-                intent.putExtra("username", username);
-                startActivity(intent);
-                return true;
-            }
-            else
-            {
-                Toast.makeText(getApplicationContext(), "Please login or register", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     public void getProjects() {
         mAWSAppSyncClient.query(ListProjectsQuery.builder().build())
                 .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
@@ -204,7 +113,6 @@ public class ProjectDetail extends AppCompatActivity {
             GraphQLCall.Callback<ListProjectsQuery.Data>() {
                 @Override
                 public void onResponse(@Nonnull final Response<ListProjectsQuery.Data> response) {
-                    username = AWSMobileClient.getInstance().getUsername();
                     List<ListProjectsQuery.Item> items = response.data().listProjects().items();
                     Log.i(TAG,"queyr");
                     for (int i = 0; i < items.size(); i++) {
@@ -307,16 +215,6 @@ public class ProjectDetail extends AppCompatActivity {
         }
 
     };
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        username = AWSMobileClient.getInstance().getUsername();
-        if(username != null)
-        {
-            Log.i("USERNAME!!!!!!!!!!", username);
-        }
-    }
 
     public void getDev() {
 
