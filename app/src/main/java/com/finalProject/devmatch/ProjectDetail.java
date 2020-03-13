@@ -15,6 +15,7 @@ import com.amazonaws.amplify.generated.graphql.ListProjectsQuery;
 import com.amazonaws.amplify.generated.graphql.UpdateDeveloperMutation;
 import com.amazonaws.amplify.generated.graphql.UpdateProjectMutation;
 import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.apollographql.apollo.GraphQLCall;
@@ -57,9 +58,10 @@ public class ProjectDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_detail);
 
-        mAWSAppSyncClient.query(ListProjectsQuery.builder().build())
-                .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
-                .enqueue(projsCallback);
+        mAWSAppSyncClient = AWSAppSyncClient.builder()
+                .context(getApplicationContext())
+                .awsConfiguration(new AWSConfiguration(getApplicationContext()))
+                .build();
 
         name = findViewById(R.id.textView4);
         description = findViewById(R.id.textView8);
