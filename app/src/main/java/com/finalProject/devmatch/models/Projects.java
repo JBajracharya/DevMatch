@@ -135,8 +135,6 @@ public class Projects {
             case "Azure":
                 this.environment =Environment.azure;
                 break;
-
-
         }
 
     }
@@ -215,8 +213,31 @@ public class Projects {
     public void setLink(String link) {
         this.link = link;
     }
-    public Language getLanguage() {
-        return language;
+
+    public String getLanguage() {
+        switch (language) {
+            case java:
+                return "Java";
+            case javascript:
+                return "JavaScript";
+            case python:
+                return "Python";
+            case csharp:
+                return "C#";
+            case cplusplus:
+                return "C++";
+            case ruby:
+                return "Ruby";
+            case dotNet:
+                return ".NET";
+            case sql:
+                return "SQL";
+            case html:
+                return "HTML";
+            case css:
+                return "CSS";
+        }
+        return "None";
     }
 
     public void setLanguage(Language language) {
@@ -231,23 +252,55 @@ public class Projects {
         this.developers = developers;
     }
 
-    public Database getDataBase() {
-        return dataBase;
+    public String getDataBase() {
+        switch (dataBase) {
+            case postgresql:
+                return "Postgresql";
+            case mysql:
+                return "MySQL";
+            case mongoDB:
+                return "MongoDB";
+            case dynamoDB:
+                return "DynamoDB";
+        }
+        return "None";
     }
 
     public void setDataBase(Database dataBase) {
         this.dataBase = dataBase;
     }
-    public Environment getEnvironment() {
-        return environment;
+    public String getEnvironment() {
+        switch (environment) {
+            case aws:
+                return "AWS";
+            case heroku:
+                return "Heroku";
+            case firebase:
+                return "Firebase";
+            case azure:
+                return "Azure";
+        }
+        return "None";
     }
 
     public void setEnvironment(Environment environment) {
         this.environment = environment;
     }
 
-    public Platform getPlatform() {
-        return platform;
+    public String getPlatform() {
+        switch (platform) {
+            case iOS:
+                return "iOS";
+            case android:
+                return "Android";
+            case linux:
+                return "Linux";
+            case web:
+                return "Web";
+            case react:
+                return "React";
+        }
+        return "None";
     }
 
     public void setPlatform(Platform platform) {
