@@ -1,8 +1,11 @@
 package com.finalProject.devmatch;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -200,6 +203,11 @@ public class CreateProfile extends AppCompatActivity {
                 runSkillsetCreateMutation(skills);
             }
         });
+
+
+
+
+
     }
     public void runSkillsetCreateMutation(SkillSet skills) {
         CreateSkillsetInput createSkillsetInput = CreateSkillsetInput.builder().
@@ -294,4 +302,7 @@ public class CreateProfile extends AppCompatActivity {
                     Log.i(TAG,"Failure");
                 }
             };
+
+
+
 }
