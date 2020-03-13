@@ -83,6 +83,14 @@ public class ProjectDetail extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "You have requested to be part of this project", Toast.LENGTH_SHORT);
             }
         });
+        approve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runProjectsUpdateMutationForApproval();
+                runDeveloperUpdateMutationForApproval(project.getId());
+                Toast.makeText(getApplicationContext(), "You have approved " + requester.getText() + " to join" + name.getText(), Toast.LENGTH_SHORT);
+            }
+        });
     }
 
     public void getProjects() {
@@ -117,9 +125,8 @@ public class ProjectDetail extends AppCompatActivity {
                                 requester.setText(project.getDevRequests().get(0));
                                 requester.setVisibility(View.VISIBLE);
                                 approve.setVisibility(View.VISIBLE);
-                                runProjectsUpdateMutationForApproval();
                                 getDev();
-                                runDeveloperUpdateMutationForApproval(project.getId());
+
                             }
                         }
                     }
