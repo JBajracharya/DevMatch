@@ -246,8 +246,8 @@ public class ProjectDetail extends AppCompatActivity {
         description.setText(project.getDescription());
         link.setText(project.getLink());
         owner.setText(project.getOwner());
-        platform.setText(project.getPlatform());
-        env.setText(project.getEnvironment());
+//        platform.setText(project.getPlatform());
+//        env.setText(project.getEnvironment());
         date.setText(project.getDate());
 
     }
