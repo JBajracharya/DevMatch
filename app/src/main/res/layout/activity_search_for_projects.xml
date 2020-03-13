@@ -31,20 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
-    <!--    <EditText-->
-    <!--        android:id="@+id/positionNeeded"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="16dp"-->
-    <!--        android:layout_marginTop="8dp"-->
-    <!--        android:layout_marginEnd="16dp"-->
-    <!--        android:ems="10"-->
-    <!--        android:inputType="textPersonName"-->
-    <!--        android:text="Positions Needed"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/editText5"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/editText3" />-->
+
 
 
     <EditText
@@ -64,59 +51,9 @@
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
 
-    <!--    <RadioGroup-->
-    <!--        android:id="@+id/radioGroup"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.488"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        tools:layout_editor_absoluteY="149dp">-->
-
-    <!--        <RadioButton-->
-    <!--            android:id="@+id/backEnd"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="Back End"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintHorizontal_bias="0.528"-->
-    <!--            app:layout_constraintStart_toStartOf="parent"-->
-    <!--            tools:layout_editor_absoluteY="116dp" />-->
-
-    <!--        <RadioButton-->
-    <!--            android:id="@+id/fullStack"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="Full Stack"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintHorizontal_bias="0.949"-->
-    <!--            app:layout_constraintStart_toStartOf="parent"-->
-    <!--            tools:layout_editor_absoluteY="116dp" />-->
-
-    <!--        <RadioButton-->
-    <!--            android:id="@+id/frontEnd"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="Front End"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintHorizontal_bias="0.05"-->
-    <!--            app:layout_constraintStart_toStartOf="parent"-->
-    <!--            tools:layout_editor_absoluteY="116dp" />-->
-    <!--    </RadioGroup>-->
-
-    <!--    <RadioGroup-->
-    <!--        android:id="@+id/radioGroupLangs"-->
-    <!--        android:layout_width="389dp"-->
-    <!--        android:layout_height="116dp"-->
-    <!--        android:orientation="horizontal"-->
-    <!--        tools:layout_editor_absoluteX="6dp"-->
-    <!--        tools:layout_editor_absoluteY="264dp">-->
-
-
-    <!--    end group-->
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup2"
+        android:id="@+id/chipGroupLang"
         android:layout_width="386dp"
         android:layout_height="68dp"
         android:layout_marginTop="16dp"
@@ -129,7 +66,7 @@
             android:id="@+id/ruby"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ruby"
+            app:chipText="Ruby"
             app:layout_constraintBottom_toBottomOf="@+id/html"
             app:layout_constraintEnd_toStartOf="@+id/sql"
             app:layout_constraintHorizontal_bias="0.5"
@@ -140,7 +77,7 @@
             android:id="@+id/html"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HTML"
+            app:chipText="HTML"
             app:layout_constraintBottom_toBottomOf="@+id/javascript"
             app:layout_constraintEnd_toStartOf="@+id/ruby"
             app:layout_constraintHorizontal_bias="0.5"
@@ -151,7 +88,7 @@
             android:id="@+id/javascript"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="JavaScript"
+            app:chipText="JavaScript"
             app:layout_constraintBottom_toBottomOf="@+id/java"
             app:layout_constraintEnd_toStartOf="@+id/html"
             app:layout_constraintHorizontal_bias="0.5"
@@ -163,7 +100,7 @@
             android:layout_width="67dp"
             android:layout_height="28dp"
             android:layout_marginTop="4dp"
-            android:text="Java"
+            app:chipText="Java"
             app:layout_constraintEnd_toStartOf="@+id/javascript"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -173,7 +110,7 @@
             android:id="@+id/cSharp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="C#"
+            app:chipText="C#"
             app:layout_constraintBottom_toBottomOf="@+id/python"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -184,7 +121,7 @@
             android:id="@+id/sql"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SQL"
+            app:chipText="SQL"
             app:layout_constraintBottom_toBottomOf="@+id/ruby"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -195,7 +132,7 @@
             android:id="@+id/dotNet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=".NET"
+            app:chipText=".NET"
             app:layout_constraintBottom_toBottomOf="@+id/cPlusPlus"
             app:layout_constraintEnd_toStartOf="@+id/python"
             app:layout_constraintHorizontal_bias="0.5"
@@ -206,7 +143,7 @@
             android:id="@+id/cPlusPlus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="C++"
+            app:chipText="C++"
             app:layout_constraintBottom_toBottomOf="@+id/css"
             app:layout_constraintEnd_toStartOf="@+id/dotNet"
             app:layout_constraintHorizontal_bias="0.5"
@@ -218,7 +155,7 @@
             android:id="@+id/python"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Python"
+            app:chipText="Python"
             app:layout_constraintBottom_toBottomOf="@+id/dotNet"
             app:layout_constraintEnd_toStartOf="@+id/cSharp"
             app:layout_constraintHorizontal_bias="0.5"
@@ -230,7 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="CSS"
+            app:chipText="CSS"
             app:layout_constraintEnd_toStartOf="@+id/cPlusPlus"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -246,21 +183,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup2" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroupLang" />
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup3"
+        android:id="@+id/chipGroupDB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:layout_editor_absoluteX="10dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/mongoDB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MongoDB"
+            app:chipText="MongoDB"
             app:layout_constraintBottom_toBottomOf="@+id/mysql"
             app:layout_constraintEnd_toStartOf="@+id/dynamoDB"
             app:layout_constraintHorizontal_bias="0.5"
@@ -271,7 +210,7 @@
             android:id="@+id/dynamoDB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DynamoDB"
+            app:chipText="DynamoDB"
             app:layout_constraintBottom_toBottomOf="@+id/mongoDB"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -282,7 +221,7 @@
             android:id="@+id/mysql"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MySQL"
+            app:chipText="MySQL"
             app:layout_constraintBottom_toBottomOf="@+id/postgresql"
             app:layout_constraintEnd_toStartOf="@+id/mongoDB"
             app:layout_constraintHorizontal_bias="0.5"
@@ -295,7 +234,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Postgres"
+            app:chipText="Postgres"
             app:layout_constraintEnd_toStartOf="@+id/mysql"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -324,22 +263,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup3" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroupDB" />
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup4"
+        android:id="@+id/chipGroupCloud"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:layout_editor_absoluteX="52dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
 
 
         <com.google.android.material.chip.Chip
             android:id="@+id/AWS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="AWS"
+            app:chipText="AWS"
             app:layout_constraintBottom_toBottomOf="@+id/heroku"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -350,7 +291,7 @@
             android:id="@+id/heroku"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Heroku"
+            app:chipText="Heroku"
             app:layout_constraintBottom_toBottomOf="@+id/firebase"
             app:layout_constraintEnd_toStartOf="@+id/AWS"
             app:layout_constraintHorizontal_bias="0.5"
@@ -362,7 +303,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Azure"
+            app:chipText="Azure"
             app:layout_constraintEnd_toStartOf="@+id/firebase"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -372,7 +313,7 @@
             android:id="@+id/firebase"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Firebase"
+            app:chipText="Firebase"
             app:layout_constraintBottom_toBottomOf="@+id/azure"
             app:layout_constraintEnd_toStartOf="@+id/heroku"
             app:layout_constraintHorizontal_bias="0.5"
@@ -390,10 +331,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup4" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroupCloud" />
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup5"
+        android:id="@+id/chipGroupPlatform"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -407,7 +348,7 @@
             android:id="@+id/react"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="React"
+            app:chipText="React"
             app:layout_constraintBottom_toBottomOf="@+id/linux"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -419,7 +360,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Web"
+            app:chipText="Web"
             app:layout_constraintBottom_toBottomOf="@+id/android"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -431,7 +372,7 @@
             android:id="@+id/iOS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="iOS"
+            app:chipText="iOS"
             app:layout_constraintEnd_toStartOf="@+id/android"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -441,7 +382,7 @@
             android:id="@+id/android"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Android"
+            app:chipText="Android"
             app:layout_constraintBottom_toBottomOf="@+id/iOS"
             app:layout_constraintEnd_toStartOf="@+id/web"
             app:layout_constraintHorizontal_bias="0.5"
@@ -454,7 +395,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Linux"
+            app:chipText="Linux"
             app:layout_constraintEnd_toStartOf="@+id/react"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -472,8 +413,9 @@
         android:inputType="textPersonName"
         android:text="Link"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup5" />
+        app:layout_constraintTop_toBottomOf="@+id/chipGroupPlatform" />
 
     <Button
         android:id="@+id/button2"
