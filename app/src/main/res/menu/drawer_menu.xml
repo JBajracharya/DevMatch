@@ -9,7 +9,7 @@
             android:title="Profile" />
         <item android:id="@+id/nav_project"
             android:icon="@drawable/ic_project"
-            android:title="My Projects" />
+            android:title="Create Project" />
         <item android:id="@+id/nav_projectSearch"
             android:icon="@drawable/ic_search"
             android:title="Search For Projects" />
