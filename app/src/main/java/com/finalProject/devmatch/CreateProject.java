@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -64,6 +65,7 @@ public class CreateProject extends AppCompatActivity {
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#000000"));
         bar.setBackgroundDrawable(colorDrawable);
     }
+
     public void runProjectsCreateMutation(String name, String description, String language, String dataBase,
                                           String env, String platform, String date, String link) {
         CreateProjectInput createProjectInput = CreateProjectInput.builder()
@@ -114,5 +116,9 @@ public class CreateProject extends AppCompatActivity {
                     Log.i(TAG,"Failure");
                 }
             };
+
+    public void saveProject(View view) {
+
+    }
 }
 

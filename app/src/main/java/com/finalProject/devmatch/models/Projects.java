@@ -24,7 +24,7 @@ public class Projects {
     private String date;
     private String link;
 
-    private ArrayList<Developer> developers;
+    private ArrayList<String> developers;
 
 
     public Projects(String name, String description, String date, String link) {
