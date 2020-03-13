@@ -5,6 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="sign_out">Sign out</string>
 
+
     <string-array name="language_array">
         <item>java</item>
         <item>javascript</item>

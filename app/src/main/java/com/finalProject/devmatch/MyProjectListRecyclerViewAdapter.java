@@ -92,4 +92,5 @@ public class MyProjectListRecyclerViewAdapter extends RecyclerView.Adapter<MyPro
             return super.toString() + " '" + mDescriptionView.getText() + "'";
         }
     }
+
 }

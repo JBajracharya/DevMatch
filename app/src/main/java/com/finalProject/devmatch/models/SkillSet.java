@@ -57,6 +57,7 @@ public class SkillSet {
         this.web = web;
         this.react = react;
     }
+
     public boolean isJava() {
         return java;
     }
@@ -248,4 +249,5 @@ public class SkillSet {
     public void setId(String id) {
         this.id = id;
     }
+
 }
