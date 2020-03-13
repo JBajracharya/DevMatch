@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_profile:
-                startActivity(new Intent(this, Profile.class));
+                startActivity(new Intent(this, EditProfile.class));
 //
 //                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
 
