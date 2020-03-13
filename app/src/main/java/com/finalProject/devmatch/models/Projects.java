@@ -22,6 +22,7 @@ public class Projects {
     private String date;
     private String link;
 
+
     private ArrayList<String> devRequests;
     private ArrayList<String> developers;
 
