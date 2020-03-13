@@ -15,7 +15,6 @@
  */
 package com.finalProject.devmatch;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -181,7 +180,6 @@ public class DevMatchMessaging extends AppCompatActivity
     }
 
 
-    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -209,9 +207,7 @@ public class DevMatchMessaging extends AppCompatActivity
         ActionBar bar = this.getSupportActionBar();
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#000000"));
         bar.setBackgroundDrawable(colorDrawable);
-        bar.setDefaultDisplayHomeAsUpEnabled(true);
-        bar.setHomeButtonEnabled(true);
-        bar.setDisplayShowHomeEnabled(true);
+
 
         // Initialize Firebase Auth
         mFirebaseAuth = FirebaseAuth.getInstance();
