@@ -40,6 +40,10 @@ public class ProjectDetail extends AppCompatActivity {
     TextView name;
     TextView description;
     TextView link;
+    TextView owner;
+    TextView env;
+    TextView platform;
+    TextView date;
     Button apply;
 
     TextView requester;
@@ -57,17 +61,24 @@ public class ProjectDetail extends AppCompatActivity {
                 .build();
 
 
-        name = findViewById(R.id.textView4);
-        description = findViewById(R.id.textView8);
-        link = findViewById(R.id.textView10);
+        name = findViewById(R.id.name);
+        description = findViewById(R.id.description);
+        link = findViewById(R.id.link);
+        owner = findViewById(R.id.owner);
+        date = findViewById(R.id.date);
+        env = findViewById(R.id.env);
+        platform = findViewById(R.id.platform);
         apply = findViewById(R.id.apply);
         requester = findViewById(R.id.Owner);
         approve = findViewById(R.id.approve);
 
         requester.setVisibility(View.INVISIBLE);
         approve.setVisibility(View.INVISIBLE);
+        apply.setVisibility(View.INVISIBLE);
 
         id = getIntent().getStringExtra("mID");
+
+        getProjects();
 
 
         apply.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +133,8 @@ public class ProjectDetail extends AppCompatActivity {
                                 approve.setVisibility(View.VISIBLE);
                                 getDev();
 
+                            } else {
+                                apply.setVisibility(View.VISIBLE);
                             }
                         }
                     }
@@ -221,5 +234,10 @@ public class ProjectDetail extends AppCompatActivity {
         name.setText(project.getName());
         description.setText(project.getDescription());
         link.setText(project.getLink());
+        owner.setText(project.getOwner());
+        date.setText(project.getDate());
+        description.setText(project.getDescription());
+        env.setText(project.getEnvironment());
+        platform.setText(project.getPlatform());
     }
 }
