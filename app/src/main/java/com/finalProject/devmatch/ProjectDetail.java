@@ -61,6 +61,7 @@ public class ProjectDetail extends AppCompatActivity {
                 .build();
 
 
+
         name = findViewById(R.id.link);
         description = findViewById(R.id.description);
         link = findViewById(R.id.link);
@@ -74,8 +75,11 @@ public class ProjectDetail extends AppCompatActivity {
 
         requester.setVisibility(View.INVISIBLE);
         approve.setVisibility(View.INVISIBLE);
+        apply.setVisibility(View.INVISIBLE);
 
         id = getIntent().getStringExtra("mName");
+
+        getProjects();
 
         getProjects();
 
@@ -142,6 +146,7 @@ public class ProjectDetail extends AppCompatActivity {
                                     }
                                 }
                             });
+
                         }
                     }
                 }
@@ -244,5 +249,6 @@ public class ProjectDetail extends AppCompatActivity {
         platform.setText(project.getPlatform());
         env.setText(project.getEnvironment());
         date.setText(project.getDate());
+
     }
 }
