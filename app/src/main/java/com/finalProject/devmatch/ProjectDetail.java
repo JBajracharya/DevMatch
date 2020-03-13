@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.amazonaws.amplify.generated.graphql.CreateProjectMutation;
 import com.amazonaws.amplify.generated.graphql.ListDevelopersQuery;
 import com.amazonaws.amplify.generated.graphql.ListProjectsQuery;
 import com.amazonaws.amplify.generated.graphql.UpdateDeveloperMutation;
@@ -21,18 +20,12 @@ import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
-import com.finalProject.devmatch.models.Developer;
 import com.finalProject.devmatch.models.Projects;
-import com.finalProject.devmatch.models.SkillSet;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
-import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
-import type.CreateProjectInput;
 import type.UpdateDeveloperInput;
 import type.UpdateProjectInput;
 
@@ -63,18 +56,19 @@ public class ProjectDetail extends AppCompatActivity {
                 .awsConfiguration(new AWSConfiguration(getApplicationContext()))
                 .build();
 
+
         name = findViewById(R.id.textView4);
         description = findViewById(R.id.textView8);
         link = findViewById(R.id.textView10);
         apply = findViewById(R.id.apply);
-        requester = findViewById(R.id.requester);
+        requester = findViewById(R.id.Owner);
         approve = findViewById(R.id.approve);
 
         requester.setVisibility(View.INVISIBLE);
         approve.setVisibility(View.INVISIBLE);
 
         id = getIntent().getStringExtra("mID");
-        getProjects();
+
 
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,11 +80,12 @@ public class ProjectDetail extends AppCompatActivity {
     }
 
     public void getProjects() {
-
         mAWSAppSyncClient.query(ListProjectsQuery.builder().build())
                 .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
                 .enqueue(projsCallback);
     }
+
+
 
     private GraphQLCall.Callback<ListProjectsQuery.Data> projsCallback = new
             GraphQLCall.Callback<ListProjectsQuery.Data>() {
