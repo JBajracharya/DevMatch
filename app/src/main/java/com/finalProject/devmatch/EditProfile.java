@@ -54,9 +54,9 @@ public class EditProfile extends AppCompatActivity {
     SkillSet skills;
     ArrayList<Projects> projects;
 
-    TextView name;
+    EditText name;
      EditText github;
-     TextView email;
+    EditText email;
      RadioButton frontEnd;
      RadioButton backEnd;
      RadioButton fullStack;
