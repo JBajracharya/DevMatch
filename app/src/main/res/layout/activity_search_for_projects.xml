@@ -64,87 +64,121 @@
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
 
-    <CheckBox
+    <!--    <RadioGroup-->
+    <!--        android:id="@+id/radioGroup"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.488"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        tools:layout_editor_absoluteY="149dp">-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/backEnd"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Back End"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintHorizontal_bias="0.528"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            tools:layout_editor_absoluteY="116dp" />-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/fullStack"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Full Stack"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintHorizontal_bias="0.949"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            tools:layout_editor_absoluteY="116dp" />-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/frontEnd"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Front End"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintHorizontal_bias="0.05"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            tools:layout_editor_absoluteY="116dp" />-->
+    <!--    </RadioGroup>-->
+
+    <!--    <RadioGroup-->
+    <!--        android:id="@+id/radioGroupLangs"-->
+    <!--        android:layout_width="389dp"-->
+    <!--        android:layout_height="116dp"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        tools:layout_editor_absoluteX="6dp"-->
+    <!--        tools:layout_editor_absoluteY="264dp">-->
+
+    <com.google.android.material.chip.Chip
         android:id="@+id/ruby"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ruby"
-        app:layout_constraintBottom_toBottomOf="@+id/sql"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/sql"
-        app:layout_constraintTop_toTopOf="@+id/sql"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/java"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Java"
-        app:layout_constraintEnd_toStartOf="@+id/javascript"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="282dp" />
-
-    <CheckBox
-        android:id="@+id/cSharp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="C#"
-        app:layout_constraintBottom_toBottomOf="@+id/javascript"
+        app:layout_constraintBottom_toBottomOf="@+id/html"
         app:layout_constraintEnd_toStartOf="@+id/sql"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/javascript"
-        app:layout_constraintTop_toTopOf="@+id/javascript"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/html"
+        app:layout_constraintTop_toTopOf="@+id/html" />
 
-    <CheckBox
-        android:id="@+id/sql"
+    <com.google.android.material.chip.Chip
+        android:id="@+id/html"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SQL"
-        app:layout_constraintBottom_toBottomOf="@+id/cSharp"
+        android:text="HTML"
+        app:layout_constraintBottom_toBottomOf="@+id/javascript"
         app:layout_constraintEnd_toStartOf="@+id/ruby"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cSharp"
-        app:layout_constraintTop_toTopOf="@+id/cSharp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/javascript"
+        app:layout_constraintTop_toTopOf="@+id/javascript" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/javascript"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="JavaScript"
         app:layout_constraintBottom_toBottomOf="@+id/java"
-        app:layout_constraintEnd_toStartOf="@+id/cSharp"
+        app:layout_constraintEnd_toStartOf="@+id/html"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/java"
-        app:layout_constraintTop_toTopOf="@+id/java"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/java" />
 
-    <CheckBox
-        android:id="@+id/html"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HTML"
-        app:layout_constraintBottom_toBottomOf="@+id/css"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/css"
-        app:layout_constraintTop_toTopOf="@+id/css"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/cPlusPlus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="C++"
-        app:layout_constraintEnd_toStartOf="@+id/dotNet"
+    <com.google.android.material.chip.Chip
+        android:id="@+id/java"
+        android:layout_width="67dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="4dp"
+        android:text="Java"
+        app:layout_constraintEnd_toStartOf="@+id/javascript"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="324dp" />
+        app:layout_constraintTop_toBottomOf="@+id/css" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
+        android:id="@+id/cSharp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C#"
+        app:layout_constraintBottom_toBottomOf="@+id/python"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/python"
+        app:layout_constraintTop_toTopOf="@+id/python" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/sql"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SQL"
+        app:layout_constraintBottom_toBottomOf="@+id/ruby"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ruby"
+        app:layout_constraintTop_toTopOf="@+id/ruby" />
+
+    <com.google.android.material.chip.Chip
         android:id="@+id/dotNet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -153,72 +187,42 @@
         app:layout_constraintEnd_toStartOf="@+id/python"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/cPlusPlus"
-        app:layout_constraintTop_toTopOf="@+id/cPlusPlus"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/cPlusPlus" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
+        android:id="@+id/cPlusPlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C++"
+        app:layout_constraintBottom_toBottomOf="@+id/css"
+        app:layout_constraintEnd_toStartOf="@+id/dotNet"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/css"
+        app:layout_constraintTop_toTopOf="@+id/css" />
+
+    <!--    </RadioGroup>-->
+
+
+    <com.google.android.material.chip.Chip
         android:id="@+id/python"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Python"
         app:layout_constraintBottom_toBottomOf="@+id/dotNet"
-        app:layout_constraintEnd_toStartOf="@+id/css"
+        app:layout_constraintEnd_toStartOf="@+id/cSharp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/dotNet"
-        app:layout_constraintTop_toTopOf="@+id/dotNet"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/dotNet" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/css"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CSS"
-        app:layout_constraintBottom_toBottomOf="@+id/python"
-        app:layout_constraintEnd_toStartOf="@+id/html"
+        app:layout_constraintEnd_toStartOf="@+id/cPlusPlus"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/python"
-        app:layout_constraintTop_toTopOf="@+id/python"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="149dp">
-
-        <RadioButton
-            android:id="@+id/backEnd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back End"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.528"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="116dp" />
-
-        <RadioButton
-            android:id="@+id/fullStack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Full Stack"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.949"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="116dp" />
-
-        <RadioButton
-            android:id="@+id/frontEnd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Front End"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="116dp" />
-    </RadioGroup>
+        tools:layout_editor_absoluteY="286dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -230,7 +234,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="356dp" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/mongoDB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -240,7 +244,7 @@
         app:layout_constraintStart_toEndOf="@+id/mysql"
         tools:layout_editor_absoluteY="383dp" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/dynamoDB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -250,7 +254,7 @@
         app:layout_constraintStart_toEndOf="@+id/mongoDB"
         tools:layout_editor_absoluteY="383dp" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/mysql"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -260,7 +264,7 @@
         app:layout_constraintStart_toEndOf="@+id/postgresql"
         tools:layout_editor_absoluteY="383dp" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/postgresql"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -271,14 +275,14 @@
         tools:layout_editor_absoluteY="383dp" />
 
     <TextView
-        android:id="@+id/Familiarity"
+        android:id="@+id/LanguagesNeeded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Familiarity with:"
+        android:text="Languages Needed"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="245dp" />
+        tools:layout_editor_absoluteY="256dp" />
 
     <TextView
         android:id="@+id/textView6"
@@ -290,7 +294,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="415dp" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/AWS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -300,7 +304,7 @@
         app:layout_constraintStart_toEndOf="@+id/heroku"
         tools:layout_editor_absoluteY="442dp" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/heroku"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -310,7 +314,7 @@
         app:layout_constraintStart_toEndOf="@+id/firebase"
         tools:layout_editor_absoluteY="442dp" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/azure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -320,7 +324,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="442dp" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/firebase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -339,7 +343,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="474dp" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/react"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -350,7 +354,7 @@
         app:layout_constraintStart_toEndOf="@+id/linux"
         app:layout_constraintTop_toTopOf="@+id/linux" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/web"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -363,7 +367,7 @@
         app:layout_constraintTop_toTopOf="@+id/android"
         app:layout_constraintVertical_bias="1.0" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/iOS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -373,7 +377,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linux" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -385,7 +389,7 @@
         app:layout_constraintTop_toTopOf="@+id/iOS"
         app:layout_constraintVertical_bias="0.0" />
 
-    <CheckBox
+    <com.google.android.material.chip.Chip
         android:id="@+id/linux"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -394,19 +398,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="498dp" />
-
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="date|textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editText6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Expected complete date" />
 
     <EditText
         android:id="@+id/editText6"
