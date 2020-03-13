@@ -54,10 +54,8 @@ public class MyProjectListRecyclerViewAdapter extends RecyclerView.Adapter<MyPro
 
                 Context context = v.getContext();
                 Intent goToProjectDetailPage = new Intent(context, ProjectDetail.class);
-                goToProjectDetailPage.putExtra("mNameView", holder.mNameView.getText());
-                goToProjectDetailPage.putExtra("mDescriptionView", holder.mDescriptionView.getText());
-                goToProjectDetailPage.putExtra("mLinkView", mValues.get(position).getLink());
-                goToProjectDetailPage.putExtra("mID",mValues.get(position).getId());
+                goToProjectDetailPage.putExtra("mName",mValues.get(position).getName());
+                System.out.println("SHANE " + holder.mItem.getId());
                 context.startActivity(goToProjectDetailPage);
 
                 if (null != mListener) {
