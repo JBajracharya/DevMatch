@@ -81,10 +81,9 @@ public class SearchForProjects extends AppCompatActivity implements ProjectListF
                 .build();
 
 
-        this.listOfProjects = new ArrayList<Projects>();
+        this.listOfProjects = new ArrayList<>();
 
-        listOfProjects.add(new Projects("Test", "Test", "Test", "Test"));
-        listOfProjects.add(new Projects("match", "match", "test", "test"));
+        getProjects();
 
 //        showing list of projects in the recycler view
         RecyclerView recyclerView = findViewById(R.id.fragment);
@@ -164,8 +163,8 @@ public class SearchForProjects extends AppCompatActivity implements ProjectListF
 
                     for( ListProjectsQuery.Item item : response.data().listProjects().items()) {
                         Log.i(TAG, item.name());
-                        if(item.language() == languageString || item.database() == databaseString || item.environment() == environmentString
-                            || item.platform() == platformString) {
+                        if(item.language().equals(languageString) || item.database().equals(databaseString) || item.environment().equals(environmentString)
+                            || item.platform().equals(platformString)) {
                             listOfProjects.add(new Projects(item.name(),item.description(), item.date(), item.link()));
                         }
 

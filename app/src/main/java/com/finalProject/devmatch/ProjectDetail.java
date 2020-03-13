@@ -137,13 +137,13 @@ public class ProjectDetail extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     projectStuff();
-                                    if (AWSMobileClient.getInstance().getUsername().equals(project.getOwner()) && !project.getDevRequests().isEmpty()) {
-                                        requester.setText(project.getDevRequests().get(0));
-                                        requester.setVisibility(View.VISIBLE);
-                                        approve.setVisibility(View.VISIBLE);
-                                        getDev();
-
-                                    }
+//                                    if (AWSMobileClient.getInstance().getUsername().equals(project.getOwner()) && !project.getDevRequests().isEmpty()) {
+//                                        requester.setText(project.getDevRequests().get(0));
+//                                        requester.setVisibility(View.VISIBLE);
+//                                        approve.setVisibility(View.VISIBLE);
+//                                        getDev();
+//
+//                                    }
                                 }
                             });
 

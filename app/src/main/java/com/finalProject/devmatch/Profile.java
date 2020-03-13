@@ -92,7 +92,7 @@ public class Profile extends AppCompatActivity {
                     Log.i(TAG,"response");
                     for(int i = 0; i < items.size(); i++){
                         System.out.println("STG " + items.get(i));
-                        if(items.get(i).username().equals(AWSMobileClient.getInstance().getUsername())){
+                        if(true){
                             username.setText(items.get(i).username());
                             name.setText(items.get(i).name());
                             github.setText(items.get(i).github());
