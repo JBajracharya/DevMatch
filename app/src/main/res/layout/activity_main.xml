@@ -12,6 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorBGgray"
         android:orientation="vertical">
 
 
@@ -33,13 +34,83 @@
                 android:id="@+id/fragment3"
                 android:name="com.finalProject.devmatch.ProjectListFragment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                tools:layout="@layout/fragment_project_list_list" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="casual"
+                android:text="Welcome To DevMatch"
+                android:textColor="@color/colorTextLanding"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="217dp"
+                android:layout_height="205dp"
+                android:layout_gravity="center|top"
+                android:contentDescription="Logo"
+                app:srcCompat="@drawable/logo" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="75dp"
+                android:layout_height="47dp"
+                app:srcCompat="@drawable/arrow_top_left" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="75dp"
+                android:layout_height="47dp"
+                android:layout_gravity="top|right"
+                app:srcCompat="@drawable/arrow_top_right" />
+
+            <TextView
+                android:id="@+id/labelTopRight"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_gravity="top|right"
+                android:layout_marginTop="40dp"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:text="Sign In Here" />
+
+            <TextView
+                android:id="@+id/labelTopLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_gravity="top|left"
+                android:layout_marginTop="40dp"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:text="Menu Here" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center"
+                android:fontFamily="casual"
+                android:layout_marginTop="40dp"
+                android:textColor="@color/colorTextLanding"
+
+                android:textStyle="bold"
+                android:text="A place where developers can find one another to create beautiful products" />
+
+
         </FrameLayout>
 
 
         <include
             layout="@layout/content_main"
-            android:layout_height="match_parent" />
+            android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
     </LinearLayout>
