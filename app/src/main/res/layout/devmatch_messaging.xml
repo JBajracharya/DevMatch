@@ -9,7 +9,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.finalProject.devmatch.DevMatchMessaging">
+    tools:context="com.finalProject.devmatch.DevMatchMessaging"
+    android:background="@color/colorBGgray"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/messageRecyclerView"

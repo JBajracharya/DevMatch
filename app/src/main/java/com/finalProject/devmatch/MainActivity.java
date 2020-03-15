@@ -73,6 +73,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return true;
 //                break;
 
+            case R.id.nav_home:
+                startActivity(new Intent(this, MainActivity.class));
+//
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateProfile()).commit();
+
+
+                return true;
+
             case R.id.nav_message:
                 if(AWSMobileClient.getInstance().currentUserState().getUserState().equals(SIGNED_IN)) {
                     Intent intent = new Intent(this, DevMatchMessaging.class);

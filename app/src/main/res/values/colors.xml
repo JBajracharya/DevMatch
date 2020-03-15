@@ -2,6 +2,8 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorBGgray">#FEEAE6</color>
+    <color name="colorTextLanding">#442C2E</color>
     <color name="colorAccent">#337aff</color>
     <color name="colorBlack">#000000</color>
 </resources>

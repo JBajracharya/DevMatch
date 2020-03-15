@@ -4,79 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile">
+    tools:context=".Profile"
+    android:background="@color/colorBGgray"
+    >
 
     <Button
         android:id="@+id/editProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="141dp"
         android:text="Edit Profile"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/createProfile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/createProfile"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type" />
+        app:layout_constraintTop_toTopOf="@+id/createProfile" />
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="127dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="134dp"
-        android:layout_marginBottom="52dp"
+        android:layout_width="148dp"
+        android:layout_height="20dp"
         android:text="Username"
         app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="127dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="116dp"
+        android:layout_width="148dp"
+        android:layout_height="20dp"
         android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintBottom_toTopOf="@+id/github"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <TextView
         android:id="@+id/github"
-        android:layout_width="113dp"
-        android:layout_height="39dp"
+        android:layout_width="148dp"
+        android:layout_height="20dp"
         android:text="Github"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418" />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <TextView
         android:id="@+id/email"
         android:layout_width="148dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="381dp"
-        android:layout_marginBottom="121dp"
+        android:layout_height="20dp"
         android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/createProfile"
+        app:layout_constraintBottom_toTopOf="@+id/type"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/github" />
 
     <TextView
         android:id="@+id/type"
-        android:layout_width="126dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="41dp"
+        android:layout_width="148dp"
+        android:layout_height="20dp"
         android:text="Type"
-        app:layout_constraintBottom_toTopOf="@+id/editProfile"
+        app:layout_constraintBottom_toTopOf="@+id/createProfile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
@@ -84,13 +78,11 @@
         android:id="@+id/createProfile"
         android:layout_width="104dp"
         android:layout_height="50dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="15dp"
         android:layout_marginBottom="141dp"
         android:text="Create Profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/editProfile"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
