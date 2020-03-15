@@ -104,12 +104,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return true;
 //                break;
 
-            case R.id.nav_home:
-
-                startActivity(new Intent(this, MainActivity.class));
+//            case R.id.nav_home:
+//
+//                startActivity(new Intent(this, MainActivity.class));
 //                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectFragment()).commit();
 //
-                return true;
+//                return true;
 //                break;
 
 

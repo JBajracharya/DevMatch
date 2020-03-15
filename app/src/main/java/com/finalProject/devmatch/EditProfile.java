@@ -3,6 +3,7 @@ package com.finalProject.devmatch;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -400,6 +401,9 @@ public class EditProfile extends AppCompatActivity {
                     List<ListDevelopersQuery.Item> items = Objects.requireNonNull(response.data().listDevelopers()).items();
                     assert items != null;
                     for(int i = 0; i < items.size(); i++){
+                        if(items.get(i) == null){
+                            break;
+                        }
                         if(Objects.equals(items.get(i).username(), AWSMobileClient.getInstance().getUsername())){
                             ListDevelopersQuery.SkillSet skillSet = items.get(i).skillSet();
                             if(skillSet != null){
@@ -416,6 +420,7 @@ public class EditProfile extends AppCompatActivity {
                             dev.setSkills(skills);
                             getProjects();
                             dev.setCurrentProjects(projects);
+                            Looper.prepare();
                             devStuff();
 
                         }
@@ -438,9 +443,13 @@ public class EditProfile extends AppCompatActivity {
                 @Override
                 public void onResponse(@Nonnull final Response<ListProjectsQuery.Data> response) {
                     ArrayList<String> developers = new ArrayList<>();
+                    assert response.data() != null;
                     List<ListProjectsQuery.Item> items = response.data().listProjects().items();
                     for(int i = 0; i < items.size(); i++){
-                        if(items.get(i).developers().toString().contains(AWSMobileClient.getInstance().getUsername())){
+                        if(items.get(i).developers() == null){
+                            break;
+                        }
+                        if(items.get(i).developers().contains(AWSMobileClient.getInstance().getUsername())){
                             ListProjectsQuery.Item item = items.get(i);
                             Projects project = new Projects();
                             project.setId(item.id());
@@ -452,7 +461,7 @@ public class EditProfile extends AppCompatActivity {
                             project.setPlatform(item.platform());
                             project.setDate(item.date());
                             project.setLink(item.link());
-                            String devs = item.developers().toString();
+                            String devs = item.developers();
                             for(int j = 0; j < devs.length(); j++){
                                 int beg = 0;
                                 if(devs.charAt(j) == ','){
