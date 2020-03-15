@@ -104,6 +104,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return true;
 //                break;
 
+            case R.id.nav_home:
+
+                startActivity(new Intent(this, MainActivity.class));
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProjectFragment()).commit();
+//
+                return true;
+//                break;
+
 
             case R.id.nav_projectSearch:
                 startActivity(new Intent(this, SearchForProjects.class));
