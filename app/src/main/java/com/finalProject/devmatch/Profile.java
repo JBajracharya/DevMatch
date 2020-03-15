@@ -83,6 +83,9 @@ public class Profile extends AppCompatActivity {
             GraphQLCall.Callback<ListDevelopersQuery.Data>() {
                 @Override
                 public void onResponse(@Nonnull final Response<ListDevelopersQuery.Data> response) {
+                    if(response.data() == null || response.data().listDevelopers() == null || response.data().listDevelopers().items() == null){
+                        return;
+                    }
                     List<ListDevelopersQuery.Item> items = response.data().listDevelopers().items();
                     Log.i(TAG,"response");
                     for(int i = 0; i < items.size(); i++){
