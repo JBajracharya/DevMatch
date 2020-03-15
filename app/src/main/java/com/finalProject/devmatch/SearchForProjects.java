@@ -41,38 +41,100 @@ public class SearchForProjects extends AppCompatActivity implements ProjectListF
     List<Projects> listOfProjects;
     private AWSAppSyncClient mAWSAppSyncClient;
 
+    Spinner language;
+    Spinner database;
+    Spinner environment;
+    Spinner platform;
+    RecyclerView recyclerView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_for_projects2);
+        recyclerView = findViewById(R.id.fragment);
+        language = (Spinner) findViewById(R.id.language);
+        database = (Spinner) findViewById(R.id.database);
+        environment = (Spinner) findViewById(R.id.enviroment);
+        platform = (Spinner) findViewById(R.id.platform);
+
+
+        language.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                reSearch();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        database.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                reSearch();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        environment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                reSearch();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        platform.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                reSearch();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 // search for project dropdown start :::::::::::::::::::::::::::::::::::
-        Spinner spinner = (Spinner) findViewById(R.id.language);
+//        Spinner spinner = (Spinner) findViewById(R.id.language);
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.language_array, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+        language.setAdapter(adapter);
 
-        Spinner spinner2 = (Spinner) findViewById(R.id.database);
+//        Spinner spinner2 = (Spinner) findViewById(R.id.database);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.database_array, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(adapter2);
+        database.setAdapter(adapter2);
 
-        Spinner spinner3 = (Spinner) findViewById(R.id.enviroment);
+//        Spinner spinner3 = (Spinner) findViewById(R.id.enviroment);
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
                 R.array.environment_array, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner3.setAdapter(adapter3);
+        environment.setAdapter(adapter3);
 
-        Spinner spinner4 = (Spinner) findViewById(R.id.platform);
+//        Spinner spinner4 = (Spinner) findViewById(R.id.platform);
         ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this,
                 R.array.platform_array, android.R.layout.simple_spinner_item);
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner4.setAdapter(adapter4);
+        platform.setAdapter(adapter4);
 
         //        pulls in context from aws
         mAWSAppSyncClient = AWSAppSyncClient.builder()
@@ -83,11 +145,12 @@ public class SearchForProjects extends AppCompatActivity implements ProjectListF
 
         this.listOfProjects = new ArrayList<Projects>();
 
-        listOfProjects.add(new Projects("Test", "Test", "Test", "Test"));
-        listOfProjects.add(new Projects("match", "match", "test", "test"));
+//        listOfProjects.add(new Projects("Test", "Test", "Test", "Test"));
+//        listOfProjects.add(new Projects("match", "match", "test", "test"));
+        getProjects();
 
 //        showing list of projects in the recycler view
-        RecyclerView recyclerView = findViewById(R.id.fragment);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyProjectListRecyclerViewAdapter(this.listOfProjects, this));
 
@@ -151,21 +214,26 @@ public class SearchForProjects extends AppCompatActivity implements ProjectListF
                 public void onResponse(@Nonnull final Response<ListProjectsQuery.Data> response) {
                     List<ListProjectsQuery.Item> items = response.data().listProjects().items();
                     // items is a list of projects from DynamoDB
-                    Spinner language = (Spinner) findViewById(R.id.language);
-                    Spinner database = (Spinner) findViewById(R.id.database);
-                    Spinner environment = (Spinner) findViewById(R.id.enviroment);
-                    Spinner platform = (Spinner) findViewById(R.id.platform);
 
                     String languageString = language.getSelectedItem().toString();
                     String databaseString = database.getSelectedItem().toString();
                     String environmentString = environment.getSelectedItem().toString();
                     String platformString = platform.getSelectedItem().toString();
                     listOfProjects.clear();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            recyclerView.removeAllViews();
+                        }
+                    });
 
                     for( ListProjectsQuery.Item item : response.data().listProjects().items()) {
-                        Log.i(TAG, item.name());
-                        if(item.language() == languageString || item.database() == databaseString || item.environment() == environmentString
-                            || item.platform() == platformString) {
+//                        Log.i(TAG, item.name());
+                        Log.i(TAG,item.language() +item.database() + item.environment() + item.platform());
+                        Log.i(TAG, languageString + databaseString + environmentString + platformString);
+                        if(item.language().equals(languageString) && item.database().equals(databaseString) && item.environment().equals(environmentString)
+                            && item.platform().equals(platformString)) {
+                            Log.i(TAG, item.name());
                             listOfProjects.add(new Projects(item.name(),item.description(), item.date(), item.link()));
                         }
 
@@ -184,5 +252,8 @@ public class SearchForProjects extends AppCompatActivity implements ProjectListF
 
     public void saveProject(View view) {
 
+    }
+    public void reSearch(){
+        getProjects();
     }
 }
