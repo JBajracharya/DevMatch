@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -95,6 +96,8 @@ public class CreateProject extends AppCompatActivity {
             public void onClick(View v) {
                 runProjectsCreateMutation(name.getText().toString(),description.getText().toString(),language.getSelectedItem().toString(),database.getSelectedItem().toString(),
                         environment.getSelectedItem().toString(),platform.getSelectedItem().toString(),link.getText().toString());
+                Intent i = new Intent(CreateProject.this,MainActivity.class);
+                CreateProject.this.startActivity(i);
             }
         });
 
