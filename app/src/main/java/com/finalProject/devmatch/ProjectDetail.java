@@ -20,8 +20,11 @@ import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
+import com.finalProject.devmatch.models.Developer;
 import com.finalProject.devmatch.models.Projects;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nonnull;
@@ -132,6 +135,7 @@ public class ProjectDetail extends AppCompatActivity {
                             project.setPlatform(p.platform());
                             project.setDate(p.date());
                             project.setLink(p.link());
+                            project.setDevRequests(parseDevReqs(p.devRequests()));
 
                             runOnUiThread(new Runnable() {
                                 @Override
@@ -251,4 +255,20 @@ public class ProjectDetail extends AppCompatActivity {
         date.setText(project.getDate());
 
     }
+    public ArrayList<String> parseDevReqs(String devs){
+        int beg = 0;
+        ArrayList<String> result = new ArrayList<>();
+        if(devs == null){
+            return result;
+        }
+        for(int i = 0; i < devs.length(); i++){
+            if(devs.charAt(i) == ','){
+                result.add(devs.substring(beg,i));
+                beg = i + 1;
+            }
+        }
+        result.add(devs.substring(beg,devs.length() - 1));
+        return result;
+    }
+
 }
