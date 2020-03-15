@@ -212,7 +212,10 @@ public class SearchForProjects extends AppCompatActivity implements ProjectListF
             GraphQLCall.Callback<ListProjectsQuery.Data>() {
                 @Override
                 public void onResponse(@Nonnull final Response<ListProjectsQuery.Data> response) {
-                    List<ListProjectsQuery.Item> items = response.data().listProjects().items();
+                    if(response.data() == null || response.data().listProjects() == null ||
+                            response.data().listProjects().items() == null){
+                        return;
+                    }
                     // items is a list of projects from DynamoDB
 
                     String languageString = language.getSelectedItem().toString();
