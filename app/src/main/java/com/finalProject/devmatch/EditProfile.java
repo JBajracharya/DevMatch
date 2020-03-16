@@ -158,7 +158,7 @@ public class EditProfile extends AppCompatActivity {
         react = findViewById(R.id.react);
         final Button update = findViewById(R.id.update);
 
-        getDev();
+//        getDev();
 
 
 
