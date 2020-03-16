@@ -65,7 +65,7 @@ public class ProjectDetail extends AppCompatActivity {
 
 
 
-        name = findViewById(R.id.link);
+        name = findViewById(R.id.name);
         description = findViewById(R.id.description);
         link = findViewById(R.id.link);
         env = findViewById(R.id.env);
@@ -91,7 +91,7 @@ public class ProjectDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 runProjectsUpdateMutation();
-                Toast.makeText(getApplicationContext(), "You have requested to be part of this project", Toast.LENGTH_SHORT);
+                Toast.makeText(getApplicationContext(), "You have requested to be part of this project", Toast.LENGTH_SHORT).show();
             }
         });
         approve.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +99,7 @@ public class ProjectDetail extends AppCompatActivity {
             public void onClick(View v) {
                 runProjectsUpdateMutationForApproval();
                 runDeveloperUpdateMutationForApproval(project.getId());
-                Toast.makeText(getApplicationContext(), "You have approved " + requester.getText() + " to join" + name.getText(), Toast.LENGTH_SHORT);
+                Toast.makeText(getApplicationContext(), "You have approved " + requester.getText() + " to join" + name.getText(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -116,6 +116,10 @@ public class ProjectDetail extends AppCompatActivity {
             GraphQLCall.Callback<ListProjectsQuery.Data>() {
                 @Override
                 public void onResponse(@Nonnull final Response<ListProjectsQuery.Data> response) {
+                    if(response.data() == null || response.data().listProjects() == null ||
+                            response.data().listProjects().items() == null){
+                        return;
+                    }
                     List<ListProjectsQuery.Item> items = response.data().listProjects().items();
                     Log.i(TAG,"queyr");
                     for (int i = 0; i < items.size(); i++) {
@@ -141,7 +145,7 @@ public class ProjectDetail extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     projectStuff();
-                                    if (AWSMobileClient.getInstance().getUsername().equals(project.getOwner()) && !project.getDevRequests().isEmpty()) {
+                                    if (AWSMobileClient.getInstance().getUsername() != null && AWSMobileClient.getInstance().getUsername().equals(project.getOwner()) && !project.getDevRequests().isEmpty()) {
                                         requester.setText(project.getDevRequests().get(0));
                                         requester.setVisibility(View.VISIBLE);
                                         approve.setVisibility(View.VISIBLE);
@@ -231,6 +235,10 @@ public class ProjectDetail extends AppCompatActivity {
             GraphQLCall.Callback<ListDevelopersQuery.Data>() {
                 @Override
                 public void onResponse(@Nonnull final Response<ListDevelopersQuery.Data> response) {
+                    if(response.data() == null || response.data().listDevelopers() == null ||
+                    response.data().listDevelopers().items() == null){
+                        return;
+                    }
                     List<ListDevelopersQuery.Item> items = response.data().listDevelopers().items();
                     for (int i = 0; i < items.size(); i++) {
                         if (items.get(i).username() == requester.getText()) {

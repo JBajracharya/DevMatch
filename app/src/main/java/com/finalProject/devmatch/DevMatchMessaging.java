@@ -132,7 +132,7 @@ public class DevMatchMessaging extends AppCompatActivity
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInAnonymously:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
+//                            FirebaseUser user = mAuth.getCurrentUser();
                             FirebaseInstanceId.getInstance().getInstanceId()
                                     .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
                                         @Override

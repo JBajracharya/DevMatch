@@ -218,8 +218,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onResult(UserStateDetails userStateDetails) {
                         Log.i("INIT", "onResult: " + userStateDetails.getUserState());
-                        username = AWSMobileClient.getInstance().getUsername();
-                        Log.i("USERUSERUSER", username);
+                        if(AWSMobileClient.getInstance().getUsername() != null){
+                            username = AWSMobileClient.getInstance().getUsername();
+                            Log.i("USERUSERUSER", username);
+                        }
                         if(userStateDetails.getUserState().equals(UserState.SIGNED_OUT)) {
 
                             //        Drop-in pre build auth
