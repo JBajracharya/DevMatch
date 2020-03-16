@@ -10,8 +10,9 @@
 
     <Button
         android:id="@+id/editProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="122dp"
+        android:layout_height="55dp"
+        android:fontFamily="casual"
         android:text="Edit Profile"
         app:layout_constraintBottom_toBottomOf="@+id/createProfile"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,18 +24,24 @@
         android:id="@+id/username"
         android:layout_width="148dp"
         android:layout_height="20dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="casual"
         android:text="Username"
-        app:layout_constraintBottom_toTopOf="@+id/name"
+        android:textAlignment="center"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="148dp"
         android:layout_height="20dp"
+        android:fontFamily="casual"
         android:text="Name"
+        android:textAlignment="center"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/github"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -45,7 +52,10 @@
         android:id="@+id/github"
         android:layout_width="148dp"
         android:layout_height="20dp"
+        android:fontFamily="casual"
         android:text="Github"
+        android:textAlignment="center"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -56,7 +66,9 @@
         android:id="@+id/email"
         android:layout_width="148dp"
         android:layout_height="20dp"
+        android:fontFamily="casual"
         android:text="Email"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/type"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -67,22 +79,38 @@
         android:id="@+id/type"
         android:layout_width="148dp"
         android:layout_height="20dp"
+        android:fontFamily="casual"
         android:text="Type"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/createProfile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <Button
         android:id="@+id/createProfile"
-        android:layout_width="104dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="141dp"
+        android:layout_width="134dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="72dp"
+        android:fontFamily="casual"
         android:text="Create Profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/editProfile"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="casual"
+        android:text="My Profile"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
