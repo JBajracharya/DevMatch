@@ -120,6 +120,10 @@ public class Profile extends AppCompatActivity {
                             type.setText(items.get(i).type());
                         }
                     }
+                    if(!AWSMobileClient.getInstance().getUsername().equals(username.getText())){
+                        Intent i = new Intent(Profile.this,CreateProfile.class);
+                        Profile.this.startActivity(i);
+                    }
 
                         }
 

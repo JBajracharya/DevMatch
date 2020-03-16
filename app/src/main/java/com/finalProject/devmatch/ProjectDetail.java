@@ -84,8 +84,6 @@ public class ProjectDetail extends AppCompatActivity {
 
         getProjects();
 
-        getProjects();
-
 
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,6 +149,9 @@ public class ProjectDetail extends AppCompatActivity {
                                         approve.setVisibility(View.VISIBLE);
                                         getDev();
 
+                                    }
+                                    if(AWSMobileClient.getInstance().getUsername() != project.getOwner()){
+                                        apply.setVisibility(View.VISIBLE);
                                     }
                                 }
                             });
