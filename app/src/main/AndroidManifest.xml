@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyProject"></activity>
+        <activity android:name=".MyProject"/>
         <activity android:name=".Profile" />
         <activity android:name=".ProjectDetail" />
 

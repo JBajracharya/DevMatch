@@ -20,8 +20,11 @@ import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
+import com.finalProject.devmatch.models.Developer;
 import com.finalProject.devmatch.models.Projects;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nonnull;
@@ -62,7 +65,7 @@ public class ProjectDetail extends AppCompatActivity {
 
 
 
-        name = findViewById(R.id.link);
+        name = findViewById(R.id.name);
         description = findViewById(R.id.description);
         link = findViewById(R.id.link);
         env = findViewById(R.id.env);
@@ -88,7 +91,7 @@ public class ProjectDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 runProjectsUpdateMutation();
-                Toast.makeText(getApplicationContext(), "You have requested to be part of this project", Toast.LENGTH_SHORT);
+                Toast.makeText(getApplicationContext(), "You have requested to be part of this project", Toast.LENGTH_SHORT).show();
             }
         });
         approve.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +99,7 @@ public class ProjectDetail extends AppCompatActivity {
             public void onClick(View v) {
                 runProjectsUpdateMutationForApproval();
                 runDeveloperUpdateMutationForApproval(project.getId());
-                Toast.makeText(getApplicationContext(), "You have approved " + requester.getText() + " to join" + name.getText(), Toast.LENGTH_SHORT);
+                Toast.makeText(getApplicationContext(), "You have approved " + requester.getText() + " to join" + name.getText(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -113,6 +116,10 @@ public class ProjectDetail extends AppCompatActivity {
             GraphQLCall.Callback<ListProjectsQuery.Data>() {
                 @Override
                 public void onResponse(@Nonnull final Response<ListProjectsQuery.Data> response) {
+                    if(response.data() == null || response.data().listProjects() == null ||
+                            response.data().listProjects().items() == null){
+                        return;
+                    }
                     List<ListProjectsQuery.Item> items = response.data().listProjects().items();
                     Log.i(TAG,"queyr");
                     for (int i = 0; i < items.size(); i++) {
@@ -132,12 +139,13 @@ public class ProjectDetail extends AppCompatActivity {
                             project.setPlatform(p.platform());
                             project.setDate(p.date());
                             project.setLink(p.link());
+                            project.setDevRequests(parseDevReqs(p.devRequests()));
 
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
                                     projectStuff();
-                                    if (AWSMobileClient.getInstance().getUsername().equals(project.getOwner()) && !project.getDevRequests().isEmpty()) {
+                                    if (AWSMobileClient.getInstance().getUsername() != null && AWSMobileClient.getInstance().getUsername().equals(project.getOwner()) && !project.getDevRequests().isEmpty()) {
                                         requester.setText(project.getDevRequests().get(0));
                                         requester.setVisibility(View.VISIBLE);
                                         approve.setVisibility(View.VISIBLE);
@@ -227,6 +235,10 @@ public class ProjectDetail extends AppCompatActivity {
             GraphQLCall.Callback<ListDevelopersQuery.Data>() {
                 @Override
                 public void onResponse(@Nonnull final Response<ListDevelopersQuery.Data> response) {
+                    if(response.data() == null || response.data().listDevelopers() == null ||
+                    response.data().listDevelopers().items() == null){
+                        return;
+                    }
                     List<ListDevelopersQuery.Item> items = response.data().listDevelopers().items();
                     for (int i = 0; i < items.size(); i++) {
                         if (items.get(i).username() == requester.getText()) {
@@ -251,4 +263,20 @@ public class ProjectDetail extends AppCompatActivity {
         date.setText(project.getDate());
 
     }
+    public ArrayList<String> parseDevReqs(String devs){
+        int beg = 0;
+        ArrayList<String> result = new ArrayList<>();
+        if(devs == null){
+            return result;
+        }
+        for(int i = 0; i < devs.length(); i++){
+            if(devs.charAt(i) == ','){
+                result.add(devs.substring(beg,i));
+                beg = i + 1;
+            }
+        }
+        result.add(devs.substring(beg,devs.length() - 1));
+        return result;
+    }
+
 }

@@ -218,8 +218,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onResult(UserStateDetails userStateDetails) {
                         Log.i("INIT", "onResult: " + userStateDetails.getUserState());
-                        username = AWSMobileClient.getInstance().getUsername();
-                        Log.i("USERUSERUSER", username);
+                        if(AWSMobileClient.getInstance().getUsername() != null){
+                            username = AWSMobileClient.getInstance().getUsername();
+                            Log.i("USERUSERUSER", username);
+                        }
                         if(userStateDetails.getUserState().equals(UserState.SIGNED_OUT)) {
 
                             //        Drop-in pre build auth
@@ -298,9 +300,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private GraphQLCall.Callback<ListProjectsQuery.Data> projectCallback = new GraphQLCall.Callback<ListProjectsQuery.Data>() {
         @Override
         public void onResponse(@Nonnull final Response<ListProjectsQuery.Data> response) {
-            Log.i(TAG, response.data().listProjects().items().toString());
+//            Log.i(TAG, response.data().listProjects().items().toString());
 
             listOfProjects.clear();
+            if(response.data() == null || response.data().listProjects() == null || response.data().listProjects().items() == null){
+                return;
+            }
 
             for( ListProjectsQuery.Item item : response.data().listProjects().items()) {
                 Log.i(TAG, item.name());
