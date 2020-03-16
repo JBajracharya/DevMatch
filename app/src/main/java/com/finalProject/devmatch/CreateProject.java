@@ -94,8 +94,8 @@ public class CreateProject extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                runProjectsCreateMutation(name.getText().toString(),description.getText().toString(),language.getSelectedItem().toString(),database.getSelectedItem().toString(),
-                        environment.getSelectedItem().toString(),platform.getSelectedItem().toString(),link.getText().toString());
+                    runProjectsCreateMutation(name.getText().toString(),description.getText().toString(),language.getSelectedItem().toString(),database.getSelectedItem().toString(),
+                            environment.getSelectedItem().toString(),platform.getSelectedItem().toString(),link.getText().toString());
                 Intent i = new Intent(CreateProject.this,MainActivity.class);
                 CreateProject.this.startActivity(i);
             }
@@ -130,7 +130,6 @@ public class CreateProject extends AppCompatActivity {
                 .platform(platform)
                 .link(link)
                 .build();
-
         mAWSAppSyncClient.mutate(CreateProjectMutation.builder().input(createProjectInput).build())
                 .enqueue(mutationCallbacky);
     }
